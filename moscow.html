@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO ЗАГОЛОВКИ ДЛЯ МОСКВЫ -->
+  <title>Точное время в Москве сейчас — который час в Москве</title>
+  <meta name="description" content="Актуальное время в Москве онлайн. Часовой пояс Europe/Moscow, смещение UTC+3, дата, восход/закат (заглушка), разница с крупными городами мира." />
+  <link rel="canonical" href="https://example.com/moscow.html" /> 
+
+  <style>
+    /* СТИЛИ ТЕ ЖЕ, ЧТО И НА ГЛАВНОЙ И UTC */
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #24344d;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-text: #082f49;
+      --green: #22c55e;
+      --red: #f87171;
+      --border: #334155;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --accent-text: #ffffff;
+      --green: #16a34a;
+      --red: #dc2626;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    header {
+      padding: 24px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    nav.menu-links {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav.menu-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    nav.menu-links a:hover {
+      color: var(--text);
+      background: var(--card-hover);
+    }
+
+    nav.menu-links a.active {
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 16px 64px;
+      width: 100%;
+    }
+
+    .hero-clock {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .big-time {
+      font-size: clamp(48px, 10vw, 80px);
+      font-weight: 900;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .big-date {
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .offset-badge {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .info-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .diff-table th, .diff-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .diff-table th {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .diff-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .diff-value {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-top">
+        <div>
+          <h1>Время в Москве</h1>
+          <p class="subtitle">Текущее московское время онлайн</p>
+          
+          <!-- НАВИГАЦИЯ -->
+          <nav class="menu-links">
+  <a href="/">Главная</a>
+  <a href="/utc.html">UTC</a>
+  <a href="/moscow.html" class="active">Москва</a>
+  <a href="/london.html">Лондон</a>
+  <a href="/new-york.html">Нью-Йорк</a>
+</nav>
+        </div>
+
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Переключить тему">
+          ☀️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-clock">
+      <div id="cityTime" class="big-time">--:--:--</div>
+      <div id="cityDate" class="big-date">Загрузка...</div>
+      <div class="offset-badge">UTC+3</div>
+    </section>
+
+    <section class="info-section">
+      <h2>Информация о часовом поясе</h2>
+      <p style="color: var(--muted); line-height: 1.6;">
+        Москва находится в часовом поясе <strong>Europe/Moscow</strong>. 
+        Смещение относительно всемирного координированного времени (UTC) составляет <strong>+3 часа</strong>. 
+        Россия не переходит на летнее время, поэтому смещение остается неизменным круглый год.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2>Разница времени с другими городами</h2>
+      <table class="diff-table">
+        <thead>
+          <tr>
+            <th>Город</th>
+            <th>Разница с Москвой</th>
+            <th>Время там сейчас</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Лондон</td>
+            <td>-3 ч</td>
+            <td><span class="live-time" data-tz="Europe/London">--:--</span></td>
+          </tr>
+          <tr>
+            <td>Нью-Йорк</td>
+            <td>-8 ч</td>
+            <td><span class="live-time" data-tz="America/New_York">--:--</span></td>
+          </tr>
+          <tr>
+            <td>Токио</td>
+            <td>+6 ч</td>
+            <td><span class="live-time" data-tz="Asia/Tokyo">--:--</span></td>
+          </tr>
+          <tr>
+            <td>Дубай</td>
+            <td>+1 ч</td>
+            <td><span class="live-time" data-tz="Asia/Dubai">--:--</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="info-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <details style="margin-bottom: 10px; cursor: pointer;">
+        <summary style="font-weight: bold;">Который час в Москве прямо сейчас?</summary>
+        <p style="color: var(--muted); margin-top: 10px;">
+          Точное время отображается в большом блоке выше. Оно обновляется каждую секунду.
+        </p>
+      </details>
+      <details style="cursor: pointer;">
+        <summary style="font-weight: bold;">Когда переводят часы в Москве?</summary>
+        <p style="color: var(--muted); margin-top: 10px;">
+          В России переход на зимнее/летнее время отменен в 2014 году. Поэтому стрелки часов в Москве никогда не двигаются вперед или назад по сезону. Время всегда UTC+3.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Всемирное время онлайн. Данные предоставлены в справочных целях.
+  </footer>
+
+  <script>
+    // --- ЛОГИКА ТЕМЫ ---
+    const THEME_KEY = "worldClockTheme_v1";
+    const themeToggle = document.getElementById("themeToggle");
+    const yearEl = document.getElementById("year");
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const theme = savedTheme || (systemPrefersLight ? "light" : "dark");
+      setTheme(theme);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(THEME_KEY, theme);
+      if (themeToggle) themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const current = document.documentElement.dataset.theme || "dark";
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    }
+
+    // --- ЛОГИКА ЧАСОВ ---
+    // УКАЖИТЕ СВОЙ ЧАСОВОЙ ПОЯС СТРАНИЦЫ ЗДЕСЬ
+    const CITY_TIMEZONE = "Europe/Moscow"; 
+
+    function updateCityClock() {
+      const now = new Date();
+      
+      try {
+          // 1. Обновляем БОЛЬШИЕ часы сверху
+          const timeString = now.toLocaleTimeString('ru-RU', {
+            timeZone: CITY_TIMEZONE,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+          });
+
+          const dateString = now.toLocaleDateString('ru-RU', {
+            timeZone: CITY_TIMEZONE,
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+
+          const timeEl = document.getElementById('cityTime');
+          const dateEl = document.getElementById('cityDate');
+
+          if (timeEl) timeEl.textContent = timeString;
+          if (dateEl) dateEl.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+
+          // 2. Обновляем таблицу сравнения
+          document.querySelectorAll('.live-time').forEach(el => {
+            const tz = el.getAttribute('data-tz');
+            if (tz) {
+                const otherTime = now.toLocaleTimeString('ru-RU', {
+                  timeZone: tz,
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  hour12: false
+                });
+                el.textContent = otherTime;
+            }
+          });
+      } catch (error) {
+          console.error("Ошибка времени:", error);
+      }
+    }
+
+    setInterval(updateCityClock, 1000);
+    updateCityClock();
+    
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    initTheme();
+</script>
+</body>
+</html>

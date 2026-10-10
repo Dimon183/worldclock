@@ -1,0 +1,1307 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags (Dynamic via JS later, but defaults here) -->
+  <title id="page-title">World Clock — Exact Time in Major Cities</title>
+  <meta
+    id="meta-desc"
+    name="description"
+    content="Free world clock online: current time in Moscow, London, New York, Tokyo, Dubai, Berlin, Singapore, Sydney and more. UTC time, time zones, city search, favorites, dark/light theme."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://utcnow.info/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://utcnow.info/" />
+  <meta id="og-title" property="og:title" content="World Clock Online" />
+  <meta
+    id="og-desc"
+    property="og:description"
+    content="Check current time in major global cities instantly with our free world clock tool."
+  />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="tw-title" name="twitter:title" content="World Clock Online" />
+  <meta
+    id="tw-desc"
+    name="twitter:description"
+    content="Free world clock: exact time in cities worldwide, UTC and time zones."
+  />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "World Clock",
+    "url": "https://utcnow.info/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "inLanguage": ["en", "ru", "zh", "es", "hi"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free world clock with current time in major global cities, UTC, time zones, city search and saved favorites."
+  }
+  </script>
+
+  <style>
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #24344d;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-text: #082f49;
+      --green: #22c55e;
+      --red: #f87171;
+      --border: #334155;
+      --input-bg: #0b1220;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      --overlay: rgba(15, 23, 42, 0.96);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --accent-text: #ffffff;
+      --green: #16a34a;
+      --red: #dc2626;
+      --border: #e2e8f0;
+      --input-bg: #ffffff;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --overlay: rgba(255, 255, 255, 0.98);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    header {
+      padding: 24px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    /* Language Selector Styles */
+    .lang-selector-wrap {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    select#langSelector {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 14px;
+      outline: none;
+    }
+    
+    select#langSelector:focus {
+      border-color: var(--accent);
+    }
+
+    .icon-btn {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      background: var(--card-hover);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .search-input {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      font-size: 16px;
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+    }
+
+    .suggestions {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 30;
+      background: var(--overlay);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+
+    .suggestions[hidden] {
+      display: none;
+    }
+
+    .suggestion {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .suggestion:last-child {
+      border-bottom: 0;
+    }
+
+    .suggestion:hover,
+    .suggestion.active {
+      background: var(--card-hover);
+    }
+
+    .suggestion-main {
+      font-weight: 700;
+    }
+
+    .suggestion-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .no-results {
+      padding: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .btn {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent);
+      color: var(--accent-text);
+      transition: transform 0.15s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .status {
+      min-height: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .status.success {
+      color: var(--green);
+    }
+
+    .status.error {
+      color: var(--red);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-top {
+        flex-direction: row;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 190px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      background: var(--card-hover);
+    }
+
+    .city {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      padding-right: 28px;
+    }
+
+    .zone {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+      word-break: break-word;
+    }
+
+    .time {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .date {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .offset {
+      margin-top: auto;
+      align-self: flex-start;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .remove {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .remove:hover {
+      color: var(--red);
+      background: rgba(248, 113, 113, 0.12);
+    }
+
+    .note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+ <header>
+    <div class="header-inner">
+        <div class="header-top">
+            <div>
+                <h1 id="site-title">World Clock</h1>
+                
+                <p class="subtitle" id="site-subtitle">Exact time in major global cities.</p>
+
+                <!-- Селектор Языка -->
+                <div class="lang-selector-wrap">
+                    <select id="langSelector" aria-label="Select Language">
+                        <option value="en">🇬 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                        <option value="hi">🇮🇩 हिन्दी</option>
+                    </select>
+                </div>
+
+                <!-- Меню Навигации -->
+                <nav class="menu-links" style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="/" class="active" id="nav-home" style="color: var(--accent); text-decoration: none; font-weight: bold;">Home</a>
+                    <a href="/utc.html" id="nav-utc" style="color: var(--muted); text-decoration: none; font-weight: bold;">UTC</a>
+                    <a href="/moscow.html" id="nav-moscow" style="color: var(--muted); text-decoration: none; font-weight: bold;">Moscow</a>
+                    <a href="/london.html" id="nav-london" style="color: var(--muted); text-decoration: none; font-weight: bold;">London</a>
+                    <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
+                </nav>
+            </div>
+
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch Theme">
+                ☀️
+            </button>
+        </div>
+    </div>
+</header>
+
+  <main>
+    <div class="search-wrap">
+      <input
+        id="citySearch"
+        class="search-input"
+        type="text"
+        autocomplete="off"
+        placeholder="Search city: Moscow, London, Asia/Tokyo..."
+        aria-label="Search city or timezone"
+      />
+      <div id="suggestions" class="suggestions" hidden></div>
+    </div>
+
+    <div class="controls">
+      <button id="addBtn" class="btn" type="button">Add City</button>
+      <button id="resetBtn" class="btn secondary" type="button">Reset Defaults</button>
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+    </div>
+
+    <div id="clocks" class="grid"></div>
+
+    <p class="note" id="help-note">
+      You can add any IANA timezone, e.g.: <strong>Europe/Paris</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seoul</strong>.
+    </p>
+  </main>
+
+  <footer>
+    © <span id="year"></span> <span id="footer-brand">World Clock</span>. 
+    <span id="footer-desc">Free online tool for work, travel and calls.</span>
+  </footer>
+
+  <script>
+    // --- TRANSLATIONS DICTIONARY ---
+    const translations = {
+        en: {
+            title: "World Clock",
+            subtitle: "Exact time in major global cities.",
+            nav_home: "Home",
+            nav_utc: "UTC",
+            nav_moscow: "Moscow",
+            nav_london: "London",
+            nav_newyork: "New York",
+            search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
+            btn_add: "Add City",
+            btn_reset: "Reset Defaults",
+            help_note_html: "You can add any IANA timezone, e.g.: <strong>Europe/Paris</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seoul</strong>.",
+            footer_brand: "World Clock",
+            footer_desc: "Free online tool for work, travel and calls.",
+            status_added: "City added successfully.",
+            status_removed: "City removed.",
+            status_exists: "City already exists.",
+            status_invalid_tz: "Invalid timezone.",
+            status_empty_search: "Please enter a city name or timezone.",
+            status_not_found: "Not found. Try entering a full timezone like Europe/Paris.",
+            default_cities_labels: ["UTC", "Moscow", "London", "Berlin", "Dubai", "Singapore", "New York", "Tokyo", "Sydney"]
+        },
+        ru: {
+            title: "Мировое Время",
+            subtitle: "Точное время в крупных городах мира.",
+            nav_home: "Главная",
+            nav_utc: "UTC",
+            nav_moscow: "Москва",
+            nav_london: "Лондон",
+            nav_newyork: "Нью-Йорк",
+            search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
+            btn_add: "Добавить город",
+            btn_reset: "Сбросить список",
+            help_note_html: "Вы можете добавить любой часовой пояс IANA, например: <strong>Европа/Париж</strong>, <strong>Америка/Чикаго</strong>, <strong>Азия/Сеул</strong>.",
+            footer_brand: "Мировое Время",
+            footer_desc: "Бесплатный онлайн инструмент для работы, путешествий и созвонов.",
+            status_added: "Город успешно добавлен.",
+            status_removed: "Город удален.",
+            status_exists: "Такой город уже есть в списке.",
+            status_invalid_tz: "Неподдерживаемый часовой пояс.",
+            status_empty_search: "Введите название города или часовой пояс.",
+            status_not_found: "Не найдено. Попробуйте ввести полный пояс, например Европа/Париж.",
+            default_cities_labels: ["UTC", "Москва", "Лондон", "Берлин", "Дубай", "Сингапур", "Нью-Йорк", "Токио", "Сидней"]
+        },
+        zh: {
+            title: "世界时钟",
+            subtitle: "全球主要城市的精确时间。",
+            nav_home: "首页",
+            nav_utc: "UTC",
+            nav_moscow: "莫斯科",
+            nav_london: "伦敦",
+            nav_newyork: "纽约",
+            search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
+            btn_add: "添加城市",
+            btn_reset: "重置列表",
+            help_note_html: "您可以添加任何IANA时区，例如：<strong>欧洲/巴黎</strong>、<strong>美洲/芝加哥</strong>、<strong>亚洲/首尔</strong>。",
+            footer_brand: "世界时钟",
+            footer_desc: "免费在线工具，适用于工作、旅行和通话。",
+            status_added: "城市已成功添加。",
+            status_removed: "城市已删除。",
+            status_exists: "该城市已在列表中。",
+            status_invalid_tz: "无效的时区。",
+            status_empty_search: "请输入城市名称或时区。",
+            status_not_found: "未找到。请尝试输入完整时区，如 欧洲/巴黎。",
+            default_cities_labels: ["UTC", "莫斯科", "伦敦", "柏林", "迪拜", "新加坡", "纽约", "东京", "悉尼"]
+        },
+        es: {
+            title: "Reloj Mundial",
+            subtitle: "Hora exacta en las principales ciudades del mundo.",
+            nav_home: "Inicio",
+            nav_utc: "UTC",
+            nav_moscow: "Moscú",
+            nav_london: "Londres",
+            nav_newyork: "Nueva York",
+            search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
+            btn_add: "Añadir Ciudad",
+            btn_reset: "Restablecer Lista",
+            help_note_html: "Puedes agregar cualquier zona horaria IANA, por ejemplo: <strong>Europa/París</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seúl</strong>.",
+            footer_brand: "Reloj Mundial",
+            footer_desc: "Herramienta gratuita en línea para trabajo, viajes y llamadas.",
+            status_added: "Ciudad añadida correctamente.",
+            status_removed: "Ciudad eliminada.",
+            status_exists: "La ciudad ya está en la lista.",
+            status_invalid_tz: "Zona horaria inválida.",
+            status_empty_search: "Por favor ingrese un nombre de ciudad o zona horaria.",
+            status_not_found: "No encontrado. Intente ingresar una zona completa como Europa/París.",
+            default_cities_labels: ["UTC", "Moscú", "Londres", "Berlín", "Dubái", "Singapur", "Nueva York", "Tokio", "Sídney"]
+        },
+        hi: {
+            title: "विश्व घड़ी",
+            subtitle: "प्रमुख वैश्विक शहरों में सटीक समय।",
+            nav_home: "होम",
+            nav_utc: "UTC",
+            nav_moscow: "मास्को",
+            nav_london: "लंदन",
+            nav_newyork: "न्यू यॉर्क",
+            search_placeholder: "शहर खोजें: मास्को, लंदन, एशिया/टोक्यो...",
+            btn_add: "शहर जोड़ें",
+            btn_reset: "सूची रीसेट करें",
+            help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरोप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
+            footer_brand: "विश्व घड़ी",
+            footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
+            status_added: "शहर सफलतापूर्वक जोड़ा गया।",
+            status_removed: "शहर हटा दिया गया।",
+            status_exists: "यह शहर पहले से सूची में है।",
+            status_invalid_tz: "अमान्य टाइमज़ोन।",
+            status_empty_search: "कृपया एक शहर का नाम या टाइमज़ोन दर्ज करें।",
+            status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आज़माएं।",
+            default_cities_labels: ["UTC", "मास्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
+        }
+    };
+
+    const STORAGE_KEY = "worldClockCities_v3";
+    const THEME_KEY = "worldClockTheme_v1";
+    const LANG_KEY = "worldClockLang_v1";
+
+    // Base Data (Timezones remain constant across languages)
+    const BASE_DEFAULT_CITIES = [
+      { label: "UTC", timezone: "Etc/UTC", country: "Global" },
+      { label: "Moscow", timezone: "Europe/Moscow", country: "Russia" },
+      { label: "London", timezone: "Europe/London", country: "UK" },
+      { label: "Berlin", timezone: "Europe/Berlin", country: "Germany" },
+      { label: "Dubai", timezone: "Asia/Dubai", country: "UAE" },
+      { label: "Singapore", timezone: "Asia/Singapore", country: "Singapore" },
+      { label: "New York", timezone: "America/New_York", country: "USA" },
+      { label: "Tokyo", timezone: "Asia/Tokyo", country: "Japan" },
+      { label: "Sydney", timezone: "Australia/Sydney", country: "Australia" }
+    ];
+
+    // Large Catalog (Labels will be localized dynamically if needed, 
+    // but for simplicity we keep internal labels as English/Russian mix from original code,
+    // however, the DISPLAY logic needs to handle translation of common cities.
+    // For this implementation, we assume CITY_CATALOG stores canonical names, 
+    // and we map specific popular ones to translations for display if desired.
+    // To keep it simple and robust: We store the English Label in DATA, 
+    // but RENDER using Translation if available, else fallback to stored label.)
+    
+    const CITY_CATALOG = [
+      ...BASE_DEFAULT_CITIES,
+      { label: "Saint Petersburg", timezone: "Europe/Moscow", country: "Russia" },
+      { label: "Kaliningrad", timezone: "Europe/Kaliningrad", country: "Russia" },
+      { label: "Samara", timezone: "Europe/Samara", country: "Russia" },
+      { label: "Yekaterinburg", timezone: "Asia/Yekaterinburg", country: "Russia" },
+      { label: "Novosibirsk", timezone: "Asia/Novosibirsk", country: "Russia" },
+      { label: "Krasnoyarsk", timezone: "Asia/Krasnoyarsk", country: "Russia" },
+      { label: "Irkutsk", timezone: "Asia/Irkutsk", country: "Russia" },
+      { label: "Yakutsk", timezone: "Asia/Yakutsk", country: "Russia" },
+      { label: "Vladivostok", timezone: "Asia/Vladivostok", country: "Russia" },
+      { label: "Magadan", timezone: "Asia/Magadan", country: "Russia" },
+      { label: "Petropavlovsk-Kamchatsky", timezone: "Asia/Kamchatka", country: "Russia" },
+      { label: "Paris", timezone: "Europe/Paris", country: "France" },
+      { label: "Amsterdam", timezone: "Europe/Amsterdam", country: "Netherlands" },
+      { label: "Brussels", timezone: "Europe/Brussels", country: "Belgium" },
+      { label: "Madrid", timezone: "Europe/Madrid", country: "Spain" },
+      { label: "Barcelona", timezone: "Europe/Madrid", country: "Spain" },
+      { label: "Rome", timezone: "Europe/Rome", country: "Italy" },
+      { label: "Lisbon", timezone: "Europe/Lisbon", country: "Portugal" },
+      { label: "Dublin", timezone: "Europe/Dublin", country: "Ireland" },
+      { label: "Stockholm", timezone: "Europe/Stockholm", country: "Sweden" },
+      { label: "Oslo", timezone: "Europe/Oslo", country: "Norway" },
+      { label: "Copenhagen", timezone: "Europe/Copenhagen", country: "Denmark" },
+      { label: "Helsinki", timezone: "Europe/Helsinki", country: "Finland" },
+      { label: "Warsaw", timezone: "Europe/Warsaw", country: "Poland" },
+      { label: "Krakow", timezone: "Europe/Warsaw", country: "Poland" },
+      { label: "Prague", timezone: "Europe/Prague", country: "Czechia" },
+      { label: "Bratislava", timezone: "Europe/Bratislava", country: "Slovakia" },
+      { label: "Budapest", timezone: "Europe/Budapest", country: "Hungary" },
+      { label: "Bucharest", timezone: "Europe/Bucharest", country: "Romania" },
+      { label: "Sofia", timezone: "Europe/Sofia", country: "Bulgaria" },
+      { label: "Athens", timezone: "Europe/Athens", country: "Greece" },
+      { label: "Nicosia", timezone: "Asia/Nicosia", country: "Cyprus" },
+      { label: "Istanbul", timezone: "Europe/Istanbul", country: "Turkey" },
+      { label: "Tbilisi", timezone: "Asia/Tbilisi", country: "Georgia" },
+      { label: "Yerevan", timezone: "Asia/Yerevan", country: "Armenia" },
+      { label: "Baku", timezone: "Asia/Baku", country: "Azerbaijan" },
+      { label: "Minsk", timezone: "Europe/Minsk", country: "Belarus" },
+      { label: "Chisinau", timezone: "Europe/Chisinau", country: "Moldova" },
+      { label: "Riga", timezone: "Europe/Riga", country: "Latvia" },
+      { label: "Vilnius", timezone: "Europe/Vilnius", country: "Lithuania" },
+      { label: "Tallinn", timezone: "Europe/Tallinn", country: "Estonia" },
+      { label: "Jerusalem", timezone: "Asia/Jerusalem", country: "Israel" },
+      { label: "Beirut", timezone: "Asia/Beirut", country: "Lebanon" },
+      { label: "Damascus", timezone: "Asia/Damascus", country: "Syria" },
+      { label: "Amman", timezone: "Asia/Amman", country: "Jordan" },
+      { label: "Doha", timezone: "Asia/Qatar", country: "Qatar" },
+      { label: "Abu Dhabi", timezone: "Asia/Dubai", country: "UAE" },
+      { label: "Riyadh", timezone: "Asia/Riyadh", country: "Saudi Arabia" },
+      { label: "Kuwait City", timezone: "Asia/Kuwait", country: "Kuwait" },
+      { label: "Manama", timezone: "Asia/Bahrain", country: "Bahrain" },
+      { label: "Muscat", timezone: "Asia/Muscat", country: "Oman" },
+      { label: "Cairo", timezone: "Africa/Cairo", country: "Egypt" },
+      { label: "Tunis", timezone: "Africa/Tunis", country: "Tunisia" },
+      { label: "Algiers", timezone: "Africa/Algiers", country: "Algeria" },
+      { label: "Casablanca", timezone: "Africa/Casablanca", country: "Morocco" },
+      { label: "Lagos", timezone: "Africa/Lagos", country: "Nigeria" },
+      { label: "Accra", timezone: "Africa/Accra", country: "Ghana" },
+      { label: "Nairobi", timezone: "Africa/Nairobi", country: "Kenya" },
+      { label: "Addis Ababa", timezone: "Africa/Addis_Ababa", country: "Ethiopia" },
+      { label: "Johannesburg", timezone: "Africa/Johannesburg", country: "South Africa" },
+      { label: "Cape Town", timezone: "Africa/Johannesburg", country: "South Africa" },
+      { label: "Delhi", timezone: "Asia/Kolkata", country: "India" },
+      { label: "Mumbai", timezone: "Asia/Kolkata", country: "India" },
+      { label: "Bangalore", timezone: "Asia/Kolkata", country: "India" },
+      { label: "Karachi", timezone: "Asia/Karachi", country: "Pakistan" },
+      { label: "Dhaka", timezone: "Asia/Dhaka", country: "Bangladesh" },
+      { label: "Colombo", timezone: "Asia/Colombo", country: "Sri Lanka" },
+      { label: "Kathmandu", timezone: "Asia/Kathmandu", country: "Nepal" },
+      { label: "Bangkok", timezone: "Asia/Bangkok", country: "Thailand" },
+      { label: "Ho Chi Minh City", timezone: "Asia/Ho_Chi_Minh", country: "Vietnam" },
+      { label: "Hanoi", timezone: "Asia/Ho_Chi_Minh", country: "Vietnam" },
+      { label: "Phnom Penh", timezone: "Asia/Phnom_Penh", country: "Cambodia" },
+      { label: "Vientiane", timezone: "Asia/Vientiane", country: "Laos" },
+      { label: "Kuala Lumpur", timezone: "Asia/Kuala_Lumpur", country: "Malaysia" },
+      { label: "Jakarta", timezone: "Asia/Jakarta", country: "Indonesia" },
+      { label: "Surabaya", timezone: "Asia/Jakarta", country: "Indonesia" },
+      { label: "Bali", timezone: "Asia/Makassar", country: "Indonesia" },
+      { label: "Manila", timezone: "Asia/Manila", country: "Philippines" },
+      { label: "Beijing", timezone: "Asia/Shanghai", country: "China" },
+      { label: "Shanghai", timezone: "Asia/Shanghai", country: "China" },
+      { label: "Hong Kong", timezone: "Asia/Hong_Kong", country: "China" },
+      { label: "Macau", timezone: "Asia/Macau", country: "China" },
+      { label: "Taipei", timezone: "Asia/Taipei", country: "Taiwan" },
+      { label: "Seoul", timezone: "Asia/Seoul", country: "South Korea" },
+      { label: "Pyongyang", timezone: "Asia/Pyongyang", country: "North Korea" },
+      { label: "Osaka", timezone: "Asia/Tokyo", country: "Japan" },
+      { label: "Auckland", timezone: "Pacific/Auckland", country: "New Zealand" },
+      { label: "Wellington", timezone: "Pacific/Auckland", country: "New Zealand" },
+      { label: "Melbourne", timezone: "Australia/Melbourne", country: "Australia" },
+      { label: "Brisbane", timezone: "Australia/Brisbane", country: "Australia" },
+      { label: "Perth", timezone: "Australia/Perth", country: "Australia" },
+      { label: "Adelaide", timezone: "Australia/Adelaide", country: "Australia" },
+      { label: "Hobart", timezone: "Australia/Hobart", country: "Australia" },
+      { label: "Darwin", timezone: "Australia/Darwin", country: "Australia" },
+      { label: "Los Angeles", timezone: "America/Los_Angeles", country: "USA" },
+      { label: "San Francisco", timezone: "America/Los_Angeles", country: "USA" },
+      { label: "Seattle", timezone: "America/Los_Angeles", country: "USA" },
+      { label: "Las Vegas", timezone: "America/Los_Angeles", country: "USA" },
+      { label: "Denver", timezone: "America/Denver", country: "USA" },
+      { label: "Phoenix", timezone: "America/Phoenix", country: "USA" },
+      { label: "Chicago", timezone: "America/Chicago", country: "USA" },
+      { label: "Houston", timezone: "America/Chicago", country: "USA" },
+      { label: "New Orleans", timezone: "America/Chicago", country: "USA" },
+      { label: "Washington D.C.", timezone: "America/New_York", country: "USA" },
+      { label: "Miami", timezone: "America/New_York", country: "USA" },
+      { label: "Atlanta", timezone: "America/New_York", country: "USA" },
+      { label: "Boston", timezone: "America/New_York", country: "USA" },
+      { label: "Toronto", timezone: "America/Toronto", country: "Canada" },
+      { label: "Montreal", timezone: "America/Toronto", country: "Canada" },
+      { label: "Vancouver", timezone: "America/Vancouver", country: "Canada" },
+      { label: "Calgary", timezone: "America/Edmonton", country: "Canada" },
+      { label: "Mexico City", timezone: "America/Mexico_City", country: "Mexico" },
+      { label: "Guadalajara", timezone: "America/Mexico_City", country: "Mexico" },
+      { label: "Monterrey", timezone: "America/Monterrey", country: "Mexico" },
+      { label: "Guatemala City", timezone: "America/Guatemala", country: "Guatemala" },
+      { label: "San Salvador", timezone: "America/El_Salvador", country: "El Salvador" },
+      { label: "Tegucigalpa", timezone: "America/Tegucigalpa", country: "Honduras" },
+      { label: "Managua", timezone: "America/Managua", country: "Nicaragua" },
+      { label: "San Jose", timezone: "America/Costa_Rica", country: "Costa Rica" },
+      { label: "Panama City", timezone: "America/Panama", country: "Panama" },
+      { label: "Bogota", timezone: "America/Bogota", country: "Colombia" },
+      { label: "Quito", timezone: "America/Guayaquil", country: "Ecuador" },
+      { label: "Lima", timezone: "America/Lima", country: "Peru" },
+      { label: "La Paz", timezone: "America/La_Paz", country: "Bolivia" },
+      { label: "Asuncion", timezone: "America/Asuncion", country: "Paraguay" },
+      { label: "Montevideo", timezone: "America/Montevideo", country: "Uruguay" },
+      { label: "Buenos Aires", timezone: "America/Argentina/Buenos_Aires", country: "Argentina" },
+      { label: "Santiago", timezone: "America/Santiago", country: "Chile" },
+      { label: "Sao Paulo", timezone: "America/Sao_Paulo", country: "Brazil" },
+      { label: "Rio de Janeiro", timezone: "America/Sao_Paulo", country: "Brazil" },
+      { label: "Brasilia", timezone: "America/Sao_Paulo", country: "Brazil" },
+      { label: "Manaus", timezone: "America/Manaus", country: "Brazil" }
+    ];
+
+    let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+    let cities = loadCities();
+    let suggestionItems = [];
+    let activeSuggestion = -1;
+    let statusTimer = null;
+
+    const clocksContainer = document.getElementById("clocks");
+    const searchInput = document.getElementById("citySearch");
+    const suggestionsBox = document.getElementById("suggestions");
+    const addBtn = document.getElementById("addBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const statusEl = document.getElementById("status");
+    const themeToggle = document.getElementById("themeToggle");
+    const yearEl = document.getElementById("year");
+    const langSelector = document.getElementById("langSelector");
+    const siteTitle = document.getElementById("site-title");
+    const siteSubtitle = document.getElementById("site-subtitle");
+    const helpNote = document.getElementById("help-note");
+    const footerBrand = document.getElementById("footer-brand");
+    const footerDesc = document.getElementById("footer-desc");
+    
+    // Nav Links
+    const navHome = document.getElementById("nav-home");
+    const navUtc = document.getElementById("nav-utc");
+    const navMoscow = document.getElementById("nav-moscow");
+    const navLondon = document.getElementById("nav-london");
+    const navNY = document.getElementById("nav-newyork");
+
+    yearEl.textContent = new Date().getFullYear();
+
+    // Initialize App
+    initApp();
+
+    function initApp() {
+        initTheme();
+        applyLanguage(currentLang);
+        renderClocks();
+        setInterval(updateTimes, 1000);
+        
+        // Event Listeners
+        langSelector.addEventListener('change', (e) => {
+            currentLang = e.target.value;
+            localStorage.setItem(LANG_KEY, currentLang);
+            applyLanguage(currentLang);
+            renderClocks(); // Re-render to update local city names if they were hardcoded differently
+        });
+
+        searchInput.addEventListener("input", () => {
+          renderSuggestions(searchInput.value);
+        });
+
+        searchInput.addEventListener("focus", () => {
+          if (searchInput.value.trim()) {
+            renderSuggestions(searchInput.value);
+          }
+        });
+
+        searchInput.addEventListener("blur", () => {
+          setTimeout(hideSuggestions, 140);
+        });
+
+        searchInput.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            if (!suggestionItems.length) return;
+            setActiveSuggestion(activeSuggestion + 1);
+          }
+
+          if (event.key === "ArrowUp") {
+            event.preventDefault();
+            if (!suggestionItems.length) return;
+            setActiveSuggestion(activeSuggestion - 1);
+          }
+
+          if (event.key === "Enter") {
+            event.preventDefault();
+            if (activeSuggestion >= 0 && suggestionItems[activeSuggestion]) {
+              const btn = suggestionItems[activeSuggestion];
+              addCity(btn.dataset.label, btn.dataset.timezone);
+              return;
+            }
+            handleAddButton();
+          }
+
+          if (event.key === "Escape") {
+            hideSuggestions();
+          }
+        });
+
+        suggestionsBox.addEventListener("mousedown", (event) => {
+          const btn = event.target.closest(".suggestion");
+          if (!btn) return;
+          event.preventDefault();
+          addCity(btn.dataset.label, btn.dataset.timezone);
+        });
+
+        addBtn.addEventListener("click", handleAddButton);
+
+        resetBtn.addEventListener("click", () => {
+          // Reset to default cities based on CURRENT LANGUAGE labels
+          const t = translations[currentLang];
+          const defaultList = BASE_DEFAULT_CITIES.map((base, idx) => ({
+             ...base,
+             label: t.default_cities_labels[idx] || base.label // Use translated label if available
+          }));
+          
+          cities = [...defaultList];
+          saveCities();
+          renderClocks();
+          setStatus(t.status_added.replace("successfully", ""), "success"); // Simple success msg
+        });
+
+        themeToggle.addEventListener("click", () => {
+          const current = document.documentElement.dataset.theme;
+          setTheme(current === "dark" ? "light" : "dark");
+        });
+
+        clocksContainer.addEventListener("click", (event) => {
+          const removeBtn = event.target.closest("[data-remove-index]");
+          if (!removeBtn) return;
+          const index = Number(removeBtn.dataset.removeIndex);
+          removeCity(index);
+        });
+    }
+
+    function applyLanguage(langCode) {
+        const t = translations[langCode];
+        if (!t) return;
+
+        // Update HTML Lang Attribute
+        document.documentElement.lang = langCode;
+
+        // Update Static Text Elements
+        siteTitle.textContent = t.title;
+        siteSubtitle.textContent = t.subtitle;
+        searchInput.placeholder = t.search_placeholder;
+        addBtn.textContent = t.btn_add;
+        resetBtn.textContent = t.btn_reset;
+        helpNote.innerHTML = t.help_note_html;
+        footerBrand.textContent = t.footer_brand;
+        footerDesc.textContent = t.footer_desc;
+
+        // Update Navigation Menu
+        navHome.textContent = t.nav_home;
+        navUtc.textContent = t.nav_utc;
+        navMoscow.textContent = t.nav_moscow;
+        navLondon.textContent = t.nav_london;
+        navNY.textContent = t.nav_newyork;
+
+        // Update Page Title & Meta Descriptions for SEO
+        document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
+        document.getElementById("meta-desc").setAttribute("content", t.footer_desc + " " + t.subtitle);
+        document.getElementById("og-title").setAttribute("content", t.title);
+        document.getElementById("og-desc").setAttribute("content", t.subtitle);
+        document.getElementById("tw-title").setAttribute("content", t.title);
+        document.getElementById("tw-desc").setAttribute("content", t.subtitle);
+        
+        // Update Locale tags
+        document.querySelector('meta[property="og:locale"]').setAttribute("content", langCode === 'zh' ? 'zh_CN' : langCode === 'hi' ? 'hi_IN' : langCode === 'es' ? 'es_ES' : langCode === 'ru' ? 'ru_RU' : 'en_US');
+    }
+
+    function getTranslatedCityLabel(originalLabel, timezone) {
+        // Helper to find if a standard city has a translation in current language
+        // This is a simplified mapping. In a real app, you'd have a massive dictionary.
+        // Here we just check against known keys in DEFAULT_CITIES_LABELS array order vs BASE_DEFAULT_CITIES
+        
+        const t = translations[currentLang];
+        if(!t || !t.default_cities_labels) return originalLabel;
+
+        // Check if this city is one of the default 9 by matching timezone roughly or index logic
+        // Since user might add custom cities, we only translate the core ones if possible.
+        // For this demo, we rely on the fact that renderClocks uses the stored label.
+        // If we want dynamic translation of STORED labels, we need to map them back.
+        // However, storing the LABEL in localStorage means if I switch language, old cities stay in old language.
+        // BETTER APPROACH: Store only TIMEZONE in localStorage, derive Label at Render time.
+        // BUT, your existing code stores {label, timezone}. 
+        // To fix this properly without breaking everything:
+        // We will re-map the labels during render IF they match known defaults.
+        
+        // Let's implement a lookup for the Default 9 cities specifically.
+        const defaultMap = {};
+        BASE_DEFAULT_CITIES.forEach((base, i) => {
+             if(t.default_cities_labels[i]) {
+                 defaultMap[base.timezone] = t.default_cities_labels[i];
+             }
+        });
+        
+        return defaultMap[timezone] || originalLabel;
+    }
+
+    function loadCities() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return parsed.filter((city) => city && city.timezone && city.label);
+          }
+        }
+      } catch (error) {
+        console.warn("Failed to load cities:", error);
+      }
+      // Return defaults mapped to current language
+      const t = translations[currentLang];
+      return BASE_DEFAULT_CITIES.map((base, i) => ({
+         ...base,
+         label: t.default_cities_labels[i] || base.label
+      }));
+    }
+
+    function saveCities() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cities));
+    }
+
+    function isValidTimezone(timezone) {
+      try {
+        new Intl.DateTimeFormat("en-US", { timeZone: timezone });
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function isCityAdded(label, timezone) {
+      return cities.some(
+        (city) => city.timezone === timezone // Match primarily by timezone to avoid duplicates due to translation differences
+      );
+    }
+
+    function labelFromTimezone(timezone) {
+      const parts = timezone.split("/");
+      const last = parts[parts.length - 1] || timezone;
+      return last.replace(/_/g, " ");
+    }
+
+    function addCity(label, timezone) {
+      if (!label || !timezone) return;
+
+      if (!isValidTimezone(timezone)) {
+        setStatus(translations[currentLang].status_invalid_tz, "error");
+        return;
+      }
+
+      if (isCityAdded(label, timezone)) {
+        setStatus(translations[currentLang].status_exists, "error");
+        hideSuggestions();
+        return;
+      }
+
+      cities.push({ label, timezone });
+      saveCities();
+      renderClocks();
+      searchInput.value = "";
+      hideSuggestions();
+      setStatus(translations[currentLang].status_added, "success");
+    }
+
+    function removeCity(index) {
+      if (index < 0 || index >= cities.length) return;
+      cities.splice(index, 1);
+      saveCities();
+      renderClocks();
+      setStatus(translations[currentLang].status_removed, "success");
+    }
+
+    function handleAddButton() {
+      const value = searchInput.value.trim();
+      const t = translations[currentLang];
+
+      if (!value) {
+        setStatus(t.status_empty_search, "error");
+        searchInput.focus();
+        return;
+      }
+
+      const exactCatalogMatch = CITY_CATALOG.find(
+        (city) =>
+          city.label.toLowerCase() === value.toLowerCase() ||
+          city.timezone.toLowerCase() === value.toLowerCase()
+      );
+
+      if (exactCatalogMatch) {
+        // Use the catalog label (usually English) but we could try to localize it here if complex
+        // For now, adding the English label is safest for consistency, 
+        // unless it's a default city which gets handled by render logic below.
+        addCity(exactCatalogMatch.label, exactCatalogMatch.timezone);
+        return;
+      }
+
+      if (isValidTimezone(value)) {
+        addCity(labelFromTimezone(value), value);
+        return;
+      }
+
+      setStatus(t.status_not_found, "error");
+    }
+
+    function renderSuggestions(query) {
+      const normalized = query.trim().toLowerCase();
+      suggestionItems = [];
+      activeSuggestion = -1;
+      suggestionsBox.innerHTML = "";
+
+      if (!normalized) {
+        hideSuggestions();
+        return;
+      }
+
+      const matches = CITY_CATALOG.filter((city) => {
+        if (isCityAdded(city.label, city.timezone)) return false;
+
+        return (
+          city.label.toLowerCase().includes(normalized) ||
+          city.timezone.toLowerCase().includes(normalized) ||
+          (city.country || "").toLowerCase().includes(normalized)
+        );
+      }).slice(0, 12);
+
+      matches.forEach((city) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "suggestion";
+        btn.dataset.label = city.label;
+        btn.dataset.timezone = city.timezone;
+
+        btn.innerHTML = `
+          <span class="suggestion-main">${escapeHtml(city.label)}</span>
+          <span class="suggestion-meta">
+            ${escapeHtml(city.timezone)}${city.country ? " · " + escapeHtml(city.country) : ""}
+          </span>
+        `;
+
+        suggestionsBox.appendChild(btn);
+        suggestionItems.push(btn);
+      });
+
+      if (
+        isValidTimezone(normalized) &&
+        !cities.some((city) => city.timezone === normalized)
+      ) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "suggestion";
+        btn.dataset.label = labelFromTimezone(normalized);
+        btn.dataset.timezone = normalized;
+
+        btn.innerHTML = `
+          <span class="suggestion-main">${translations[currentLang].btn_add}</span>
+          <span class="suggestion-meta">${escapeHtml(normalized)}</span>
+        `;
+
+        suggestionsBox.appendChild(btn);
+        suggestionItems.push(btn);
+      }
+
+      if (suggestionItems.length) {
+        suggestionsBox.hidden = false;
+        setActiveSuggestion(0);
+      } else {
+        suggestionsBox.innerHTML = `
+          <div class="no-results">
+            ${translations[currentLang].status_not_found}
+          </div>
+        `;
+        suggestionsBox.hidden = false;
+      }
+    }
+
+    function setActiveSuggestion(index) {
+      suggestionItems.forEach((item) => item.classList.remove("active"));
+      if (!suggestionItems.length) {
+        activeSuggestion = -1;
+        return;
+      }
+      let next = index;
+      if (next < 0) next = suggestionItems.length - 1;
+      if (next >= suggestionItems.length) next = 0;
+      activeSuggestion = next;
+      suggestionItems[activeSuggestion].classList.add("active");
+      suggestionItems[activeSuggestion].scrollIntoView({ block: "nearest" });
+    }
+
+    function hideSuggestions() {
+      suggestionsBox.hidden = true;
+      suggestionsBox.innerHTML = "";
+      suggestionItems = [];
+      activeSuggestion = -1;
+    }
+
+    function renderClocks() {
+      clocksContainer.innerHTML = "";
+      const t = translations[currentLang];
+
+      cities.forEach((city, index) => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.dataset.timezone = city.timezone;
+
+        // Determine Display Label:
+        // 1. If it's one of the default 9, use the translated label from current dictionary.
+        // 2. Otherwise, use the stored label (which might be English from catalog).
+        let displayLabel = city.label;
+        const defaultIdx = BASE_DEFAULT_CITIES.findIndex(b => b.timezone === city.timezone);
+        if(defaultIdx !== -1 && t.default_cities_labels[defaultIdx]) {
+            displayLabel = t.default_cities_labels[defaultIdx];
+        }
+
+        card.innerHTML = `
+          <button
+            class="remove"
+            type="button"
+            data-remove-index="${index}"
+            aria-label="Remove ${escapeHtml(displayLabel)}"
+            title="Remove"
+          >
+            ×
+          </button>
+
+          <div class="city">${escapeHtml(displayLabel)}</div>
+          <div class="zone">${escapeHtml(city.timezone)}</div>
+          <div class="time" data-time>--:--:--</div>
+          <div class="date" data-date>Loading...</div>
+          <div class="offset" data-offset>UTC</div>
+        `;
+
+        clocksContainer.appendChild(card);
+      });
+
+      updateTimes();
+    }
+
+    function updateTimes() {
+      const now = new Date();
+      const cards = document.querySelectorAll("#clocks .card");
+      
+      // Format locale depends on selected language
+      const localeMap = {
+          en: 'en-US',
+          ru: 'ru-RU',
+          zh: 'zh-CN',
+          es: 'es-ES',
+          hi: 'hi-IN'
+      };
+      const locale = localeMap[currentLang] || 'en-US';
+
+      cards.forEach((card) => {
+        const timezone = card.dataset.timezone;
+        const timeEl = card.querySelector("[data-time]");
+        const dateEl = card.querySelector("[data-date]");
+        const offsetEl = card.querySelector("[data-offset]");
+
+        if (timeEl) timeEl.textContent = formatTime(now, timezone, locale);
+        if (dateEl) dateEl.textContent = formatDate(now, timezone, locale);
+        if (offsetEl) offsetEl.textContent = getOffsetLabel(now, timezone);
+      });
+    }
+
+    function formatTime(date, timezone, locale) {
+      return new Intl.DateTimeFormat(locale, {
+        timeZone: timezone,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).format(date);
+    }
+
+    function formatDate(date, timezone, locale) {
+      return new Intl.DateTimeFormat(locale, {
+        timeZone: timezone,
+        weekday: "short",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(date);
+    }
+
+    function getOffsetLabel(date, timezone) {
+      try {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: timezone,
+          timeZoneName: "shortOffset"
+        }).formatToParts(date);
+        const tzPart = parts.find((part) => part.type === "timeZoneName");
+        return tzPart ? tzPart.value : "UTC";
+      } catch (error) {
+        return "UTC";
+      }
+    }
+
+    function setStatus(message, type = "") {
+      statusEl.textContent = message;
+      statusEl.className = `status ${type}`.trim();
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => {
+        statusEl.textContent = "";
+        statusEl.className = "status";
+      }, 2800);
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const theme = savedTheme || (systemPrefersLight ? "light" : "dark");
+      setTheme(theme);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(THEME_KEY, theme);
+      themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      themeToggle.setAttribute("aria-label", theme === "dark" ? "Enable Light Mode" : "Enable Dark Mode");
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute("content", theme === "dark" ? "#0f172a" : "#f8fafc");
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
