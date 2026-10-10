@@ -4,24 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO для страницы UTC -->
-  <title>Точное время UTC онлайн | Секундомер и дата по Гринвичу - UTCNow.info</title>
+  <!-- SEO: Canonical & Hreflang -->
+  <link rel="canonical" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="ru" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="en" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="zh" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="es" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="hi" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="x-default" href="https://utcnow.info/utc.html" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://utcnow.info/utc.html">
-<meta property="og:title" content="Точное время UTC онлайн">
-<meta property="og:description" content="Всемирное координированное время с секундами. Синхронизация серверов и международных встреч.">
+  <!-- Dynamic Titles/Descriptions will be handled by JS, but defaults here for crawlers -->
+  <title id="pageTitle">Точное время UTC онлайн | Секундомер и дата по Гринвичу - UTCNow.info</title>
+  <meta id="pageDesc" name="description" content="Актуальное время UTC прямо сейчас с точностью до секунды. Узнайте дату, день недели и разницу с Москвой, Лондоном и Нью-Йорком." />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://utcnow.info/utc.html">
-<meta property="twitter:title" content="Точное время UTC онлайн">
-<meta property="twitter:description" content="Всемирное координированное время с секундами.">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://utcnow.info/utc.html">
+  <meta id="ogTitle" property="og:title" content="Точное время UTC онлайн">
+  <meta id="ogDesc" property="og:description" content="Всемирное координированное время с секундами. Синхронизация серверов и международных встреч.">
 
-<meta name="description" content="Актуальное время UTC прямо сейчас с точностью до секунды. Узнайте дату, день недели и разницу с Москвой, Лондоном и Нью-Йорком. Бесплатный конвертер часовых поясов." />
-
-  <link rel="canonical" href="https://utcnow.info/utc.html" /> 
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://utcnow.info/utc.html">
+  <meta id="twTitle" property="twitter:title" content="Точное время UTC онлайн">
+  <meta id="twDesc" property="twitter:description" content="Всемирное координированное время с секундами.">
 
   <style>
     /* СТИЛИ ПОВТОРЯЮТ INDEX.HTML ДЛЯ ЕДИНСТВА */
@@ -84,6 +90,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     h1 {
@@ -125,6 +132,37 @@
     nav.menu-links a.active {
       color: var(--accent);
       background: rgba(56, 189, 248, 0.1);
+    }
+
+    /* Переключатель языков */
+    .lang-switcher {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
     }
 
     .icon-btn {
@@ -235,17 +273,26 @@
     <div class="header-inner">
       <div class="header-top">
         <div>
-          <h1>Всемирное время</h1>
-          <p class="subtitle">Точное время UTC и мировых городов</p>
+          <h1 id="mainTitle">Всемирное время</h1>
+          <p class="subtitle" id="mainSubtitle">Точное время UTC и мировых городов</p>
           
-          <!-- НАВИГАЦИЯ (Единая для всего сайта) -->
+          <!-- НАВИГАЦИЯ -->
           <nav class="menu-links">
-  <a href="/">Главная</a>
-  <a href="/utc.html" class="active">UTC</a>
-  <a href="/moscow.html">Москва</a>
-  <a href="/london.html">Лондон</a>
-  <a href="/new-york.html">Нью-Йорк</a>
-</nav>
+            <a href="/" id="navHome">Главная</a>
+            <a href="/utc.html" class="active" id="navUtc">UTC</a>
+            <a href="/moscow.html" id="navMoscow">Москва</a>
+            <a href="/london.html" id="navLondon">Лондон</a>
+            <a href="/new-york.html" id="navNY">Нью-Йорк</a>
+          </nav>
+
+          <!-- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ -->
+          <div class="lang-switcher">
+            <button onclick="setLang('ru')" class="lang-btn active" id="btnRu">RU</button>
+            <button onclick="setLang('en')" class="lang-btn" id="btnEn">EN</button>
+            <button onclick="setLang('zh')" class="lang-btn" id="btnZh">ZH</button>
+            <button onclick="setLang('es')" class="lang-btn" id="btnEs">ES</button>
+            <button onclick="setLang('hi')" class="lang-btn" id="btnHi">HI</button>
+          </div>
         </div>
 
         <button id="themeToggle" class="icon-btn" type="button" aria-label="Переключить тему" title="Переключить тему">
@@ -263,40 +310,40 @@
     </section>
 
     <section class="info-section">
-      <h2>Что такое время UTC?</h2>
+      <h2 id="whatIsUtcH2">Что такое время UTC?</h2>
       <div class="info-grid">
         <div class="info-item">
-          <p><strong>Определение:</strong> UTC (Coordinated Universal Time) — основной мировой стандарт времени. От него отсчитываются все остальные часовые пояса.</p>
+          <p><strong id="defLabel">Определение:</strong> <span id="defText">UTC (Coordinated Universal Time) — основной мировой стандарт времени. От него отсчитываются все остальные часовые пояса.</span></p>
         </div>
         <div class="info-item">
-          <p><strong>Где используется:</strong> В авиации, морском деле, IT-серверах, научных экспериментах и международных расписаниях.</p>
+          <p><strong id="usageLabel">Где используется:</strong> <span id="usageText">В авиации, морском деле, IT-серверах, научных экспериментах и международных расписаниях.</span></p>
         </div>
         <div class="info-item">
-          <p><strong>Отличие от GMT:</strong> GMT — исторический стандарт по Гринвичу. UTC — современный научный стандарт на основе атомных часов. Для обычного пользователя они совпадают.</p>
+          <p><strong id="gmtLabel">Отличие от GMT:</strong> <span id="gmtText">GMT — исторический стандарт по Гринвичу. UTC — современный научный стандарт на основе атомных часов. Для обычного пользователя они совпадают.</span></p>
         </div>
       </div>
     </section>
 
     <section class="info-section">
-      <h2>Зачем смотреть время UTC?</h2>
-      <p style="color: var(--muted); line-height: 1.6;">
+      <h2 id="whyWatchUtcH2">Зачем смотреть время UTC?</h2>
+      <p style="color: var(--muted); line-height: 1.6;" id="whyWatchIntro">
         Если вы работаете с коллегами из разных стран или настраиваете серверы, важно знать точное время UTC. 
         Например, если встреча назначена на 14:00 UTC, это будет:
       </p>
       <ul style="color: var(--muted); line-height: 1.6; padding-left: 20px;">
-        <li>17:00 в Москве (UTC+3)</li>
-        <li>15:00 в Лондоне (UTC+1 летом / UTC+0 зимой)</li>
-        <li>10:00 в Нью-Йорке (UTC-4 летом / UTC-5 зимой)</li>
+        <li id="listItem1">17:00 в Москве (UTC+3)</li>
+        <li id="listItem2">15:00 в Лондоне (UTC+1 летом / UTC+0 зимой)</li>
+        <li id="listItem3">10:00 в Нью-Йорке (UTC-4 летом / UTC-5 зимой)</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Всемирное время онлайн. Бесплатный мировой час.
+    © <span id="year"></span> <span id="footerText">Всемирное время онлайн. Бесплатный мировой час.</span>
   </footer>
 
   <script>
-    // ЛОГИКА ТЕМЫ (КОПИРУЕТСЯ ИЗ INDEX.HTML)
+    // --- ЛОГИКА ТЕМЫ ---
     const THEME_KEY = "worldClockTheme_v1";
     const themeToggle = document.getElementById("themeToggle");
     const yearEl = document.getElementById("year");
@@ -316,11 +363,6 @@
         themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
         themeToggle.setAttribute("aria-label", theme === "dark" ? "Включить светлую тему" : "Включить тёмную тему");
       }
-      
-      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-      if (metaThemeColor) {
-        metaThemeColor.setAttribute("content", theme === "dark" ? "#0f172a" : "#f8fafc");
-      }
     }
 
     themeToggle?.addEventListener("click", () => {
@@ -328,11 +370,21 @@
       setTheme(current === "dark" ? "light" : "dark");
     });
 
-    // ЛОГИКА ЧАСОВ UTC
-    function updateUTCClock() {
+    // --- ЛОГИКА ЧАСОВ ---
+    function updateUTCClock(langCode) {
       const now = new Date();
       
-      const timeString = now.toLocaleTimeString('ru-RU', {
+      // Используем язык для форматирования даты/времени
+      const localeMap = {
+        'ru': 'ru-RU',
+        'en': 'en-US',
+        'zh': 'zh-CN',
+        'es': 'es-ES',
+        'hi': 'hi-IN'
+      };
+      const locale = localeMap[langCode] || 'ru-RU';
+
+      const timeString = now.toLocaleTimeString(locale, {
         timeZone: 'UTC',
         hour: '2-digit',
         minute: '2-digit',
@@ -340,7 +392,7 @@
         hour12: false
       });
 
-      const dateString = now.toLocaleDateString('ru-RU', {
+      const dateString = now.toLocaleDateString(locale, {
         timeZone: 'UTC',
         weekday: 'long',
         day: 'numeric',
@@ -352,11 +404,216 @@
       document.getElementById('utcDate').textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
     }
 
-    setInterval(updateUTCClock, 1000);
-    updateUTCClock();
+    setInterval(() => {
+      const currentLang = localStorage.getItem('site_lang') || 'ru';
+      updateUTCClock(currentLang);
+    }, 1000);
     
     yearEl.textContent = new Date().getFullYear();
-    initTheme();
+
+    // --- ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ (i18n) ---
+    const translations = {
+      ru: {
+        pageTitle: "Точное время UTC онлайн | Секундомер и дата по Гринвичу - UTCNow.info",
+        pageDesc: "Актуальное время UTC прямо сейчас с точностью до секунды. Узнайте дату, день недели и разницу с Москвой, Лондоном и Нью-Йорком.",
+        ogTitle: "Точное время UTC онлайн",
+        ogDesc: "Всемирное координированное время с секундами. Синхронизация серверов и международных встреч.",
+        mainTitle: "Всемирное время",
+        mainSubtitle: "Точное время UTC и мировых городов",
+        navHome: "Главная",
+        navUtc: "UTC",
+        navMoscow: "Москва",
+        navLondon: "Лондон",
+        navNY: "Нью-Йорк",
+        whatIsUtcH2: "Что такое время UTC?",
+        defLabel: "Определение:",
+        defText: "UTC (Coordinated Universal Time) — основной мировой стандарт времени. От него отсчитываются все остальные часовые пояса.",
+        usageLabel: "Где используется:",
+        usageText: "В авиации, морском деле, IT-серверах, научных экспериментах и международных расписаниях.",
+        gmtLabel: "Отличие от GMT:",
+        gmtText: "GMT — исторический стандарт по Гринвичу. UTC — современный научный стандарт на основе атомных часов. Для обычного пользователя они совпадают.",
+        whyWatchUtcH2: "Зачем смотреть время UTC?",
+        whyWatchIntro: "Если вы работаете с коллегами из разных стран или настраиваете серверы, важно знать точное время UTC. Например, если встреча назначена на 14:00 UTC, это будет:",
+        listItem1: "17:00 в Москве (UTC+3)",
+        listItem2: "15:00 в Лондоне (UTC+1 летом / UTC+0 зимой)",
+        listItem3: "10:00 в Нью-Йорке (UTC-4 летом / UTC-5 зимой)",
+        footerText: "Всемирное время онлайн. Бесплатный мировой час."
+      },
+      en: {
+        pageTitle: "Exact UTC Time Online | Coordinated Universal Time Clock - UTCNow.info",
+        pageDesc: "Current UTC time updated every second. Check date, day of week, and difference with Moscow, London, and New York.",
+        ogTitle: "Exact UTC Time Online",
+        ogDesc: "Coordinated Universal Time with seconds precision. Server sync and international meetings.",
+        mainTitle: "World Time",
+        mainSubtitle: "Accurate UTC and global city times",
+        navHome: "Home",
+        navUtc: "UTC",
+        navMoscow: "Moscow",
+        navLondon: "London",
+        navNY: "New York",
+        whatIsUtcH2: "What is UTC Time?",
+        defLabel: "Definition:",
+        defText: "UTC (Coordinated Universal Time) is the primary global standard for regulating clocks and time. All other time zones are calculated from it.",
+        usageLabel: "Where used:",
+        usageText: "In aviation, maritime navigation, IT servers, scientific experiments, and international schedules.",
+        gmtLabel: "Difference from GMT:",
+        gmtText: "GMT is a historical astronomical standard based on Greenwich. UTC is a modern atomic-based standard. For most users, they are identical.",
+        whyWatchUtcH2: "Why check UTC time?",
+        whyWatchIntro: "If you work with colleagues abroad or configure servers, knowing exact UTC time is crucial. For example, a meeting at 14:00 UTC would be:",
+        listItem1: "17:00 in Moscow (UTC+3)",
+        listItem2: "15:00 in London (UTC+1 summer / UTC+0 winter)",
+        listItem3: "10:00 in New York (UTC-4 summer / UTC-5 winter)",
+        footerText: "World Time Online. Free Global Clock."
+      },
+      zh: {
+        pageTitle: "在线精确UTC时间 | 协调世界时时钟 - UTCNow.info",
+        pageDesc: "当前UTC时间每秒更新。查看日期、星期以及与莫斯科、伦敦和纽约的时差。",
+        ogTitle: "在线精确UTC时间",
+        ogDesc: "带秒数的协调世界时。服务器同步和国际会议。",
+        mainTitle: "世界时间",
+        mainSubtitle: "准确的UTC和全球城市时间",
+        navHome: "首页",
+        navUtc: "UTC",
+        navMoscow: "莫斯科",
+        navLondon: "伦敦",
+        navNY: "纽约",
+        whatIsUtcH2: "什么是UTC时间？",
+        defLabel: "定义：",
+        defText: "UTC（协调世界时）是调节时钟和时间的主要全球标准。所有其他时区都基于它计算。",
+        usageLabel: "用途：",
+        usageText: "用于航空、航海、IT服务器、科学实验和国际日程安排。",
+        gmtLabel: "与GMT的区别：",
+        gmtText: "GMT是基于格林威治的历史天文标准。UTC是现代原子钟标准。对于大多数用户来说，它们是相同的。",
+        whyWatchUtcH2: "为什么要看UTC时间？",
+        whyWatchIntro: "如果您与国外同事工作或配置服务器，了解确切的UTC时间至关重要。例如，14:00 UTC的会议将是：",
+        listItem1: "莫斯科 17:00 (UTC+3)",
+        listItem2: "伦敦 15:00 (夏季 UTC+1 / 冬季 UTC+0)",
+        listItem3: "纽约 10:00 (夏季 UTC-4 / 冬季 UTC-5)",
+        footerText: "在线世界时间。免费全球时钟。"
+      },
+      es: {
+        pageTitle: "Hora UTC Exacta en Línea | Reloj de Tiempo Universal Coordinado - UTCNow.info",
+        pageDesc: "Hora UTC actualizada cada segundo. Verifique la fecha, el día de la semana y la diferencia con Moscú, Londres y Nueva York.",
+        ogTitle: "Hora UTC Exacta en Línea",
+        ogDesc: "Tiempo Universal Coordinado con precisión de segundos. Sincronización de servidores y reuniones internacionales.",
+        mainTitle: "Hora Mundial",
+        mainSubtitle: "Hora UTC precisa y ciudades globales",
+        navHome: "Inicio",
+        navUtc: "UTC",
+        navMoscow: "Moscú",
+        navLondon: "Londres",
+        navNY: "Nueva York",
+        whatIsUtcH2: "¿Qué es la hora UTC?",
+        defLabel: "Definición:",
+        defText: "UTC (Tiempo Universal Coordinado) es el estándar mundial principal para regular los relojes y el tiempo. Todas las demás zonas horarias se calculan desde él.",
+        usageLabel: "Dónde se usa:",
+        usageText: "En aviación, navegación marítima, servidores de TI, experimentos científicos y horarios internacionales.",
+        gmtLabel: "Diferencia con GMT:",
+        gmtText: "GMT es un estándar astronómico histórico basado en Greenwich. UTC es un estándar moderno basado en átomos. Para la mayoría de los usuarios, son idénticos.",
+        whyWatchUtcH2: "¿Por qué consultar la hora UTC?",
+        whyWatchIntro: "Si trabaja con colegas en el extranjero o configura servidores, conocer la hora UTC exacta es crucial. Por ejemplo, una reunión a las 14:00 UTC sería:",
+        listItem1: "17:00 en Moscú (UTC+3)",
+        listItem2: "15:00 en Londres (UTC+1 verano / UTC+0 invierno)",
+        listItem3: "10:00 en Nueva York (UTC-4 verano / UTC-5 invierno)",
+        footerText: "Hora Mundial en Línea. Reloj Global Gratuito."
+      },
+      hi: {
+        pageTitle: "सटीक UTC समय ऑनलाइन | समन्वित सार्वभौमिक समय घड़ी - UTCNow.info",
+        pageDesc: "प्रति सेकंड अपडेट होने वाला वर्तमान UTC समय। मास्को, लंदन और न्यूयॉर्क के साथ तारीख, दिन और अंतर की जांच करें।",
+        ogTitle: "सटीक UTC समय ऑनलाइन",
+        ogDesc: "सेकंड परिशुद्धता के साथ समन्वित सार्वभौमिक समय। सर्वर सिंक और अंतर्राष्ट्रीय बैठकें।",
+        mainTitle: "विश्व समय",
+        mainSubtitle: "सटीक UTC और वैश्विक शहरों का समय",
+        navHome: "होम",
+        navUtc: "UTC",
+        navMoscow: "मास्को",
+        navLondon: "लंदन",
+        navNY: "न्यूयॉर्क",
+        whatIsUtcH2: "UTC समय क्या है?",
+        defLabel: "परिभाषा:",
+        defText: "UTC (समन्वित सार्वभौमिक समय) घड़ियों और समय को नियंत्रित करने के लिए प्राथमिक वैश्विक मानक है। अन्य सभी समय क्षेत्र इसकी गणना करते हैं।",
+        usageLabel: "कहाँ उपयोग किया जाता है:",
+        usageText: "विमानन, समुद्री नेविगेशन, आईटी सर्वर, वैज्ञानिक प्रयोगों और अंतर्राष्ट्रीय शेड्यूल में।",
+        gmtLabel: "GMT से अंतर:",
+        gmtText: "GMT ग्रीनविच पर आधारित एक ऐतिहासिक खगोलीय मानक है। UTC एक आधुनिक परमाणु-आधारित मानक है। अधिकांश उपयोगकर्ताओं के लिए, वे समान हैं।",
+        whyWatchUtcH2: "UTC समय क्यों देखें?",
+        whyWatchIntro: "यदि आप विदेशी सहयोगियों के साथ काम करते हैं या सर्वर कॉन्फ़िगर करते हैं, तो सटीक UTC समय जानना महत्वपूर्ण है। उदाहरण के लिए, 14:00 UTC की बैठक होगी:",
+        listItem1: "मास्को में 17:00 (UTC+3)",
+        listItem2: "लंदन में 15:00 (गर्मी UTC+1 / सर्दी UTC+0)",
+        listItem3: "न्यूयॉर्क में 10:00 (गर्मी UTC-4 / सर्दी UTC-5)",
+        footerText: "ऑनलाइन विश्व समय। मुक्त वैश्विक घड़ी।"
+      }
+    };
+
+    let currentLang = localStorage.getItem('site_lang') || 'ru';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('site_lang', lang);
+      
+      // Обновляем кнопки
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      const btnId = 'btn' + lang.charAt(0).toUpperCase() + lang.slice(1);
+      const activeBtn = document.getElementById(btnId);
+      if(activeBtn) activeBtn.classList.add('active');
+
+      // Применяем переводы
+      applyTranslations(lang);
+      
+      // Обновляем часы с новым локализованным форматом
+      updateUTCClock(lang);
+    }
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      // Text Content Mapping
+      const map = {
+        'mainTitle': t.mainTitle,
+        'mainSubtitle': t.mainSubtitle,
+        'navHome': t.navHome,
+        'navUtc': t.navUtc,
+        'navMoscow': t.navMoscow,
+        'navLondon': t.navLondon,
+        'navNY': t.navNY,
+        'whatIsUtcH2': t.whatIsUtcH2,
+        'defLabel': t.defLabel,
+        'defText': t.defText,
+        'usageLabel': t.usageLabel,
+        'usageText': t.usageText,
+        'gmtLabel': t.gmtLabel,
+        'gmtText': t.gmtText,
+        'whyWatchUtcH2': t.whyWatchUtcH2,
+        'whyWatchIntro': t.whyWatchIntro,
+        'listItem1': t.listItem1,
+        'listItem2': t.listItem2,
+        'listItem3': t.listItem3,
+        'footerText': t.footerText
+      };
+
+      for (const [id, text] of Object.entries(map)) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      }
+
+      // Meta Tags Update
+      document.title = t.pageTitle;
+      document.getElementById('pageDesc').setAttribute('content', t.pageDesc);
+      document.getElementById('ogTitle').setAttribute('content', t.ogTitle);
+      document.getElementById('ogDesc').setAttribute('content', t.ogDesc);
+      document.getElementById('twTitle').setAttribute('content', t.ogTitle);
+      document.getElementById('twDesc').setAttribute('content', t.ogDesc);
+      
+      // HTML Lang Attribute
+      document.documentElement.lang = lang;
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      setLang(currentLang);
+    });
   </script>
 
 <script type="application/ld+json">
@@ -366,7 +623,7 @@
   "name": "Текущее время UTC онлайн",
   "description": "Точное всемирное координированное время (UTC) с обновлением каждую секунду.",
   "url": "https://utcnow.info/utc.html",
-  "inLanguage": "ru-RU",
+  "inLanguage": ["ru-RU", "en-US", "zh-CN", "es-ES", "hi-IN"],
   "isPartOf": {
     "@type": "WebSite",
     "name": "UTCNow.info",
