@@ -825,11 +825,22 @@
         setInterval(updateTimes, 1000);
         
         // Event Listeners
-        langSelector.addEventListener('change', (e) => {
+                langSelector.addEventListener('change', (e) => {
             currentLang = e.target.value;
             localStorage.setItem(LANG_KEY, currentLang);
+            
+            // Применяем переводы
             applyLanguage(currentLang);
-            renderClocks(); // Re-render to update local city names if they were hardcoded differently
+            
+            // Перерисовываем карточки городов с новыми названиями
+            renderClocks(); 
+            
+            // Отправляем событие смены языка в Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'language_change', {
+                    'language': currentLang
+                });
+            }
         });
 
         searchInput.addEventListener("input", () => {
