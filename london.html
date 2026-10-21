@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
+  <!-- SEO Meta Tags -->
   <title id="page-title">Current Time in London | Exact Local Time & UTC Offset - UTCNow.info</title>
   <meta id="meta-desc" name="description" content="Check the exact current time in London, UK. View timezone info (GMT/BST), difference with Moscow/NY/Tokyo, and daylight saving schedule." />
   <link rel="canonical" href="https://utcnow.info/london.html" />
@@ -76,7 +76,6 @@
     .diff-table th, .diff-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
     .diff-table th { color: var(--muted); font-size: 14px; font-weight: normal; }
     .diff-table tr:last-child td { border-bottom: none; }
-    .diff-value { font-weight: bold; color: var(--accent); }
     footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
   </style>
 </head>
@@ -99,14 +98,14 @@
             </select>
           </div>
 
-          <!-- Navigation Menu (Fixed duplicate tags) -->
+          <!-- Navigation Menu -->
           <nav class="menu-links">
             <a href="/" id="nav-home">Home</a>
             <a href="/utc.html" id="nav-utc">UTC</a>
             <a href="/moscow.html" id="nav-moscow">Moscow</a>      
             <a href="/london.html" class="active" id="nav-london">London</a> 
             <a href="/new-york.html" id="nav-newyork">New York</a>
-            <a href="/tokyo.html" id="nav-tokyo">Tokyo</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
+            <a href="/tokyo.html" id="nav-tokyo">Tokyo</a>
           </nav>
         </div>
 
@@ -274,7 +273,7 @@
         footer_desc: "Datos proporcionados con fines de referencia."
       },
       hi: {
-        pageTitle: "लंदन में वर्तमान समय | सटीक स्थाननीय समय और यूटसी ऑफसेट - UTCNow.info",
+        pageTitle: "लंदन में वर्तमान समय | सटीक स्थानननीय समय और यूटसī ऑफसेट - UTCNow.info",
         metaDesc: "यूके के लंदन में सटीक वर्तमान समय देखें। टाइमज़ोन जानकारी (जीएमटी/बीएसटी), मास्को/एनवाई/टोक्यो से अंतर और डेलाइट सेविंग शेड्यूल देखें।",
         site_title: "लंदन का समय",
         site_subtitle: "वर्तमान लंदन समय ऑनलाइन",
@@ -314,7 +313,7 @@
       navMoscow: document.getElementById('nav-moscow'),
       navLondon: document.getElementById('nav-london'),
       navNY: document.getElementById('nav-newyork'),
-      navTokyo: document.getElementById('nav-tokyo'), // ИСПРАВЛЕНО: Добавлен элемент
+      navTokyo: document.getElementById('nav-tokyo'),
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -385,7 +384,7 @@
         navMoscow: t.nav_moscow,
         navLondon: t.nav_london,
         navNY: t.nav_newyork,
-        navTokyo: t.nav_tokyo, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
+        navTokyo: t.nav_tokyo,
         tzInfoH2: t.tz_info_h2,
         diffH2: t.diff_h2,
         thCity: t.th_city,
