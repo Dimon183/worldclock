@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
+  <title id="page-title">Current Time in Tokyo | Exact Local Time & JST - UTCNow.info</title>
+  <meta id="meta-desc" name="description" content="Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY, and business hours schedule." />
+  <link rel="canonical" href="https://utcnow.info/tokyo.html" />
+
+  <!-- Hreflang Alternates -->
+  <link rel="alternate" hreflang="en" href="https://utcnow.info/tokyo.html" />
+  <link rel="alternate" hreflang="ru" href="https://utcnow.info/tokyo.html" />
+  <link rel="alternate" hreflang="zh" href="https://utcnow.info/tokyo.html" />
+  <link rel="alternate" hreflang="es" href="https://utcnow.info/tokyo.html" />
+  <link rel="alternate" hreflang="hi" href="https://utcnow.info/tokyo.html" />
+  <link rel="alternate" hreflang="x-default" href="https://utcnow.info/tokyo.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://utcnow.info/tokyo.html" />
+  <meta id="og-title" property="og:title" content="Current Time in Tokyo" />
+  <meta id="og-desc" property="og:description" content="Exact local time in Tokyo with JST details." />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="tw-title" name="twitter:title" content="Current Time in Tokyo" />
+  <meta id="tw-desc" name="twitter:description" content="Live clock for Tokyo, Japan." />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Current Time in Tokyo",
+    "url": "https://utcnow.info/tokyo.html",
+    "inLanguage": ["en", "ru", "zh", "es", "hi"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "UTCNow.info",
+      "url": "https://utcnow.info/"
+    }
+  }
+  </script>
+
+  <style>
+    :root[data-theme="dark"] { --bg: #0f172a; --card: #1e293b; --card-hover: #24344d; --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8; --accent-text: #082f49; --green: #22c55e; --red: #f87171; --border: #334155; --shadow: 0 12px 30px rgba(0, 0, 0, 0.25); }
+    :root[data-theme="light"] { --bg: #f8fafc; --card: #ffffff; --card-hover: #f1f5f9; --text: #0f172a; --muted: #64748b; --accent: #0284c7; --accent-text: #ffffff; --green: #16a34a; --red: #dc2626; --border: #e2e8f0; --shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; transition: background 0.2s ease, color 0.2s ease; }
+    header { padding: 24px 16px 16px; border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 1100px; margin: 0 auto; }
+    .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; }
+    .subtitle { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.45; }
+    
+    /* Language Selector Styles */
+    .lang-selector-wrap { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
+    select#langSelector { padding: 6px 10px; border-radius: 8px; background: var(--card); color: var(--text); border: 1px solid var(--border); cursor: pointer; font-size: 14px; outline: none; }
+    select#langSelector:focus { border-color: var(--accent); }
+
+    nav.menu-links { margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap; }
+    nav.menu-links a { color: var(--muted); text-decoration: none; font-weight: bold; font-size: 14px; padding: 4px 8px; border-radius: 6px; transition: all 0.2s; }
+    nav.menu-links a:hover { color: var(--text); background: var(--card-hover); }
+    nav.menu-links a.active { color: var(--accent); background: rgba(56, 189, 248, 0.1); }
+    .icon-btn { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 20px; cursor: pointer; display: grid; place-items: center; }
+    main { flex: 1; max-width: 1100px; margin: 0 auto; padding: 40px 16px 64px; width: 100%; }
+    .hero-clock { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 40px; text-align: center; box-shadow: var(--shadow); margin-bottom: 40px; }
+    .big-time { font-size: clamp(48px, 10vw, 80px); font-weight: 900; color: var(--green); font-variant-numeric: tabular-nums; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
+    .big-date { font-size: 20px; color: var(--muted); font-weight: 500; }
+    .offset-badge { display: inline-block; margin-top: 15px; padding: 6px 12px; border-radius: 999px; background: rgba(56, 189, 248, 0.12); color: var(--accent); font-size: 14px; font-weight: 800; }
+    .info-section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .info-section h2 { margin-top: 0; font-size: 24px; color: var(--text); }
+    .diff-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .diff-table th, .diff-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    .diff-table th { color: var(--muted); font-size: 14px; font-weight: normal; }
+    .diff-table tr:last-child td { border-bottom: none; }
+    footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-top">
+        <div>
+          <h1 id="site-title">Time in Tokyo</h1>
+          <p class="subtitle" id="site-subtitle">Current Tokyo time online</p>
+          
+          <!-- Language Selector -->
+          <div class="lang-selector-wrap">
+            <select id="langSelector" aria-label="Select Language">
+              <option value="en">🇬 English</option>
+              <option value="ru">🇷 Русский</option>
+              <option value="zh">🇨 中文</option>
+              <option value="es">🇪 Español</option>
+              <option value="hi">🇮 हिन्दी</option>
+            </select>
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="menu-links">
+            <a href="/" id="nav-home">Home</a>
+            <a href="/utc.html" id="nav-utc">UTC</a>
+            <a href="/moscow.html" id="nav-moscow">Moscow</a>      
+            <a href="/london.html" id="nav-london">London</a> 
+            <a href="/new-york.html" id="nav-newyork">New York</a>
+            <a href="/tokyo.html" class="active" id="nav-tokyo">Tokyo</a>
+          </nav>
+        </div>
+
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch Theme">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-clock">
+      <div id="cityTime" class="big-time">--:--:--</div>
+      <div id="cityDate" class="big-date">Loading...</div>
+      <div class="offset-badge" id="offsetBadge">UTC+9</div>
+    </section>
+
+    <section class="info-section">
+      <h2 id="tz-info-h2">Timezone Information</h2>
+      <p style="color: var(--muted); line-height: 1.6;" id="tz-info-text">
+        Tokyo is located in the <strong>Asia/Tokyo</strong> timezone (JST). The offset relative to UTC is fixed at <strong>UTC+9</strong>. Japan does not observe daylight saving time.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2 id="diff-h2">Time Difference with Other Cities</h2>
+      <table class="diff-table">
+        <thead>
+          <tr>
+            <th id="th-city">City</th>
+            <th id="th-diff">Difference from Tokyo</th>
+            <th id="th-now">Time there now</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="row-moscow-name">Moscow</td>
+            <td id="row-moscow-diff">-6 hrs</td>
+            <td><span class="live-time" data-tz="Europe/Moscow">--:--</span></td>
+          </tr>
+          <tr>
+            <td id="row-london-name">London</td>
+            <td id="row-london-diff">-9 hrs (winter) / -8 hrs (summer)</td>
+            <td><span class="live-time" data-tz="Europe/London">--:--</span></td>
+          </tr>
+          <tr>
+            <td id="row-ny-name">New York</td>
+            <td id="row-ny-diff">-14 hrs (winter) / -13 hrs (summer)</td>
+            <td><span class="live-time" data-tz="America/New_York">--:--</span></td>
+          </tr>
+          <tr>
+            <td id="row-singapore-name">Singapore</td>
+            <td id="row-singapore-diff">-1 hr</td>
+            <td><span class="live-time" data-tz="Asia/Singapore">--:--</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="info-section">
+      <h2 id="faq-h2">Frequently Asked Questions</h2>
+      <details style="margin-bottom: 10px; cursor: pointer;">
+        <summary style="font-weight: bold;" id="faq-q1">What is the time in Tokyo right now?</summary>
+        <p style="color: var(--muted); margin-top: 10px;" id="faq-a1">The exact time is displayed in the large block above. It updates every second.</p>
+      </details>
+      <details style="cursor: pointer;">
+        <summary style="font-weight: bold;" id="faq-q2">Does Tokyo change clocks for daylight saving?</summary>
+        <p style="color: var(--muted); margin-top: 10px;" id="faq-a2">No, Japan has not used daylight saving time since 1952. The time remains constant at UTC+9 throughout the year.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> <span id="footer-brand">World Clock</span>. 
+    <span id="footer-desc">Data provided for reference purposes.</span>
+  </footer>
+
+  <script>
+    // --- TRANSLATIONS DICTIONARY ---
+    const translations = {
+      en: {
+        pageTitle: "Current Time in Tokyo | Exact Local Time & JST - UTCNow.info",
+        metaDesc: "Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY, and business hours schedule.",
+        site_title: "Time in Tokyo",
+        site_subtitle: "Current Tokyo time online",
+        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo",
+        tz_info_h2: "Timezone Information",
+        tz_info_text: "Tokyo is located in the <strong>Asia/Tokyo</strong> timezone (JST). The offset relative to UTC is fixed at <strong>UTC+9</strong>. Japan does not observe daylight saving time.",
+        diff_h2: "Time Difference with Other Cities",
+        th_city: "City", th_diff: "Difference from Tokyo", th_now: "Time there now",
+        row_moscow_name: "Moscow", row_moscow_diff: "-6 hrs",
+        row_london_name: "London", row_london_diff: "-9 hrs (winter) / -8 hrs (summer)",
+        row_ny_name: "New York", row_ny_diff: "-14 hrs (winter) / -13 hrs (summer)",
+        row_singapore_name: "Singapore", row_singapore_diff: "-1 hr",
+        faq_h2: "Frequently Asked Questions",
+        faq_q1: "What is the time in Tokyo right now?",
+        faq_a1: "The exact time is displayed in the large block above. It updates every second.",
+        faq_q2: "Does Tokyo change clocks for daylight saving?",
+        faq_a2: "No, Japan has not used daylight saving time since 1952. The time remains constant at UTC+9 throughout the year.",
+        footer_brand: "World Clock",
+        footer_desc: "Data provided for reference purposes."
+      },
+      ru: {
+        pageTitle: "Точное время в Токио сейчас — который час в Токио - UTCNow.info",
+        metaDesc: "Актуальное время в Токио онлайн. Часовой пояс Asia/Tokyo (JST), смещение UTC+9, разница с Москвой, Лондоном и Нью-Йорком.",
+        site_title: "Время в Токио",
+        site_subtitle: "Текущее токийское время онлайн",
+        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио",
+        tz_info_h2: "Информация о часовом поясе",
+        tz_info_text: "Токио находится в часовом поясе <strong>Asia/Tokyo</strong> (JST). Смещение относительно UTC фиксировано: <strong>UTC+9</strong>. Япония не переходит на летнее время.",
+        diff_h2: "Разница времени с другими городами",
+        th_city: "Город", th_diff: "Разница с Токио", th_now: "Время там сейчас",
+        row_moscow_name: "Москва", row_moscow_diff: "-6 ч",
+        row_london_name: "Лондон", row_london_diff: "-9 ч (зима) / -8 ч (лето)",
+        row_ny_name: "Нью-Йорк", row_ny_diff: "-14 ч (зима) / -13 ч (лето)",
+        row_singapore_name: "Сингапур", row_singapore_diff: "-1 ч",
+        faq_h2: "Часто задаваемые вопросы",
+        faq_q1: "Который час в Токио прямо сейчас?",
+        faq_a1: "Точное время отображается в большом блоке выше. Оно обновляется каждую секунду.",
+        faq_q2: "Переводят ли часы в Токио на летнее время?",
+        faq_a2: "Нет, Япония не использует летнее время с 1952 года. Время остается постоянным (UTC+9) круглый год.",
+        footer_brand: "Всемирное время онлайн",
+        footer_desc: "Данные предоставлены в справочных целях."
+      },
+      zh: {
+        pageTitle: "东京当前时间 | 精确本地时间和JST - UTCNow.info",
+        metaDesc: "查看日本东京的准确当前时间。查看时区信息（JST），与莫斯科/伦敦/纽约的差异以及商务时间表。",
+        site_title: "东京时间",
+        site_subtitle: "在线显示当前东京时间",
+        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京",
+        tz_info_h2: "时区信息",
+        tz_info_text: "东京位于<strong>Asia/Tokyo</strong>时区（JST）。相对于UTC的偏移量固定为<strong>UTC+9</strong>。日本不实行夏令时。",
+        diff_h2: "与其他城市的时间差异",
+        th_city: "城市", th_diff: "与东京的差异", th_now: "那里的当前时间",
+        row_moscow_name: "莫斯科", row_moscow_diff: "-6小时",
+        row_london_name: "伦敦", row_london_diff: "-9小时（冬）/ -8小时（夏）",
+        row_ny_name: "纽约", row_ny_diff: "-14小时（冬）/ -13小时（夏）",
+        row_singapore_name: "新加坡", row_singapore_diff: "-1小时",
+        faq_h2: "常见问题",
+        faq_q1: "现在东京几点？",
+        faq_a1: "确切时间显示在上方的大区块中。它每秒更新一次。",
+        faq_q2: "东京是否实行夏令时？",
+        faq_a2: "不，日本自1952年以来未使用夏令时。全年时间保持恒定（UTC+9）。",
+        footer_brand: "世界时钟",
+        footer_desc: "数据仅供参考。"
+      },
+      es: {
+        pageTitle: "Hora Actual en Tokio | Hora Local Exacta y JST - UTCNow.info",
+        metaDesc: "Consulte la hora actual exacta en Tokio, Japón. Vea información de zona horaria (JST), diferencia con Moscú/Londres/NY y horario comercial.",
+        site_title: "Hora en Tokio",
+        site_subtitle: "Hora actual de Tokio en línea",
+        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio",
+        tz_info_h2: "Información de Zona Horaria",
+        tz_info_text: "Tokio se encuentra en la zona horaria <strong>Asia/Tokyo</strong> (JST). La desviación respecto a UTC es fija en <strong>UTC+9</strong>. Japón no observa el horario de verano.",
+        diff_h2: "Diferencia de Hora con Otras Ciudades",
+        th_city: "Ciudad", th_diff: "Diferencia desde Tokio", th_now: "Hora allí ahora",
+        row_moscow_name: "Moscú", row_moscow_diff: "-6 horas",
+        row_london_name: "Londres", row_london_diff: "-9 horas (inv) / -8 horas (ver)",
+        row_ny_name: "Nueva York", row_ny_diff: "-14 horas (inv) / -13 horas (ver)",
+        row_singapore_name: "Singapur", row_singapore_diff: "-1 hora",
+        faq_h2: "Preguntas Frecuentes",
+        faq_q1: "¿Qué hora es en Tokio ahora mismo?",
+        faq_a1: "La hora exacta se muestra en el bloque grande de arriba. Se actualiza cada segundo.",
+        faq_q2: "¿Cambia Tokio los relojes para el horario de verano?",
+        faq_a2: "No, Japón no ha utilizado el horario de verano desde 1952. El tiempo permanece constante en UTC+9 durante todo el año.",
+        footer_brand: "Reloj Mundial",
+        footer_desc: "Datos proporcionados con fines de referencia."
+      },
+      hi: {
+        pageTitle: "टोक्यो में वर्तमान समय | सटीक स्थाननीय समय और जेएसटी - UTCNow.info",
+        metaDesc: "जापान के टोक्यो में सटीक वर्तमान समय देखें। टाइमज़ोन जानकाररी (जेएसटी), मासको/लंदन/एनवाई से अंतर और व्यवारिक शेड्यूल देखें।",
+        site_title: "टोक्यो का समय",
+        site_subtitle: "वर्तमान टोक्यो समय ऑनलाइन",
+        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो",
+        tz_info_h2: "टाइमज़ोन जानकारी",
+        tz_info_text: "टोक्यो <strong>Asia/Tokyo</strong> टाइमज़ोन (जेएसटी) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+9</strong> है। जापान डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
+        diff_h2: "अन्य शहरों के साथ समय का अंतर",
+        th_city: "शहर", th_diff: "टोक्यो से अंतर", th_now: "वहाँ अभी समय",
+        row_moscow_name: "मास्को", row_moscow_diff: "-6 घंटे",
+        row_london_name: "लंदन", row_london_diff: "-9 घंटे (सर्दी) / -8 घंटे (गर्मी)",
+        row_ny_name: "न्यू यॉर्क", row_ny_diff: "-14 घंटे (सर्दी) / -13 घंटे (गर्मी)",
+        row_singapore_name: "सिंगापुर", row_singapore_diff: "-1 घंटा",
+        faq_h2: "अक्सर पूछे जाने वाले प्रश्न",
+        faq_q1: "अभी टोक्यो में क्या समय है?",
+        faq_a1: "सटीक समय ऊपर दिए गए बड़े ब्लॉक में प्रदर्शित होता है। यह हर सेकंड अपडेट होता है।",
+        faq_q2: "क्या टोक्यो डेलेट लाइट सेविंग के लिए घड़ियाँ बदलता है?",
+        faq_a2: "नहीं, जापान ने 1952 से डेलेट लाइट सेविंग टाइम का उपयोग नहीं किया है। वर्ष भर समय स्थिर रहता है (UTC+9)।",
+        footer_brand: "विश्व घड़ी",
+        footer_desc: "डेटा संदर्भ उद्देश्यों के लिए प्रदान किया गया है।"
+      }
+    };
+
+    const THEME_KEY = "worldClockTheme_v1";
+    const LANG_KEY = "worldClockLang_v1";
+    const CITY_TIMEZONE = "Asia/Tokyo"; 
+    
+    let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+
+    // DOM Elements Cache
+    const els = {
+      title: document.getElementById('page-title'),
+      desc: document.getElementById('meta-desc'),
+      siteTitle: document.getElementById('site-title'),
+      siteSubtitle: document.getElementById('site-subtitle'),
+      navHome: document.getElementById('nav-home'),
+      navUtc: document.getElementById('nav-utc'),
+      navMoscow: document.getElementById('nav-moscow'),
+      navLondon: document.getElementById('nav-london'),
+      navNY: document.getElementById('nav-newyork'),
+      navTokyo: document.getElementById('nav-tokyo'),
+      tzInfoH2: document.getElementById('tz-info-h2'),
+      tzInfoText: document.getElementById('tz-info-text'),
+      diffH2: document.getElementById('diff-h2'),
+      thCity: document.getElementById('th-city'),
+      thDiff: document.getElementById('th-diff'),
+      thNow: document.getElementById('th-now'),
+      rowMoscowName: document.getElementById('row-moscow-name'),
+      rowMoscowDiff: document.getElementById('row-moscow-diff'),
+      rowLondonName: document.getElementById('row-london-name'),
+      rowLondonDiff: document.getElementById('row-london-diff'),
+      rowNyName: document.getElementById('row-ny-name'),
+      rowNyDiff: document.getElementById('row-ny-diff'),
+      rowSingaporeName: document.getElementById('row-singapore-name'),
+      rowSingaporeDiff: document.getElementById('row-singapore-diff'),
+      faqH2: document.getElementById('faq-h2'),
+      faqQ1: document.getElementById('faq-q1'),
+      faqA1: document.getElementById('faq-a1'),
+      faqQ2: document.getElementById('faq-q2'),
+      faqA2: document.getElementById('faq-a2'),
+      footerBrand: document.getElementById('footer-brand'),
+      footerDesc: document.getElementById('footer-desc'),
+      year: document.getElementById('year'),
+      langSelector: document.getElementById('langSelector'),
+      themeToggle: document.getElementById('themeToggle'),
+      cityTime: document.getElementById('cityTime'),
+      cityDate: document.getElementById('cityDate')
+    };
+
+    function initApp() {
+      initTheme();
+      if(els.year) els.year.textContent = new Date().getFullYear();
+      if(els.langSelector) els.langSelector.value = currentLang;
+      
+      applyLanguage(currentLang);
+      
+      setInterval(updateCityClock, 1000);
+      updateCityClock();
+
+      if(els.langSelector) {
+        els.langSelector.addEventListener('change', (e) => {
+          currentLang = e.target.value;
+          localStorage.setItem(LANG_KEY, currentLang);
+          applyLanguage(currentLang);
+          updateCityClock();
+        });
+      }
+
+      if(els.themeToggle) {
+        els.themeToggle.addEventListener('click', () => {
+          const isDark = document.documentElement.dataset.theme === 'dark';
+          setTheme(isDark ? 'light' : 'dark');
+        });
+      }
+    }
+
+    function applyLanguage(langCode) {
+      const t = translations[langCode];
+      if (!t) return;
+
+      document.documentElement.lang = langCode;
+
+      // Update Text Content
+      const mapping = {
+        siteTitle: t.site_title,
+        siteSubtitle: t.site_subtitle,
+        navHome: t.nav_home,
+        navUtc: t.nav_utc,
+        navMoscow: t.nav_moscow,
+        navLondon: t.nav_london,
+        navNY: t.nav_newyork,
+        navTokyo: t.nav_tokyo,
+        tzInfoH2: t.tz_info_h2,
+        diffH2: t.diff_h2,
+        thCity: t.th_city,
+        thDiff: t.th_diff,
+        thNow: t.th_now,
+        rowMoscowName: t.row_moscow_name,
+        rowMoscowDiff: t.row_moscow_diff,
+        rowLondonName: t.row_london_name,
+        rowLondonDiff: t.row_london_diff,
+        rowNyName: t.row_ny_name,
+        rowNyDiff: t.row_ny_diff,
+        rowSingaporeName: t.row_singapore_name,
+        rowSingaporeDiff: t.row_singapore_diff,
+        faqH2: t.faq_h2,
+        faqQ1: t.faq_q1,
+        faqA1: t.faq_a1,
+        faqQ2: t.faq_q2,
+        faqA2: t.faq_a2,
+        footerBrand: t.footer_brand,
+        footerDesc: t.footer_desc
+      };
+
+      for (const [key, value] of Object.entries(mapping)) {
+        if (els[key] && value) {
+          els[key].textContent = value;
+        }
+      }
+
+      // Handle InnerHTML for rich text (bold tags)
+      if(els.tzInfoText && t.tz_info_text) {
+        els.tzInfoText.innerHTML = t.tz_info_text;
+      }
+
+      // SEO Updates
+      if(els.title) els.title.textContent = t.pageTitle;
+      if(els.desc) els.desc.setAttribute('content', t.metaDesc);
+    }
+
+    function updateCityClock() {
+      const now = new Date();
+      const localeMap = {'en':'en-US','ru':'ru-RU','zh':'zh-CN','es':'es-ES','hi':'hi-IN'};
+      const locale = localeMap[currentLang] || 'en-US';
+
+      try {
+        // Main Clock
+        const timeString = now.toLocaleTimeString(locale, { timeZone: CITY_TIMEZONE, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+        const dateString = now.toLocaleDateString(locale, { timeZone: CITY_TIMEZONE, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        
+        if(els.cityTime) els.cityTime.textContent = timeString;
+        if(els.cityDate) els.cityDate.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+
+        // Table Live Times
+        document.querySelectorAll('.live-time').forEach(el => {
+          const tz = el.getAttribute('data-tz');
+          if (tz) {
+            const otherTime = now.toLocaleTimeString(locale, { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
+            el.textContent = otherTime;
+          }
+        });
+      } catch (error) {
+        console.error("Clock Error:", error);
+      }
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const theme = savedTheme || (systemPrefersLight ? "light" : "dark");
+      setTheme(theme);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(THEME_KEY, theme);
+      if(els.themeToggle) {
+        els.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
