@@ -88,6 +88,7 @@
       --accent-text: #ffffff;
       --green: #16a34a;
       --red: #dc2626;
+      --yellow: #ca8a04;
       --border: #e2e8f0;
       --input-bg: #ffffff;
       --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
@@ -456,19 +457,20 @@
                         <option value="en">🇬 English</option>
                         <option value="zh">🇨🇳 中文</option>
                         <option value="es">🇪🇸 Español</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                        <option value="hi">🇮🇩 हिन्दी</option>
+                        <option value="ru">🇷 Русский</option>
+                        <option value="hi">🇮 हिन्दी</option>
                     </select>
                 </div>
 
-                <!-- Меню Навигации -->
-                <nav class="menu-links" style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="/" class="active" id="nav-home" style="color: var(--accent); text-decoration: none; font-weight: bold;">Home</a>
-                    <a href="/utc.html" id="nav-utc" style="color: var(--muted); text-decoration: none; font-weight: bold;">UTC</a>
-                    <a href="/moscow.html" id="nav-moscow" style="color: var(--muted); text-decoration: none; font-weight: bold;">Moscow</a>
-                    <a href="/london.html" id="nav-london" style="color: var(--muted); text-decoration: none; font-weight: bold;">London</a>
-                    <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
-                </nav>
+                          <!-- Меню Навигации -->
+          <nav class="menu-links" style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="/" class="active" id="nav-home" style="color: var(--accent); text-decoration: none; font-weight: bold;">Home</a>
+            <a href="/utc.html" id="nav-utc" style="color: var(--muted); text-decoration: none; font-weight: bold;">UTC</a>
+            <a href="/moscow.html" id="nav-moscow" style="color: var(--muted); text-decoration: none; font-weight: bold;">Moscow</a>
+            <a href="/london.html" id="nav-london" style="color: var(--muted); text-decoration: none; font-weight: bold;">London</a>
+            <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
+            <a href="/tokyo.html" id="nav-tokyo" style="color: var(--muted); text-decoration: none; font-weight: bold;">Tokyo</a>
+          </nav>
             </div>
 
             <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch Theme">
@@ -520,6 +522,8 @@
             nav_moscow: "Moscow",
             nav_london: "London",
             nav_newyork: "New York",
+            nav_tokyo: "Tokyo", 
+            
             search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
             btn_add: "Add City",
             btn_reset: "Reset Defaults",
@@ -542,6 +546,8 @@
             nav_moscow: "Москва",
             nav_london: "Лондон",
             nav_newyork: "Нью-Йорк",
+            nav_tokyo: "Токио", 
+            
             search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
             btn_add: "Добавить город",
             btn_reset: "Сбросить список",
@@ -564,6 +570,8 @@
             nav_moscow: "莫斯科",
             nav_london: "伦敦",
             nav_newyork: "纽约",
+            nav_tokyo: "东京", 
+            
             search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
             btn_add: "添加城市",
             btn_reset: "重置列表",
@@ -586,6 +594,8 @@
             nav_moscow: "Moscú",
             nav_london: "Londres",
             nav_newyork: "Nueva York",
+            nav_tokyo: "Tokio", 
+            
             search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
             btn_add: "Añadir Ciudad",
             btn_reset: "Restablecer Lista",
@@ -608,10 +618,12 @@
             nav_moscow: "मास्को",
             nav_london: "लंदन",
             nav_newyork: "न्यू यॉर्क",
+            nav_tokyo: "टोक्यो", 
+            
             search_placeholder: "शहर खोजें: मास्को, लंदन, एशिया/टोक्यो...",
             btn_add: "शहर जोड़ें",
-            btn_reset: "सूची रीसेट करें",
-            help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरोप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
+            btn_reset: "सूचী रीसेट करें",
+            help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
             footer_brand: "विश्व घड़ी",
             footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
             status_added: "शहर सफलतापूर्वक जोड़ा गया।",
@@ -619,7 +631,7 @@
             status_exists: "यह शहर पहले से सूची में है।",
             status_invalid_tz: "अमान्य टाइमज़ोन।",
             status_empty_search: "कृपया एक शहर का नाम या टाइमज़ोन दर्ज करें।",
-            status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आज़माएं।",
+            status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आजमाएं।",
             default_cities_labels: ["UTC", "मास्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
         }
     };
@@ -641,14 +653,7 @@
       { label: "Sydney", timezone: "Australia/Sydney", country: "Australia" }
     ];
 
-    // Large Catalog (Labels will be localized dynamically if needed, 
-    // but for simplicity we keep internal labels as English/Russian mix from original code,
-    // however, the DISPLAY logic needs to handle translation of common cities.
-    // For this implementation, we assume CITY_CATALOG stores canonical names, 
-    // and we map specific popular ones to translations for display if desired.
-    // To keep it simple and robust: We store the English Label in DATA, 
-    // but RENDER using Translation if available, else fallback to stored label.)
-    
+    // Large Catalog
     const CITY_CATALOG = [
       ...BASE_DEFAULT_CITIES,
       { label: "Saint Petersburg", timezone: "Europe/Moscow", country: "Russia" },
@@ -812,6 +817,7 @@
     const navMoscow = document.getElementById("nav-moscow");
     const navLondon = document.getElementById("nav-london");
     const navNY = document.getElementById("nav-newyork");
+    const navTokyo = document.getElementById("nav-tokyo"); // ADDED TOKYO LINK REFERENCE
 
     yearEl.textContent = new Date().getFullYear();
 
@@ -825,7 +831,7 @@
         setInterval(updateTimes, 1000);
         
         // Event Listeners
-                langSelector.addEventListener('change', (e) => {
+        langSelector.addEventListener('change', (e) => {
             currentLang = e.target.value;
             localStorage.setItem(LANG_KEY, currentLang);
             
@@ -944,7 +950,8 @@
         navMoscow.textContent = t.nav_moscow;
         navLondon.textContent = t.nav_london;
         navNY.textContent = t.nav_newyork;
-
+        navTokyo.textContent = t.nav_tokyo; // UPDATED TO INCLUDE TOKYO
+        
         // Update Page Title & Meta Descriptions for SEO
         document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
         document.getElementById("meta-desc").setAttribute("content", t.footer_desc + " " + t.subtitle);
@@ -958,24 +965,9 @@
     }
 
     function getTranslatedCityLabel(originalLabel, timezone) {
-        // Helper to find if a standard city has a translation in current language
-        // This is a simplified mapping. In a real app, you'd have a massive dictionary.
-        // Here we just check against known keys in DEFAULT_CITIES_LABELS array order vs BASE_DEFAULT_CITIES
-        
         const t = translations[currentLang];
         if(!t || !t.default_cities_labels) return originalLabel;
 
-        // Check if this city is one of the default 9 by matching timezone roughly or index logic
-        // Since user might add custom cities, we only translate the core ones if possible.
-        // For this demo, we rely on the fact that renderClocks uses the stored label.
-        // If we want dynamic translation of STORED labels, we need to map them back.
-        // However, storing the LABEL in localStorage means if I switch language, old cities stay in old language.
-        // BETTER APPROACH: Store only TIMEZONE in localStorage, derive Label at Render time.
-        // BUT, your existing code stores {label, timezone}. 
-        // To fix this properly without breaking everything:
-        // We will re-map the labels during render IF they match known defaults.
-        
-        // Let's implement a lookup for the Default 9 cities specifically.
         const defaultMap = {};
         BASE_DEFAULT_CITIES.forEach((base, i) => {
              if(t.default_cities_labels[i]) {
@@ -1078,9 +1070,6 @@
       );
 
       if (exactCatalogMatch) {
-        // Use the catalog label (usually English) but we could try to localize it here if complex
-        // For now, adding the English label is safest for consistency, 
-        // unless it's a default city which gets handled by render logic below.
         addCity(exactCatalogMatch.label, exactCatalogMatch.timezone);
         return;
       }
@@ -1195,8 +1184,6 @@
         card.dataset.timezone = city.timezone;
 
         // Determine Display Label:
-        // 1. If it's one of the default 9, use the translated label from current dictionary.
-        // 2. Otherwise, use the stored label (which might be English from catalog).
         let displayLabel = city.label;
         const defaultIdx = BASE_DEFAULT_CITIES.findIndex(b => b.timezone === city.timezone);
         if(defaultIdx !== -1 && t.default_cities_labels[defaultIdx]) {
