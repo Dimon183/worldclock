@@ -1,21 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SN2LBSRZMN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SN2LBSRZMN');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
-  <title id="page-title">Current Time in Moscow | Exact Local Time & UTC Offset - UTCNow.info</title>
-  <meta id="meta-desc" name="description" content="Check the exact current time in Moscow, Russia. View timezone info (MSK), difference with London/NY/Tokyo, and daylight saving status." />
+  <title id="page-title">Current Time in Moscow | Exact Local Time & MSK - UTCNow.info</title>
+  <meta id="meta-desc" name="description" content="Check the exact current time in Moscow, Russia. View timezone info (MSK), difference with London/NY/Tokyo/Dubai." />
   <link rel="canonical" href="https://utcnow.info/moscow.html" />
 
   <!-- Hreflang Alternates -->
@@ -85,7 +76,6 @@
     .diff-table th, .diff-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
     .diff-table th { color: var(--muted); font-size: 14px; font-weight: normal; }
     .diff-table tr:last-child td { border-bottom: none; }
-    .diff-value { font-weight: bold; color: var(--accent); }
     footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
   </style>
 </head>
@@ -115,6 +105,7 @@
             <a href="/moscow.html" class="active" id="nav-moscow">Moscow</a>      
             <a href="/london.html" id="nav-london">London</a> 
             <a href="/new-york.html" id="nav-newyork">New York</a>
+            <a href="/tokyo.html" id="nav-tokyo">Tokyo</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
           </nav>
         </div>
 
@@ -194,11 +185,11 @@
     // --- TRANSLATIONS DICTIONARY ---
     const translations = {
       en: {
-        pageTitle: "Current Time in Moscow | Exact Local Time & UTC Offset - UTCNow.info",
-        metaDesc: "Check the exact current time in Moscow, Russia. View timezone info (MSK), difference with London/NY/Tokyo, and daylight saving status.",
+        pageTitle: "Current Time in Moscow | Exact Local Time & MSK - UTCNow.info",
+        metaDesc: "Check the exact current time in Moscow, Russia. View timezone info (MSK), difference with London/NY/Tokyo/Dubai.",
         site_title: "Time in Moscow",
         site_subtitle: "Current Moscow time online",
-        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York",
+        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo",
         tz_info_h2: "Timezone Information",
         tz_info_text: "Moscow is located in the <strong>Europe/Moscow</strong> timezone (MSK). The offset relative to UTC is fixed at <strong>UTC+3</strong>. Russia does not observe daylight saving time anymore.",
         diff_h2: "Time Difference with Other Cities",
@@ -217,10 +208,10 @@
       },
       ru: {
         pageTitle: "Точное время в Москве сейчас — который час в Москве - UTCNow.info",
-        metaDesc: "Актуальное время в Москве онлайн. Часовой пояс Europe/Moscow (МСК), смещение UTC+3, разница с Лондоном, Нью-Йорком и Токио.",
+        metaDesc: "Актуальное время в Москве онлайн. Часовой пояс Europe/Moscow (МСК), смещение UTC+3, разница с Лондоном, Нью-Йорком, Токио и Дубаем.",
         site_title: "Время в Москве",
         site_subtitle: "Текущее московское время онлайн",
-        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк",
+        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио",
         tz_info_h2: "Информация о часовом поясе",
         tz_info_text: "Москва находится в часовом поясе <strong>Europe/Moscow</strong> (МСК). Смещение относительно UTC фиксировано: <strong>UTC+3</strong>. Россия больше не переходит на летнее время.",
         diff_h2: "Разница времени с другими городами",
@@ -238,11 +229,11 @@
         footer_desc: "Данные предоставлены в справочных целях."
       },
       zh: {
-        pageTitle: "莫斯科当前时间 | 精确本地时间和UTC偏移 - UTCNow.info",
-        metaDesc: "查看俄罗斯莫斯科的准确当前时间。查看时区信息（MSK），与伦敦/纽约/东京的差异以及夏令时状态。",
+        pageTitle: "莫斯科当前时间 | 精确本地时间和MSK - UTCNow.info",
+        metaDesc: "查看俄罗斯莫斯科的准确当前时间。查看时区信息（MSK），与伦敦/纽约/东京/迪拜的差异。",
         site_title: "莫斯科时间",
         site_subtitle: "在线显示当前莫斯科时间",
-        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约",
+        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京",
         tz_info_h2: "时区信息",
         tz_info_text: "莫斯科位于<strong>Europe/Moscow</strong>时区（MSK）。相对于UTC的偏移量固定为<strong>UTC+3</strong>。俄罗斯不再实行夏令时。",
         diff_h2: "与其他城市的时间差异",
@@ -260,11 +251,11 @@
         footer_desc: "数据仅供参考。"
       },
       es: {
-        pageTitle: "Hora Actual en Moscú | Hora Local Exacta y Desfase UTC - UTCNow.info",
-        metaDesc: "Consulte la hora actual exacta en Moscú, Rusia. Vea información de zona horaria (MSK), diferencia con Londres/NY/Tokio y estado del horario de verano.",
+        pageTitle: "Hora Actual en Moscú | Hora Local Exacta y MSK - UTCNow.info",
+        metaDesc: "Consulte la hora actual exacta en Moscú, Rusia. Vea información de zona horaria (MSK), diferencia con Londres/NY/Tokio/Dubái.",
         site_title: "Hora en Moscú",
         site_subtitle: "Hora actual de Moscú en línea",
-        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York",
+        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio",
         tz_info_h2: "Información de Zona Horaria",
         tz_info_text: "Moscú se encuentra en la zona horaria <strong>Europe/Moscow</strong> (MSK). La desviación respecto a UTC es fija en <strong>UTC+3</strong>. Rusia ya no observa el horario de verano.",
         diff_h2: "Diferencia de Hora con Otras Ciudades",
@@ -282,24 +273,24 @@
         footer_desc: "Datos proporcionados con fines de referencia."
       },
       hi: {
-        pageTitle: "मॉस्को में वर्तमान समय | सटीक स्थानीय समय और यूटीसी ऑफसेट - UTCNow.info",
-        metaDesc: "रूस के मॉस्को में सटीक वर्तमान समय देखें। टाइमज़ोन जानकाररी (एमएसके), लंदन/एनवाई/टोक्यो से अंतर और डेलाइट सेविंग स्तिथि देखें।",
+        pageTitle: "मॉस्को में वर्तमान समय | सटीक स्थाननीय समय और एमएसके - UTCNow.info",
+        metaDesc: "रूस के मॉस्को में सटीक वर्तमान समय देखें। टाइमज़ोन जानकाररी (एमएसके), लंदन/एनवाई/टोक्यो/दुबई से अंतर।",
         site_title: "मॉस्को का समय",
-        site_subtitle: "वर्तमान मॉस्को समय ऑनलइन",
-        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मासको", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क",
+        site_subtitle: "वर्तमान मॉस्को समय ऑनलाइन",
+        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो",
         tz_info_h2: "टाइमज़ोन जानकारी",
-        tz_info_text: "मॉस्को <strong>Europe/Moscow</strong> टाइमज़ोन (एमएसके) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+3</strong> है। रूस अब डेलाइट सेविंग टाइम नहीं अपनाता है।",
+        tz_info_text: "मॉस्को <strong>Europe/Moscow</strong> टाइमज़ोन (एमएसके) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+3</strong> है। रूस अब डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
         diff_h2: "अन्य शहरों के साथ समय का अंतर",
         th_city: "शहर", th_diff: "मॉस्को से अंतर", th_now: "वहां अभी समय",
-        row_london_name: "लंदन", row_london_diff: "-3 घंटे (सर्दी) / -2 घंटे (गर्मी)",
-        row_ny_name: "न्यू यॉर्क", row_ny_diff: "-8 घंटे (सर्दी) / -7 घंटे (गर्मी)",
+        row_london_name: "लंदन", row_london_diff: "-3 घंटे (सरदी) / -2 घंटे (गर्मी)",
+        row_ny_name: "न्यू यॉर्क", row_ny_diff: "-8 घंटे (सरदी) / -7 घंटे (गर्मी)",
         row_tokyo_name: "टोक्यो", row_tokyo_diff: "+6 घंटे",
         row_dubai_name: "दुबई", row_dubai_diff: "+1 घंटा",
         faq_h2: "अक्सर पूछे जाने वाले प्रश्न",
-        faq_q1: "अभी मॉस्को में क्या समय है?",
+        faq_q1: "अभी मास्को में क्या समय है?",
         faq_a1: "सटीक समय ऊपर दिए गए बड़े ब्लॉक में प्रदर्शित होता है। यह हर सेकंड अपडेट होता है।",
-        faq_q2: "क्या मॉस्को डेलाइट सेविंग के लिए घड़ियाँ बदलता है?",
-        faq_a2: "नहीं, रूस ने 2014 में स्थायी मानक समय (UTC+3) पर स्विच किया और अब डेलाइट सेविंग टाइम नहीं अपनाता है।",
+        faq_q2: "क्या मास्को डेलेट लाइट सेविंग के लिए घड़ियाँ बदलता है?",
+        faq_a2: "नहीं, रूस ने 2014 में स्थायी मानक समय (UTC+3) पर स्विच किया और अब डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
         footer_brand: "विश्व घड़ी",
         footer_desc: "डेटा संदर्भ उद्देश्यों के लिए प्रदान किया गया है।"
       }
@@ -322,6 +313,7 @@
       navMoscow: document.getElementById('nav-moscow'),
       navLondon: document.getElementById('nav-london'),
       navNY: document.getElementById('nav-newyork'),
+      navTokyo: document.getElementById('nav-tokyo'), // ИСПРАВЛЕНО: Добавлен элемент
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -392,6 +384,7 @@
         navMoscow: t.nav_moscow,
         navLondon: t.nav_london,
         navNY: t.nav_newyork,
+        navTokyo: t.nav_tokyo, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
         tzInfoH2: t.tz_info_h2,
         diffH2: t.diff_h2,
         thCity: t.th_city,
