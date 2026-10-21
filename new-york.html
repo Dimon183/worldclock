@@ -105,6 +105,7 @@
             <a href="/moscow.html" id="nav-moscow">Moscow</a>      
             <a href="/london.html" id="nav-london">London</a> 
             <a href="/new-york.html" class="active" id="nav-newyork">New York</a>
+            <a href="/tokyo.html" id="nav-tokyo">Tokyo</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
           </nav>
         </div>
 
@@ -273,14 +274,14 @@
       },
       hi: {
         pageTitle: "न्यू यॉर्क में वर्तमान समय | सटीक स्थाननीय समय और EST/EDT - UTCNow.info",
-        metaDesc: "अमेरिका के न्यू यॉर्क सिटी में सटीक वर्तमान समय देखें। EST/EDT शिफ्ट ट्रैक करें, लंदन, मास्को, दुबई और टोक्यो से तुलना करें।",
+        metaDesc: "अमेरिका के न्यू यॉर्क सिटी में सटीक वर्तमान समय देखें। EST/EDT शिफ्ट ट्रैक करें, लंदन, मॉस्को, दुबई और टोक्यो से तुलना करें।",
         site_title: "न्यू यॉर्क का समय",
         site_subtitle: "वर्तमान न्यू यॉर्क समय ऑनलाइन",
         nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो",
         tz_info_h2: "टाइमज़ोन जानकारी",
         tz_info_text: "न्यू यॉर्क <strong>America/New_York</strong> टाइमज़ोन में स्थित है। UTC के सापेक्ष ऑफसेट बदलता रहता है: सर्दियों में यह <strong>UTC-5</strong> (EST) होता है और गर्मियों में <strong>UTC-4</strong> (EDT)। अमेरिका हर साल मार्च के दूसरे रविवार को डेलाइट सेविंग टाइम पर स्विच करता है और नवंबर के पहले रविवार को वापस आता है।",
         diff_h2: "अन्य शहरों के साथ समय का अंतर",
-        th_city: "शहर", th_diff: "मॉस्को से अंतर", th_now: "वहाँ अभी समय",
+        th_city: "शहर", th_diff: "मॉस्को से अंतर", th_now: "वहां अभी समय",
         row_moscow_name: "मास्को", row_moscow_diff: "+8 घंटे (सर्दी) / +7 घंटे (गर्मी)",
         row_london_name: "लंदन", row_london_diff: "+5 घंटे (सर्दी) / +4 घंटे (गर्मी)",
         row_tokyo_name: "टोक्यो", row_tokyo_diff: "+14 घंटे (सर्दी) / +13 घंटे (गर्मी)",
@@ -312,6 +313,7 @@
       navMoscow: document.getElementById('nav-moscow'),
       navLondon: document.getElementById('nav-london'),
       navNY: document.getElementById('nav-newyork'),
+      navTokyo: document.getElementById('nav-tokyo'), // ИСПРАВЛЕНО: Добавлен элемент
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -382,7 +384,7 @@
         navMoscow: t.nav_moscow,
         navLondon: t.nav_london,
         navNY: t.nav_newyork,
-        nav-tokyo: t.nav_tokyo, 
+        navTokyo: t.nav_tokyo, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
         tzInfoH2: t.tz_info_h2,
         diffH2: t.diff_h2,
         thCity: t.th_city,
