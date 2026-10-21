@@ -1,106 +1,336 @@
 ﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SN2LBSRZMN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SN2LBSRZMN');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags -->
+  <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
   <title id="page-title">Exact UTC Time Online | Coordinated Universal Time Clock - UTCNow.info</title>
-  <meta id="meta-desc" name="description" content="Current UTC time updated every second. Check date, day of week, and difference with Moscow, London, and New York." />
+  <meta
+    id="meta-desc"
+    name="description"
+    content="Current UTC time updated every second. Check date, day of week, and difference with Moscow, London, New York, and Tokyo."
+  />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://utcnow.info/utc.html" />
-  
+
   <!-- Hreflang Alternates -->
   <link rel="alternate" hreflang="en" href="https://utcnow.info/utc.html" />
   <link rel="alternate" hreflang="ru" href="https://utcnow.info/utc.html" />
   <link rel="alternate" hreflang="zh" href="https://utcnow.info/utc.html" />
   <link rel="alternate" hreflang="es" href="https://utcnow.info/utc.html" />
   <link rel="alternate" hreflang="hi" href="https://utcnow.info/utc.html" />
+  <link rel="alternate" hreflang="x-default" href="https://utcnow.info/utc.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://utcnow.info/utc.html" />
+  <meta id="og-title" property="og:title" content="Exact UTC Time Online" />
+  <meta
+    id="og-desc"
+    property="og:description"
+    content="Coordinated Universal Time with seconds precision. Server sync and international meetings."
+  />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="tw-title" name="twitter:title" content="Exact UTC Time Online" />
+  <meta
+    id="tw-desc"
+    name="twitter:description"
+    content="Free world clock: exact UTC time in cities worldwide."
+  />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Exact UTC Time Online",
+    "url": "https://utcnow.info/utc.html",
+    "inLanguage": ["en", "ru", "zh", "es", "hi"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "UTCNow.info",
+      "url": "https://utcnow.info/"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Coordinated Universal Time"
+    }
+  }
+  </script>
 
   <style>
-    :root[data-theme="dark"] { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8; --green: #22c55e; --border: #334155; }
-    :root[data-theme="light"] { --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #64748b; --accent: #0284c7; --green: #16a34a; --border: #e2e8f0; }
+    :root[data-theme="dark"] {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #24344d;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-text: #082f49;
+      --green: #22c55e;
+      --red: #f87171;
+      --border: #334155;
+      --input-bg: #0b1220;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      --overlay: rgba(15, 23, 42, 0.96);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --accent-text: #ffffff;
+      --green: #16a34a;
+      --red: #dc2626;
+      --yellow: #ca8a04;
+      --border: #e2e8f0;
+      --input-bg: #ffffff;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --overlay: rgba(255, 255, 255, 0.98);
+    }
+
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: all 0.2s; }
-    
-    /* Header Styles */
-    header { padding: 24px 16px; border-bottom: 1px solid var(--border); }
-    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: start; gap: 16px; flex-wrap: wrap;}
-    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; }
-    .subtitle { margin: 0; color: var(--muted); font-size: 16px; }
-    
-    /* Language Selector */
-    .lang-selector-wrap { margin-top: 10px; }
-    select#langSelector { padding: 6px 10px; border-radius: 8px; background: var(--card); color: var(--text); border: 1px solid var(--border); cursor: pointer; font-size: 14px; outline: none; }
-    select#langSelector:focus { border-color: var(--accent); }
 
-    /* Navigation */
-    nav.menu-links { margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap; }
-    nav.menu-links a { color: var(--muted); text-decoration: none; font-weight: bold; font-size: 14px; padding: 4px 8px; border-radius: 6px; transition: all 0.2s; }
-    nav.menu-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-    nav.menu-links a.active { color: var(--accent); background: rgba(56, 189, 248, 0.1); }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
 
-    /* Buttons */
-    .icon-btn { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 20px; cursor: pointer; display: grid; place-items: center; transition: transform 0.15s ease; }
-    .icon-btn:hover { transform: translateY(-1px); background: var(--card-hover); }
+    header {
+      padding: 24px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
 
-    /* Main Content */
-    main { max-width: 1100px; margin: 0 auto; padding: 40px 16px; }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    /* Language Selector Styles */
+    .lang-selector-wrap {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    select#langSelector {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 14px;
+      outline: none;
+    }
     
-    /* Hero Clock */
-    .hero-clock { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
-    .big-time { font-size: clamp(48px, 10vw, 80px); font-weight: 900; color: var(--green); font-variant-numeric: tabular-nums; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
-    .big-date { font-size: 20px; color: var(--muted); font-weight: 500; }
-    .offset-badge { display: inline-block; margin-top: 15px; padding: 6px 12px; border-radius: 999px; background: rgba(56, 189, 248, 0.12); color: var(--accent); font-size: 14px; font-weight: 800; }
+    select#langSelector:focus {
+      border-color: var(--accent);
+    }
+
+    /* Navigation Menu */
+    nav.menu-links {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav.menu-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    nav.menu-links a:hover {
+      color: var(--text);
+      background: var(--card-hover);
+    }
+
+    nav.menu-links a.active {
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .icon-btn {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      background: var(--card-hover);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 16px 64px;
+    }
+
+    /* Hero Clock Block */
+    .hero-clock {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .big-time {
+      font-size: clamp(48px, 10vw, 80px);
+      font-weight: 900;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .big-date {
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .offset-badge {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+    }
 
     /* Info Sections */
-    .info-section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
-    .info-section h2 { margin-top: 0; font-size: 24px; color: var(--text); margin-bottom: 16px; }
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .info-item p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
-    ul.custom-list { color: var(--muted); line-height: 1.6; padding-left: 20px; margin-top: 10px; }
-    li { margin-bottom: 4px; }
+    .info-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
 
-    /* Footer */
-    footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; margin-top: auto; }
+    .info-section h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .info-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    ul.custom-list {
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      margin-top: auto;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div>
-        <!-- Элементы шапки с ID для перевода -->
-        <h1 id="site-title">World Time</h1>
-        <p class="subtitle" id="site-subtitle">Accurate UTC and global city times</p>
-        
-        <div class="lang-selector-wrap">
-          <select id="langSelector" aria-label="Select Language">
-            <option value="en">🇬 English</option>
-            <option value="ru">🇷 Русский</option>
-            <option value="zh">🇨 中文</option>
-            <option value="es">🇪 Español</option>
-            <option value="hi">🇮 हिन्दी</option>
-          </select>
+      <div class="header-top">
+        <div>
+          <h1 id="site-title">World Time</h1>
+          <p class="subtitle" id="site-subtitle">Accurate UTC and global city times</p>
+          
+          <!-- Language Selector (Single Dropdown like Index) -->
+          <div class="lang-selector-wrap">
+            <select id="langSelector" aria-label="Select Language">
+              <option value="en">🇬 English</option>
+              <option value="zh">🇨 中文</option>
+              <option value="es">🇪 Español</option>
+              <option value="ru">🇷 Русский</option>
+              <option value="hi">🇮 हिन्दी</option>
+            </select>
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="menu-links">
+            <a href="/" id="nav-home">Home</a>
+            <a href="/utc.html" class="active" id="nav-utc">UTC</a>
+            <a href="/moscow.html" id="nav-moscow">Moscow</a>
+            <a href="/london.html" id="nav-london">London</a>
+            <a href="/new-york.html" id="nav-newyork">New York</a>
+            <a href="/tokyo.html" id="nav-tokyo">Tokyo</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
+          </nav>
         </div>
 
-        <nav class="menu-links">
-          <a href="/" id="nav-home">Home</a>
-          <a href="/utc.html" class="active" id="nav-utc">UTC</a>
-          <a href="/moscow.html" id="nav-moscow">Moscow</a>
-          <a href="/london.html" id="nav-london">London</a>
-          <a href="/new-york.html" id="nav-newyork">New York</a>
-        </nav>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch Theme">
+          ☀️
+        </button>
       </div>
-
-      <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch Theme">☀️</button>
     </div>
   </header>
 
@@ -135,6 +365,7 @@
         <li id="list-item-1">17:00 in Moscow (UTC+3)</li>
         <li id="list-item-2">15:00 in London (UTC+1 summer / UTC+0 winter)</li>
         <li id="list-item-3">10:00 in New York (UTC-4 summer / UTC-5 winter)</li>
+        <li id="list-item-4">23:00 in Tokyo (UTC+9)</li> <!-- ДОБАВЛЕН ТОКИО В ПРИМЕРЫ -->
       </ul>
     </section>
   </main>
@@ -145,143 +376,191 @@
   </footer>
 
   <script>
-    // --- СЛОВАРЬ ПЕРЕВОДОВ ---
+    // --- TRANSLATIONS DICTIONARY (Integrated from Index) ---
     const translations = {
-      en: {
-        pageTitle: "Exact UTC Time Online | Coordinated Universal Time Clock - UTCNow.info",
-        metaDesc: "Current UTC time updated every second. Check date, day of week, and difference with Moscow, London, and New York.",
-        site_title: "World Time",
-        site_subtitle: "Accurate UTC and global city times",
-        nav_home: "Home",
-        nav_utc: "UTC",
-        nav_moscow: "Moscow",
-        nav_london: "London",
-        nav_newyork: "New York",
-        what_is_utc_h2: "What is UTC Time?",
-        def_label: "Definition:",
-        def_text: "UTC (Coordinated Universal Time) is the primary global standard for regulating clocks and time. All other time zones are calculated from it.",
-        usage_label: "Where used:",
-        usage_text: "In aviation, maritime navigation, IT servers, scientific experiments, and international schedules.",
-        gmt_label: "Difference from GMT:",
-        gmt_text: "GMT is a historical astronomical standard based on Greenwich. UTC is a modern atomic-based standard. For most users, they are identical.",
-        why_watch_utc_h2: "Why check UTC time?",
-        why_watch_intro: "If you work with colleagues abroad or configure servers, knowing exact UTC time is crucial. For example, a meeting at 14:00 UTC would be:",
-        list_item_1: "17:00 in Moscow (UTC+3)",
-        list_item_2: "15:00 in London (UTC+1 summer / UTC+0 winter)",
-        list_item_3: "10:00 in New York (UTC-4 summer / UTC-5 winter)",
-        footer_brand: "World Clock",
-        footer_desc: "Free online tool for work, travel and calls."
-      },
-      ru: {
-        pageTitle: "Точное время UTC онлайн | Секундомер и дата по Гринвичу - UTCNow.info",
-        metaDesc: "Актуальное время UTC прямо сейчас с точностью до секунды. Узнайте дату, день недели и разницу с Москвой, Лондоном и Нью-Йорком.",
-        site_title: "Всемирное время",
-        site_subtitle: "Точное время UTC и мировых городов",
-        nav_home: "Главная",
-        nav_utc: "UTC",
-        nav_moscow: "Москва",
-        nav_london: "Лондон",
-        nav_newyork: "Нью-Йорк",
-        what_is_utc_h2: "Что такое время UTC?",
-        def_label: "Определение:",
-        def_text: "UTC (Coordinated Universal Time) — основной мировой стандарт времени. От него отсчитываются все остальные часовые пояса.",
-        usage_label: "Где используется:",
-        usage_text: "В авиации, морском деле, IT-серверах, научных экспериментах и международных расписаниях.",
-        gmt_label: "Отличие от GMT:",
-        gmt_text: "GMT — исторический стандарт по Гринвичу. UTC — современный научный стандарт на основе атомных часов. Для обычного пользователя они совпадают.",
-        why_watch_utc_h2: "Зачем смотреть время UTC?",
-        why_watch_intro: "Если вы работаете с коллегами из разных стран или настраиваете серверы, важно знать точное время UTC. Например, если встреча назначена на 14:00 UTC, это будет:",
-        list_item_1: "17:00 в Москве (UTC+3)",
-        list_item_2: "15:00 в Лондоне (UTC+1 летом / UTC+0 зимой)",
-        list_item_3: "10:00 в Нью-Йорке (UTC-4 летом / UTC-5 зимой)",
-        footer_brand: "Мировое Время",
-        footer_desc: "Бесплатный онлайн инструмент для работы, путешествий и созвонов."
-      },
-      zh: {
-        pageTitle: "在线精确UTC时间 | 协调世界时时钟 - UTCNow.info",
-        metaDesc: "当前UTC时间每秒更新。查看日期、星期以及与莫斯科、伦敦和纽约的时差。",
-        site_title: "世界时间",
-        site_subtitle: "准确的UTC和全球城市时间",
-        nav_home: "首页",
-        nav_utc: "UTC",
-        nav_moscow: "莫斯科",
-        nav_london: "伦敦",
-        nav_newyork: "纽约",
-        what_is_utc_h2: "什么是UTC时间？",
-        def_label: "定义：",
-        def_text: "UTC（协调世界时）是调节时钟和时间的主要全球标准。所有其他时区都基于它计算。",
-        usage_label: "用途：",
-        usage_text: "用于航空、航海、IT服务器、科学实验和国际日程安排。",
-        gmt_label: "与GMT的区别：",
-        gmt_text: "GMT是基于格林威治的历史天文标准。UTC是现代原子钟标准。对于大多数用户来说，它们是相同的。",
-        why_watch_utc_h2: "为什么要看UTC时间？",
-        why_watch_intro: "如果您与国外同事工作或配置服务器，了解确切的UTC时间至关重要。例如，14:00 UTC的会议将是：",
-        list_item_1: "莫斯科 17:00 (UTC+3)",
-        list_item_2: "伦敦 15:00 (夏季 UTC+1 / 冬季 UTC+0)",
-        list_item_3: "纽约 10:00 (夏季 UTC-4 / 冬季 UTC-5)",
-        footer_brand: "世界时钟",
-        footer_desc: "免费在线工具，适用于工作、旅行和通话。"
-      },
-      es: {
-        pageTitle: "Hora UTC Exacta en Línea | Reloj de Tiempo Universal Coordinado - UTCNow.info",
-        metaDesc: "Hora UTC actualizada cada segundo. Verifique la fecha, el día de la semana y la diferencia con Moscú, Londres y Nueva York.",
-        site_title: "Hora Mundial",
-        site_subtitle: "Hora UTC precisa y ciudades globales",
-        nav_home: "Inicio",
-        nav_utc: "UTC",
-        nav_moscow: "Moscú",
-        nav_london: "Londres",
-        nav_newyork: "Nueva York",
-        what_is_utc_h2: "¿Qué es la hora UTC?",
-        def_label: "Definición:",
-        def_text: "UTC (Tiempo Universal Coordinado) es el estándar mundial principal para regular los relojes y el tiempo. Todas las demás zonas horarias se calculan desde él.",
-        usage_label: "Dónde se usa:",
-        usage_text: "En aviación, navegación marítima, servidores de TI, experimentos científicos y horarios internacionales.",
-        gmt_label: "Diferencia con GMT:",
-        gmt_text: "GMT es un estándar astronómico histórico basado en Greenwich. UTC es un estándar moderno basado en átomos. Para la mayoría de los usuarios, son idénticos.",
-        why_watch_utc_h2: "¿Por qué consultar la hora UTC?",
-        why_watch_intro: "Si trabaja con colegas en el extranjero o configura servidores, conocer la hora UTC exacta es crucial. Por ejemplo, una reunión a las 14:00 UTC sería:",
-        list_item_1: "17:00 en Moscú (UTC+3)",
-        list_item_2: "15:00 en Londres (UTC+1 verano / UTC+0 invierno)",
-        list_item_3: "10:00 en Nueva York (UTC-4 verano / UTC-5 invierno)",
-        footer_brand: "Reloj Mundial",
-        footer_desc: "Herramienta gratuita en línea para trabajo, viajes y llamadas."
-      },
-      hi: {
-        pageTitle: "सटीक UTC समय ऑनलाइन | समन्वित सार्वभौमिक समय घड़ी - UTCNow.info",
-        metaDesc: "प्रति सेकंड अपडेट होनो वाला वर्तमान UTC समय। मास्को, लंदन और न्यूयॉर्क के साथ तारीख, दिन और अंतर की जांच करें।",
-        site_title: "विश्व समय",
-        site_subtitle: "सटीक UTC और वैश्विक शहरों का समय",
-        nav_home: "होम",
-        nav_utc: "UTC",
-        nav_moscow: "मास्को",
-        nav_london: "लंदन",
-        nav_newyork: "न्यू यॉर्क",
-        what_is_utc_h2: "UTC समय क्या है?",
-        def_label: "परिभाषा:",
-        def_text: "UTC (समन्वित सार्वभौमिक समय) घड़ियों और समय को नियंत्रित करने के लिए प्राथमिक वैश्विक मानक है। अन्य सभी समय क्षेत्र इसकी गणना करते हैं।",
-        usage_label: "कहां उपयोग किया जाता है:",
-        usage_text: "विमानन, समुद्री नेविगेशन, आईटी सर्वर, वैज्ञानिक प्रयोगों और अंतर्राष्ट्रीय शेड्यूल में।",
-        gmt_label: "GMT से अंतर:",
-        gmt_text: "GMT ग्रीनविच पर आधारित एक ऐतिहसिक खगोलिय मानक है। UTC एक आधुनिक परमाणु-आधारित मानक है। अधिकांश उपयोगकर्ताओं के लिए, वे समान हैं।",
-        why_watch_utc_h2: "UTC समय क्यों देखें?",
-        why_watch_intro: "यदि आप विदेशी सहयोगियों के साथ काम करते हैं या सर्वर कॉन्फ़िगर करते हैं, तो सटीक UTC समय जानना महत्वपूर्ण है। उदाहरण के लिए, 14:00 UTC की बैठक होगी:",
-        list_item_1: "मास्को में 17:00 (UTC+3)",
-        list_item_2: "लंदन में 15:00 (गर्मी UTC+1 / सर्दी UTC+0)",
-        list_item_3: "न्यू यॉर्क में 10:00 (गर्मी UTC-4 / सर्दी UTC-5)",
-        footer_brand: "विश्व घड़ी",
-        footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।"
-      }
+        en: {
+            pageTitle: "Exact UTC Time Online | Coordinated Universal Time Clock - UTCNow.info",
+            metaDesc: "Current UTC time updated every second. Check date, day of week, and difference with Moscow, London, New York, and Tokyo.",
+            ogTitle: "Exact UTC Time Online",
+            ogDesc: "Coordinated Universal Time with seconds precision. Server sync and international meetings.",
+            
+            site_title: "World Time",
+            site_subtitle: "Accurate UTC and global city times",
+            
+            nav_home: "Home",
+            nav_utc: "UTC",
+            nav_moscow: "Moscow",
+            nav_london: "London",
+            nav_newyork: "New York",
+            nav_tokyo: "Tokyo", // ADDED TOKYO NAVIGATION
+            
+            what_is_utc_h2: "What is UTC Time?",
+            def_label: "Definition:",
+            def_text: "UTC (Coordinated Universal Time) is the primary global standard for regulating clocks and time. All other time zones are calculated from it.",
+            usage_label: "Where used:",
+            usage_text: "In aviation, maritime navigation, IT servers, scientific experiments, and international schedules.",
+            gmt_label: "Difference from GMT:",
+            gmt_text: "GMT is a historical astronomical standard based on Greenwich. UTC is a modern atomic-based standard. For most users, they are identical.",
+            
+            why_watch_utc_h2: "Why check UTC time?",
+            why_watch_intro: "If you work with colleagues abroad or configure servers, knowing exact UTC time is crucial. For example, a meeting at 14:00 UTC would be:",
+            list_item_1: "17:00 in Moscow (UTC+3)",
+            list_item_2: "15:00 in London (UTC+1 summer / UTC+0 winter)",
+            list_item_3: "10:00 in New York (UTC-4 summer / UTC-5 winter)",
+            list_item_4: "23:00 in Tokyo (UTC+9)", // ADDED TOKYO EXAMPLE
+            
+            footer_brand: "World Clock",
+            footer_desc: "Free online tool for work, travel and calls."
+        },
+        ru: {
+            pageTitle: "Точное время UTC онлайн | Секундомер и дата по Гринвичу - UTCNow.info",
+            metaDesc: "Актуальное время UTC прямо сейчас с точностью до секунды. Узнайте дату, день недели и разницу с Москвой, Лондоном, Нью-Йорком и Токио.",
+            ogTitle: "Точное время UTC онлайн",
+            ogDesc: "Всемирное координированное время с секундами. Синхронизация серверов и международных встреч.",
+            
+            site_title: "Всемирное время",
+            site_subtitle: "Точное время UTC и мировых городов",
+            
+            nav_home: "Главная",
+            nav_utc: "UTC",
+            nav_moscow: "Москва",
+            nav_london: "Лондон",
+            nav_newyork: "Нью-Йорк",
+            nav_tokyo: "Токио", // ADDED TOKYO NAVIGATION
+            
+            what_is_utc_h2: "Что такое время UTC?",
+            def_label: "Определение:",
+            def_text: "UTC (Coordinated Universal Time) — основной мировой стандарт времени. От него отсчитываются все остальные часовые пояса.",
+            usage_label: "Где используется:",
+            usage_text: "В авиации, морском деле, IT-серверах, научных экспериментах и международных расписаниях.",
+            gmt_label: "Отличие от GMT:",
+            gmt_text: "GMT — исторический стандарт по Гринвичу. UTC — современный научный стандарт на основе атомных часов. Для обычного пользователя они совпадают.",
+            
+            why_watch_utc_h2: "Зачем смотреть время UTC?",
+            why_watch_intro: "Если вы работаете с коллегами из разных стран или настраиваете серверы, важно знать точное время UTC. Например, если встреча назначена на 14:00 UTC, это будет:",
+            list_item_1: "17:00 в Москве (UTC+3)",
+            list_item_2: "15:00 в Лондоне (UTC+1 летом / UTC+0 зимой)",
+            list_item_3: "10:00 в Нью-Йорке (UTC-4 летом / UTC-5 зимой)",
+            list_item_4: "23:00 в Токио (UTC+9)", // ADDED TOKYO EXAMPLE
+            
+            footer_brand: "Мировое Время",
+            footer_desc: "Бесплатный онлайн инструмент для работы, путешествий и созвонов."
+        },
+        zh: {
+            pageTitle: "在线精确UTC时间 | 协调世界时时钟 - UTCNow.info",
+            metaDesc: "当前UTC时间每秒更新。查看日期、星期以及与莫斯科、伦敦、纽约和东京的时差。",
+            ogTitle: "在线精确UTC时间",
+            ogDesc: "带秒数的协调世界时。服务器同步和国际会议。",
+            
+            site_title: "世界时间",
+            site_subtitle: "准确的UTC和全球城市时间",
+            
+            nav_home: "首页",
+            nav_utc: "UTC",
+            nav_moscow: "莫斯科",
+            nav_london: "伦敦",
+            nav_newyork: "纽约",
+            nav_tokyo: "东京", // ADDED TOKYO NAVIGATION
+            
+            what_is_utc_h2: "什么是UTC时间？",
+            def_label: "定义：",
+            def_text: "UTC（协调世界时）是调节时钟和时间的主要全球标准。所有其他时区都基于它计算。",
+            usage_label: "用途：",
+            usage_text: "用于航空、航海、IT服务器、科学实验和国际日程安排。",
+            gmt_label: "与GMT的区别：",
+            gmt_text: "GMT是基于格林威治的历史天文标准。UTC是现代原子钟标准。对于大多数用户来说，它们是相同的。",
+            
+            why_watch_utc_h2: "为什么要看UTC时间？",
+            why_watch_intro: "如果您与国外同事工作或配置服务器，了解确切的UTC时间至关重要。例如，14:00 UTC的会议将是：",
+            list_item_1: "莫斯科 17:00 (UTC+3)",
+            list_item_2: "伦敦 15:00 (夏季 UTC+1 / 冬季 UTC+0)",
+            list_item_3: "纽约 10:00 (夏季 UTC-4 / 冬季 UTC-5)",
+            list_item_4: "东京 23:00 (UTC+9)", // ADDED TOKYO EXAMPLE
+            
+            footer_brand: "世界时钟",
+            footer_desc: "免费在线工具，适用于工作、旅行和通话。"
+        },
+        es: {
+            pageTitle: "Hora UTC Exacta en Línea | Reloj de Tiempo Universal Coordinado - UTCNow.info",
+            metaDesc: "Hora UTC actualizada cada segundo. Verifique la fecha, el día de la semana y la diferencia con Moscú, Londres, Nueva York y Tokio.",
+            ogTitle: "Hora UTC Exacta en Línea",
+            ogDesc: "Tiempo Universal Coordinado con precisión de segundos. Sincronización de servidores y reuniones internacionales.",
+            
+            site_title: "Hora Mundial",
+            site_subtitle: "Hora UTC precisa y ciudades globales",
+            
+            nav_home: "Inicio",
+            nav_utc: "UTC",
+            nav_moscow: "Moscú",
+            nav_london: "Londres",
+            nav_newyork: "Nueva York",
+            nav_tokyo: "Tokio", // ADDED TOKYO NAVIGATION
+            
+            what_is_utc_h2: "¿Qué es la hora UTC?",
+            def_label: "Definición:",
+            def_text: "UTC (Tiempo Universal Coordinado) es el estándar mundial principal para regular los relojes y el tiempo. Todas las demás zonas horarias se calculan desde él.",
+            usage_label: "Dónde se usa:",
+            usage_text: "En aviación, navegación marítima, servidores de TI, experimentos científicos y horarios internacionales.",
+            gmt_label: "Diferencia con GMT:",
+            gmt_text: "GMT es un estándar astronómico histórico basado en Greenwich. UTC es un estándar moderno basado en átomos. Para la mayoría de los usuarios, son idénticos.",
+            
+            why_watch_utc_h2: "¿Por qué consultar la hora UTC?",
+            why_watch_intro: "Si trabaja con colegas en el extranjero o configura servidores, conocer la hora UTC exacta es crucial. Por ejemplo, una reunión a las 14:00 UTC sería:",
+            list_item_1: "17:00 en Moscú (UTC+3)",
+            list_item_2: "15:00 en Londres (UTC+1 verano / UTC+0 invierno)",
+            list_item_3: "10:00 en Nueva York (UTC-4 verano / UTC-5 invierno)",
+            list_item_4: "23:00 en Tokio (UTC+9)", // ADDED TOKYO EXAMPLE
+            
+            footer_brand: "Reloj Mundial",
+            footer_desc: "Herramienta gratuita en línea para trabajo, viajes y llamadas."
+        },
+        hi: {
+            pageTitle: "सटीक UTC समय ऑनलाइन | समन्वित सार्वभौमिक समय घड़ी - UTCNow.info",
+            metaDesc: "प्रति सेकंड अपडेट होनो वाला वर्तमान UTC समय। मॉस्को, लंदन, न्यूयॉर्क और टोक्यो के साथ तारीख, दिन और अंतर की जांच करें।",
+            ogTitle: "सटीक UTC समय ऑनलाइन",
+            ogDesc: "सेकंड परिशुद्धता के साथ समन्वित सार्वभौमिक समय। सर्वर सिंक और अंतर्राष्ट्रीय बैठकें।",
+            
+            site_title: "विश्व समय",
+            site_subtitle: "सटीक UTC और वैश्विक शहरों का समय",
+            
+            nav_home: "होम",
+            nav_utc: "UTC",
+            nav_moscow: "मास्को",
+            nav_london: "लंदन",
+            nav_newyork: "न्यू यॉर्क",
+            nav_tokyo: "टोक्यो", // ADDED TOKYO NAVIGATION
+            
+            what_is_utc_h2: "UTC समय क्या है?",
+            def_label: "परिभाषा:",
+            def_text: "UTC (समन्वित सार्वभौमिक समय) घड़ियों और समय को नियंत्रित करने के लिए प्राथमिक वैश्विक मानक है। अन्य सभी समय क्षेत्र इसकी गणना करते हैं।",
+            usage_label: "कहां उपयोग किया जाता है:",
+            usage_text: "विमानन, समुद्री नेविगेशन, आईटी सर्वर, वैज्ञानिक प्रयोगों और अंतर्राष्ट्रीय शेड्यूल में।",
+            gmt_label: "GMT से अंतर:",
+            gmt_text: "GMT ग्रीनविच पर आधारित एक ऐतिहासिक खगोलीय मानक है। UTC एक आधुनिक परमाणु-आधारित मानक है। अधिकांश उपयोगकर्ताओं के लिए, वे समान हैं।",
+            
+            why_watch_utc_h2: "UTC समय क्यों देखें?",
+            why_watch_intro: "यदि आप विदेशी सहयोगियों के साथ काम करते हैं या सर्वर कॉन्फ़िगर करते हैं, तो सटीक UTC समय जानना महत्वपूर्ण है। उदाहरण के लिए, 14:00 UTC की बैठक होगी:",
+            list_item_1: "मॉस्को में 17:00 (UTC+3)",
+            list_item_2: "लंदन में 15:00 (गर्मी UTC+1 / सर्दी UTC+0)",
+            list_item_3: "न्यू यॉर्क में 10:00 (गर्मी UTC-4 / सर्दी UTC-5)",
+            list_item_4: "टोक्यो में 23:00 (UTC+9)", // ADDED TOKYO EXAMPLE
+            
+            footer_brand: "विश्व घड़ी",
+            footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।"
+        }
     };
 
-    // --- ЛОГИКА ПРИЛОЖЕНИЯ ---
     const THEME_KEY = "worldClockTheme_v1";
     const LANG_KEY = "worldClockLang_v1";
-    
+
     let currentLang = localStorage.getItem(LANG_KEY) || 'en';
 
-    // Получаем ссылки на DOM элементы один раз
-    const domElements = {
+    const themeToggle = document.getElementById("themeToggle");
+    const yearEl = document.getElementById("year");
+    const langSelector = document.getElementById("langSelector");
+    
+    // DOM Elements Cache (Updated to include navTokyo)
+    const els = {
       title: document.getElementById('page-title'),
       desc: document.getElementById('meta-desc'),
       siteTitle: document.getElementById('site-title'),
@@ -291,6 +570,8 @@
       navMoscow: document.getElementById('nav-moscow'),
       navLondon: document.getElementById('nav-london'),
       navNY: document.getElementById('nav-newyork'),
+      navTokyo: document.getElementById('nav-tokyo'), // ИСПРАВЛЕНО: Добавлен элемент
+      
       whatIsUtcH2: document.getElementById('what-is-utc-h2'),
       defLabel: document.getElementById('def-label'),
       defText: document.getElementById('def-text'),
@@ -298,151 +579,180 @@
       usageText: document.getElementById('usage-text'),
       gmtLabel: document.getElementById('gmt-label'),
       gmtText: document.getElementById('gmt-text'),
+      
       whyWatchUtcH2: document.getElementById('why-watch-utc-h2'),
       whyWatchIntro: document.getElementById('why-watch-intro'),
       listItem1: document.getElementById('list-item-1'),
       listItem2: document.getElementById('list-item-2'),
       listItem3: document.getElementById('list-item-3'),
+      listItem4: document.getElementById('list-item-4'), // NEW ITEM FOR TOKYO
+      
       footerBrand: document.getElementById('footer-brand'),
       footerDesc: document.getElementById('footer-desc'),
-      year: document.getElementById('year'),
-      langSelector: document.getElementById('langSelector'),
-      themeToggle: document.getElementById('themeToggle'),
       utcTime: document.getElementById('utcTime'),
       utcDate: document.getElementById('utcDate')
     };
 
     function initApp() {
-      // 1. Тема
-      initTheme();
-      
-      // 2. Год в футере
-      if(domElements.year) domElements.year.textContent = new Date().getFullYear();
+        initTheme();
+        
+        // Set initial language selector value
+        if(langSelector) langSelector.value = currentLang;
 
-      // 3. Установить начальный язык в селекторе
-      if(domElements.langSelector) domElements.langSelector.value = currentLang;
+        applyLanguage(currentLang);
+        
+        // Start Clock Logic
+        setInterval(updateUTCClock, 1000);
+        updateUTCClock();
+        yearEl.textContent = new Date().getFullYear();
 
-      // 4. Применить переводы
-      applyLanguage(currentLang);
+        // Event Listeners
+        if(themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                const current = document.documentElement.dataset.theme;
+                setTheme(current === "dark" ? "light" : "dark");
+            });
+        }
 
-      // 5. Слушатели событий
-      if(domElements.langSelector) {
-        domElements.langSelector.addEventListener('change', (e) => {
-          currentLang = e.target.value;
-          localStorage.setItem(LANG_KEY, currentLang);
-          applyLanguage(currentLang);
-          updateUTCClock(); // Немедленно обновить формат даты/времени
-        });
-      }
-
-      if(domElements.themeToggle) {
-        domElements.themeToggle.addEventListener('click', () => {
-          const isDark = document.documentElement.dataset.theme === 'dark';
-          setTheme(isDark ? 'light' : 'dark');
-        });
-      }
-
-      // 6. Запуск тикера часов
-      setInterval(updateUTCClock, 1000);
-      updateUTCClock(); // Первый вызов сразу
+        if(langSelector) {
+            langSelector.addEventListener('change', (e) => {
+                currentLang = e.target.value;
+                localStorage.setItem(LANG_KEY, currentLang);
+                applyLanguage(currentLang);
+                updateUTCClock(); // Refresh clock format immediately
+            });
+        }
     }
 
     function applyLanguage(langCode) {
-      const t = translations[langCode];
-      if (!t) return;
+        const t = translations[langCode];
+        if (!t) return;
 
-      // Обновляем атрибут языка страницы
-      document.documentElement.lang = langCode;
+        // Update HTML Lang Attribute
+        document.documentElement.lang = langCode;
 
-      // Обновляем SEO теги
-      if(domElements.title) domElements.title.textContent = t.pageTitle;
-      if(domElements.desc) domElements.desc.setAttribute('content', t.metaDesc);
+        // Update Static Text Elements by ID using Mapping
+        const mapping = {
+            siteTitle: t.site_title,
+            siteSubtitle: t.site_subtitle,
+            navHome: t.nav_home,
+            navUtc: t.nav_utc,
+            navMoscow: t.nav_moscow,
+            navLondon: t.nav_london,
+            navNY: t.nav_newyork,
+            navTokyo: t.nav_tokyo, // UPDATED TO INCLUDE TOKYO
+            
+            whatIsUtcH2: t.what_is_utc_h2,
+            defLabel: t.def_label,
+            defText: t.def_text,
+            usageLabel: t.usage_label,
+            usageText: t.usage_text,
+            gmtLabel: t.gmt_label,
+            gmtText: t.gmt_text,
+            
+            whyWatchUtcH2: t.why_watch_utc_h2,
+            whyWatchIntro: t.why_watch_intro,
+            listItem1: t.list_item_1,
+            listItem2: t.list_item_2,
+            listItem3: t.list_item_3,
+            listItem4: t.list_item_4, // ADDED TOKYO EXAMPLE
+            
+            footerBrand: t.footer_brand,
+            footerDesc: t.footer_desc
+        };
 
-      // Обновляем видимый текст по ID
-      const mapping = {
-        siteTitle: t.site_title,
-        siteSubtitle: t.site_subtitle,
-        navHome: t.nav_home,
-        navUtc: t.nav_utc,
-        navMoscow: t.nav_moscow,
-        navLondon: t.nav_london,
-        navNY: t.nav_newyork,
-        whatIsUtcH2: t.what_is_utc_h2,
-        defLabel: t.def_label,
-        defText: t.def_text,
-        usageLabel: t.usage_label,
-        usageText: t.usage_text,
-        gmtLabel: t.gmt_label,
-        gmtText: t.gmt_text,
-        whyWatchUtcH2: t.why_watch_utc_h2,
-        whyWatchIntro: t.why_watch_intro,
-        listItem1: t.list_item_1,
-        listItem2: t.list_item_2,
-        listItem3: t.list_item_3,
-        footerBrand: t.footer_brand,
-        footerDesc: t.footer_desc
-      };
-
-      for (const [key, value] of Object.entries(mapping)) {
-        if (domElements[key] && value) {
-          domElements[key].textContent = value;
+        for (const [key, value] of Object.entries(mapping)) {
+            if (els[key] && value) {
+                els[key].textContent = value;
+            }
         }
-      }
+
+        // Update Page Title & Meta Descriptions for SEO
+        if(els.title) els.title.textContent = t.pageTitle;
+        if(els.desc) els.desc.setAttribute("content", t.metaDesc);
+        
+        // Update OG/Twitter tags if needed (optional but good practice)
+        const ogTitleEl = document.getElementById("og-title");
+        if(ogTitleEl) ogTitleEl.setAttribute("content", t.ogTitle);
+        
+        const ogDescEl = document.getElementById("og-desc");
+        if(ogDescEl) ogDescEl.setAttribute("content", t.ogDesc);
+        
+        const twTitleEl = document.getElementById("tw-title");
+        if(twTitleEl) twTitleEl.setAttribute("content", t.ogTitle);
+        
+        const twDescEl = document.getElementById("tw-desc");
+        if(twDescEl) twDescEl.setAttribute("content", t.ogDesc);
+        
+        // Update Locale tags
+        const localeMap = {
+            'en': 'en_US',
+            'ru': 'ru_RU',
+            'zh': 'zh_CN',
+            'es': 'es_ES',
+            'hi': 'hi_IN'
+        };
+        const localeTag = document.querySelector('meta[property="og:locale"]');
+        if(localeTag) localeTag.setAttribute("content", localeMap[langCode] || 'en_US');
     }
 
     function updateUTCClock() {
-      const now = new Date();
-      
-      // Карта локалей для Intl API
-      const localeMap = {
-        'en': 'en-US',
-        'ru': 'ru-RU',
-        'zh': 'zh-CN',
-        'es': 'es-ES',
-        'hi': 'hi-IN'
-      };
-      const locale = localeMap[currentLang] || 'en-US';
+        const now = new Date();
+        
+        // Format locale depends on selected language
+        const localeMap = {
+            'en': 'en-US',
+            'ru': 'ru-RU',
+            'zh': 'zh-CN',
+            'es': 'es-ES',
+            'hi': 'hi-IN'
+        };
+        const locale = localeMap[currentLang] || 'en-US';
 
-      // Форматируем время
-      const timeString = now.toLocaleTimeString(locale, {
-        timeZone: 'UTC',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      });
+        const timeString = now.toLocaleTimeString(locale, {
+            timeZone: 'UTC',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
 
-      // Форматируем дату
-      const dateString = now.toLocaleDateString(locale, {
-        timeZone: 'UTC',
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      });
+        const dateString = now.toLocaleDateString(locale, {
+            timeZone: 'UTC',
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
 
-      if(domElements.utcTime) domElements.utcTime.textContent = timeString;
-      if(domElements.utcDate) domElements.utcDate.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+        const timeEl = document.getElementById('utcTime');
+        const dateEl = document.getElementById('utcDate');
+
+        if(timeEl) timeEl.textContent = timeString;
+        if(dateEl) dateEl.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
     }
 
     function initTheme() {
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-      const theme = savedTheme || (systemPrefersLight ? "light" : "dark");
-      setTheme(theme);
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        const theme = savedTheme || (systemPrefersLight ? "light" : "dark");
+        setTheme(theme);
     }
 
     function setTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      localStorage.setItem(THEME_KEY, theme);
-      
-      if(domElements.themeToggle) {
-        domElements.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-        domElements.themeToggle.setAttribute("aria-label", theme === "dark" ? "Enable Light Mode" : "Enable Dark Mode");
-      }
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem(THEME_KEY, theme);
+        if(themeToggle) {
+            themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+            themeToggle.setAttribute("aria-label", theme === "dark" ? "Enable Light Mode" : "Enable Dark Mode");
+        }
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute("content", theme === "dark" ? "#0f172a" : "#f8fafc");
+        }
     }
 
-    // Инициализация после полной загрузки DOM
+    // Initialize App on Load
     document.addEventListener('DOMContentLoaded', initApp);
   </script>
 </body>
