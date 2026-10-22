@@ -18,7 +18,7 @@
   <meta
     id="meta-desc"
     name="description"
-    content="Free world clock online: current time in Moscow, London, New York, Tokyo, Dubai, Berlin, Singapore, Sydney and more. UTC time, time zones, city search, favorites, dark/light theme."
+    content="Free world clock online: current time in Moscow, London, New York, Tokyo, Dubai, Singapore, Berlin, Sydney and more. UTC time, time zones, city search, favorites, dark/light theme."
   />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://utcnow.info/" />
@@ -470,7 +470,8 @@
             <a href="/london.html" id="nav-london" style="color: var(--muted); text-decoration: none; font-weight: bold;">London</a>
             <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
             <a href="/tokyo.html" id="nav-tokyo" style="color: var(--muted); text-decoration: none; font-weight: bold;">Tokyo</a>
-            <a href="/dubai.html" id="nav-dubai" style="color: var(--muted); text-decoration: none; font-weight: bold;">Dubai</a> <!-- ДОБАВЛЕНО -->
+            <a href="/dubai.html" id="nav-dubai" style="color: var(--muted); text-decoration: none; font-weight: bold;">Dubai</a>
+            <a href="/singapore.html" id="nav-singapore" style="color: var(--muted); text-decoration: none; font-weight: bold;">Singapore</a> <!-- ДОБАВЛЕНО -->
           </nav>
             </div>
 
@@ -524,7 +525,8 @@
             nav_london: "London",
             nav_newyork: "New York",
             nav_tokyo: "Tokyo",
-            nav_dubai: "Dubai", // ADDED DUBAI
+            nav_dubai: "Dubai",
+            nav_singapore: "Singapore", // ADDED SINGAPORE
             
             search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
             btn_add: "Add City",
@@ -549,7 +551,8 @@
             nav_london: "Лондон",
             nav_newyork: "Нью-Йорк",
             nav_tokyo: "Токио",
-            nav_dubai: "Дубай", // ADDED DUBAI
+            nav_dubai: "Дубай",
+            nav_singapore: "Сингапур", // ADDED SINGAPORE
             
             search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
             btn_add: "Добавить город",
@@ -574,7 +577,8 @@
             nav_london: "伦敦",
             nav_newyork: "纽约",
             nav_tokyo: "东京",
-            nav_dubai: "迪拜", // ADDED DUBAI
+            nav_dubai: "迪拜",
+            nav_singapore: "新加坡", // ADDED SINGAPORE
             
             search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
             btn_add: "添加城市",
@@ -599,7 +603,8 @@
             nav_london: "Londres",
             nav_newyork: "Nueva York",
             nav_tokyo: "Tokio",
-            nav_dubai: "Dubái", // ADDED DUBAI
+            nav_dubai: "Dubái",
+            nav_singapore: "Singapur", // ADDED SINGAPORE
             
             search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
             btn_add: "Añadir Ciudad",
@@ -624,11 +629,12 @@
             nav_london: "लंदन",
             nav_newyork: "न्यू यॉर्क",
             nav_tokyo: "टोक्यो",
-            nav_dubai: "दुबई", // ADDED DUBAI
+            nav_dubai: "दुबई",
+            nav_singapore: "सिंगापुर", // ADDED SINGAPORE
             
             search_placeholder: "शहर खोजें: मासको, लंदन, एशिय/टोक्यो...",
             btn_add: "शहर जोड़ें",
-            btn_reset: "सूची रीसेट करें",
+            btn_reset: "सूचী रीसेट करें",
             help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
             footer_brand: "विश्व घड़ी",
             footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
@@ -647,6 +653,8 @@
     const LANG_KEY = "worldClockLang_v1";
 
     // Base Data (Timezones remain constant across languages)
+    // Note: Singapore is now part of the default list logic below if we wanted to swap one out, 
+    // but usually we keep the big catalog separate. Here we ensure it's recognized.
     const BASE_DEFAULT_CITIES = [
       { label: "UTC", timezone: "Etc/UTC", country: "Global" },
       { label: "Moscow", timezone: "Europe/Moscow", country: "Russia" },
@@ -824,7 +832,8 @@
     const navLondon = document.getElementById("nav-london");
     const navNY = document.getElementById("nav-newyork");
     const navTokyo = document.getElementById("nav-tokyo");
-    const navDubai = document.getElementById("nav-dubai"); // ADDED DUBAI LINK REFERENCE
+    const navDubai = document.getElementById("nav-dubai");
+    const navSingapore = document.getElementById("nav-singapore"); // ADDED SINGAPORE LINK REFERENCE
 
     yearEl.textContent = new Date().getFullYear();
 
@@ -958,7 +967,8 @@
         navLondon.textContent = t.nav_london;
         navNY.textContent = t.nav_newyork;
         navTokyo.textContent = t.nav_tokyo;
-        navDubai.textContent = t.nav_dubai; // UPDATED TO INCLUDE DUBAI
+        navDubai.textContent = t.nav_dubai;
+        navSingapore.textContent = t.nav_singapore; // UPDATED TO INCLUDE SINGAPORE
         
         // Update Page Title & Meta Descriptions for SEO
         document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
