@@ -40,9 +40,17 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
+<!-- Токио (Новый) -->
   <url>
     <loc>https://utcnow.info/tokyo.html</loc>
     <lastmod>2026-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+ <!-- Дубай (Новый) -->
+  <url>
+    <loc>https://utcnow.info/dubai.html</loc>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
