@@ -6,7 +6,7 @@
   
   <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
   <title id="page-title">Current Time in Tokyo | Exact Local Time & JST - UTCNow.info</title>
-  <meta id="meta-desc" name="description" content="Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY/Dubai." />
+  <meta id="meta-desc" name="description" content="Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY/Dubai/Singapore." />
   <link rel="canonical" href="https://utcnow.info/tokyo.html" />
 
   <!-- Hreflang Alternates -->
@@ -106,7 +106,8 @@
             <a href="/london.html" id="nav-london">London</a> 
             <a href="/new-york.html" id="nav-newyork">New York</a>
             <a href="/tokyo.html" class="active" id="nav-tokyo">Tokyo</a>
-            <a href="/dubai.html" id="nav-dubai">Dubai</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
+            <a href="/dubai.html" id="nav-dubai">Dubai</a>
+            <a href="/singapore.html" id="nav-singapore">Singapore</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
           </nav>
         </div>
 
@@ -160,6 +161,11 @@
             <td id="row-dubai-diff">-5 hrs</td>
             <td><span class="live-time" data-tz="Asia/Dubai">--:--</span></td>
           </tr>
+          <tr>
+            <td id="row-singapore-name">Singapore</td>
+            <td id="row-singapore-diff">-1 hr</td>
+            <td><span class="live-time" data-tz="Asia/Singapore">--:--</span></td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -187,10 +193,10 @@
     const translations = {
       en: {
         pageTitle: "Current Time in Tokyo | Exact Local Time & JST - UTCNow.info",
-        metaDesc: "Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY/Dubai.",
+        metaDesc: "Check the exact current time in Tokyo, Japan. View timezone info (JST), difference with Moscow/London/NY/Dubai/Singapore.",
         site_title: "Time in Tokyo",
         site_subtitle: "Current Tokyo time online",
-        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai",
+        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai", nav_singapore: "Singapore",
         tz_info_h2: "Timezone Information",
         tz_info_text: "Tokyo is located in the <strong>Asia/Tokyo</strong> timezone (JST). The offset relative to UTC is fixed at <strong>UTC+9</strong>. Japan does not observe daylight saving time.",
         diff_h2: "Time Difference with Other Cities",
@@ -199,6 +205,7 @@
         row_london_name: "London", row_london_diff: "-9 hrs (winter) / -8 hrs (summer)",
         row_ny_name: "New York", row_ny_diff: "-14 hrs (winter) / -13 hrs (summer)",
         row_dubai_name: "Dubai", row_dubai_diff: "-5 hrs",
+        row_singapore_name: "Singapore", row_singapore_diff: "-1 hr",
         faq_h2: "Frequently Asked Questions",
         faq_q1: "What is the time in Tokyo right now?",
         faq_a1: "The exact time is displayed in the large block above. It updates every second.",
@@ -209,10 +216,10 @@
       },
       ru: {
         pageTitle: "Точное время в Токио сейчас — который час в Токио - UTCNow.info",
-        metaDesc: "Актуальное время в Токио онлайн. Часовой пояс Asia/Tokyo (JST), смещение UTC+9, разница с Москвой, Лондоном, Нью-Йорком и Дубаем.",
+        metaDesc: "Актуальное время в Токио онлайн. Часовой пояс Asia/Tokyo (JST), смещение UTC+9, разница с Москвой, Лондоном, Нью-Йорком, Дубаем и Сингапуром.",
         site_title: "Время в Токио",
         site_subtitle: "Текущее токийское время онлайн",
-        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай",
+        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай", nav_singapore: "Сингапур",
         tz_info_h2: "Информация о часовом поясе",
         tz_info_text: "Токио находится в часовом поясе <strong>Asia/Tokyo</strong> (JST). Смещение относительно UTC фиксировано: <strong>UTC+9</strong>. Япония не переходит на летнее время.",
         diff_h2: "Разница времени с другими городами",
@@ -221,6 +228,7 @@
         row_london_name: "Лондон", row_london_diff: "-9 ч (зима) / -8 ч (лето)",
         row_ny_name: "Нью-Йорк", row_ny_diff: "-14 ч (зима) / -13 ч (лето)",
         row_dubai_name: "Дубай", row_dubai_diff: "-5 ч",
+        row_singapore_name: "Сингапур", row_singapore_diff: "-1 ч",
         faq_h2: "Часто задаваемые вопросы",
         faq_q1: "Который час в Токио прямо сейчас?",
         faq_a1: "Точное время отображается в большом блоке выше. Оно обновляется каждую секунду.",
@@ -231,10 +239,10 @@
       },
       zh: {
         pageTitle: "东京当前时间 | 精确本地时间和JST - UTCNow.info",
-        metaDesc: "查看日本东京的准确当前时间。查看时区信息（JST），与莫斯科/伦敦/纽约/迪拜的差异。",
+        metaDesc: "查看日本东京的准确当前时间。查看时区信息（JST），与莫斯科/伦敦/纽约/迪拜/新加坡的差异。",
         site_title: "东京时间",
         site_subtitle: "在线显示当前东京时间",
-        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜",
+        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜", nav_singapore: "新加坡",
         tz_info_h2: "时区信息",
         tz_info_text: "东京位于<strong>Asia/Tokyo</strong>时区（JST）。相对于UTC的偏移量固定为<strong>UTC+9</strong>。日本不实行夏令时。",
         diff_h2: "与其他城市的时间差异",
@@ -243,6 +251,7 @@
         row_london_name: "伦敦", row_london_diff: "-9小时（冬）/ -8小时（夏）",
         row_ny_name: "纽约", row_ny_diff: "-14小时（冬）/ -13小时（夏）",
         row_dubai_name: "迪拜", row_dubai_diff: "-5小时",
+        row_singapore_name: "新加坡", row_singapore_diff: "-1小时",
         faq_h2: "常见问题",
         faq_q1: "现在东京几点？",
         faq_a1: "确切时间显示在上方的大区块中。它每秒更新一次。",
@@ -253,10 +262,10 @@
       },
       es: {
         pageTitle: "Hora Actual en Tokio | Hora Local Exacta y JST - UTCNow.info",
-        metaDesc: "Consulte la hora actual exacta en Tokio, Japón. Vea información de zona horaria (JST), diferencia con Moscú/Londres/NY/Dubái.",
+        metaDesc: "Consulte la hora actual exacta en Tokio, Japón. Vea información de zona horaria (JST), diferencia con Moscú/Londres/NY/Dubái/Singapur.",
         site_title: "Hora en Tokio",
         site_subtitle: "Hora actual de Tokio en línea",
-        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái",
+        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái", nav_singapore: "Singapur",
         tz_info_h2: "Información de Zona Horaria",
         tz_info_text: "Tokio se encuentra en la zona horaria <strong>Asia/Tokyo</strong> (JST). La desviación respecto a UTC es fija en <strong>UTC+9</strong>. Japón no observa el horario de verano.",
         diff_h2: "Diferencia de Hora con Otras Ciudades",
@@ -265,6 +274,7 @@
         row_london_name: "Londres", row_london_diff: "-9 horas (inv) / -8 horas (ver)",
         row_ny_name: "Nueva York", row_ny_diff: "-14 horas (inv) / -13 horas (ver)",
         row_dubai_name: "Dubái", row_dubai_diff: "-5 horas",
+        row_singapore_name: "Singapur", row_singapore_diff: "-1 hora",
         faq_h2: "Preguntas Frecuentes",
         faq_q1: "¿Qué hora es en Tokio ahora mismo?",
         faq_a1: "La hora exacta se muestra en el bloque grande de arriba. Se actualiza cada segundo.",
@@ -274,19 +284,20 @@
         footer_desc: "Datos proporcionados con fines de referencia."
       },
       hi: {
-        pageTitle: "टोक्यो में वर्तमान समय | सटीक स्थानननीय समय और जेएसटी - UTCNow.info",
-        metaDesc: "जापान के टोक्यो में सटीक वर्तमन समय देखें। टाइमज़ोन जानकाररी (जेएसटी), मासको/लंदन/एनवाई/दुबई से अंतर।",
+        pageTitle: "टोक्यो में वर्तमन समय | सटिक स्थानननीय समय और जेएसटी - UTCNow.info",
+        metaDesc: "जापान के टोक्यो में सटिक वर्तमान समय देखें। टाइमज़ोन जानकारी (जेएसटी), मास्को/लंदन/एनवाई/दुबई/सिंगापुर से अंतर।",
         site_title: "टोक्यो का समय",
         site_subtitle: "वर्तमान टोक्यो समय ऑनलाइन",
-        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्क", nav_london: "लंडन", nav_newyork: "न्यू यॉरक", nav_tokyo: "टोक्यो", nav_dubai: "दुबई",
+        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई", nav_singapore: "सिंगापुर",
         tz_info_h2: "टाइमज़ोन जानकारी",
         tz_info_text: "टोक्यो <strong>Asia/Tokyo</strong> टाइमज़ोन (जेएसटी) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+9</strong> है। जापान डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
         diff_h2: "अन्य शहरों के साथ समय का अंतर",
-        th_city: "शहर", th_diff: "टोक्यो से अंतर", th_now: "वहाँ अभी समय",
+        th_city: "शहर", th_diff: "टोक्यो से अंतर", th_now: "वहां अभी समय",
         row_moscow_name: "मास्को", row_moscow_diff: "-6 घंटे",
-        row_london_name: "लंदन", row_london_diff: "-9 घंटे (सर्दी) / -8 घंटे (गर्मी)",
-        row_ny_name: "न्यू यॉर्क", row_ny_diff: "-14 घंटे (सर्दी) / -13 घंटे (गर्मी)",
+        row_london_name: "लंदन", row_london_diff: "-9 घंटे (सरदी) / -8 घंटे (गर्मी)",
+        row_ny_name: "न्यू यॉर्क", row_ny_diff: "-14 घंटे (सरदी) / -13 घंटे (गर्मी)",
         row_dubai_name: "दुबई", row_dubai_diff: "-5 घंटे",
+        row_singapore_name: "सिंगापुर", row_singapore_diff: "-1 घंटा",
         faq_h2: "अक्सर पूछे जाने वाले प्रश्न",
         faq_q1: "अभी टोक्यो में क्या समय है?",
         faq_a1: "सटीक समय ऊपर दिए गए बड़े ब्लॉक में प्रदर्शित होता है। यह हर सेकंड अपडेट होता है।",
@@ -315,7 +326,8 @@
       navLondon: document.getElementById('nav-london'),
       navNY: document.getElementById('nav-newyork'),
       navTokyo: document.getElementById('nav-tokyo'),
-      navDubai: document.getElementById('nav-dubai'), // ИСПРАВЛЕНО: Добавлен элемент
+      navDubai: document.getElementById('nav-dubai'),
+      navSingapore: document.getElementById('nav-singapore'), // ИСПРАВЛЕНО: Добавлен элемент
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -330,6 +342,8 @@
       rowNyDiff: document.getElementById('row-ny-diff'),
       rowDubaiName: document.getElementById('row-dubai-name'),
       rowDubaiDiff: document.getElementById('row-dubai-diff'),
+      rowSingaporeName: document.getElementById('row-singapore-name'),
+      rowSingaporeDiff: document.getElementById('row-singapore-diff'),
       faqH2: document.getElementById('faq-h2'),
       faqQ1: document.getElementById('faq-q1'),
       faqA1: document.getElementById('faq-a1'),
@@ -387,7 +401,8 @@
         navLondon: t.nav_london,
         navNY: t.nav_newyork,
         navTokyo: t.nav_tokyo,
-        navDubai: t.nav_dubai, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
+        navDubai: t.nav_dubai,
+        navSingapore: t.nav_singapore, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
         tzInfoH2: t.tz_info_h2,
         diffH2: t.diff_h2,
         thCity: t.th_city,
@@ -401,6 +416,8 @@
         rowNyDiff: t.row_ny_diff,
         rowDubaiName: t.row_dubai_name,
         rowDubaiDiff: t.row_dubai_diff,
+        rowSingaporeName: t.row_singapore_name,
+        rowSingaporeDiff: t.row_singapore_diff,
         faqH2: t.faq_h2,
         faqQ1: t.faq_q1,
         faqA1: t.faq_a1,
