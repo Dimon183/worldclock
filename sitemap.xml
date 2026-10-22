@@ -4,7 +4,7 @@
   <!-- Главная страница -->
   <url>
     <loc>https://utcnow.info/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,42 +12,44 @@
   <!-- Страница UTC -->
   <url>
     <loc>https://utcnow.info/utc.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Страница Москвы -->
+  <!-- Москва -->
   <url>
     <loc>https://utcnow.info/moscow.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Страница Лондона -->
+  <!-- Лондон -->
   <url>
     <loc>https://utcnow.info/london.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Страница Нью-Йорка -->
+  <!-- Нью-Йорк -->
   <url>
     <loc>https://utcnow.info/new-york.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-<!-- Токио (Новый) -->
+
+  <!-- Токио (Новый) -->
   <url>
     <loc>https://utcnow.info/tokyo.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
- <!-- Дубай (Новый) -->
+
+  <!-- Дубай (Новый) -->
   <url>
     <loc>https://utcnow.info/dubai.html</loc>
     <lastmod>2026-10-22</lastmod>
