@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags (Dynamic via JS later, but defaults here) -->
+  <!-- SEO Meta Tags -->
   <title id="page-title">World Clock — Exact Time in Major Cities</title>
   <meta
     id="meta-desc"
@@ -455,7 +455,7 @@
                 <div class="lang-selector-wrap">
                     <select id="langSelector" aria-label="Select Language">
                         <option value="en">🇬 English</option>
-                        <option value="zh">🇨🇳 中文</option>
+                        <option value="zh">🇨 中文</option>
                         <option value="es">🇪🇸 Español</option>
                         <option value="ru">🇷 Русский</option>
                         <option value="hi">🇮 हिन्दी</option>
@@ -470,6 +470,7 @@
             <a href="/london.html" id="nav-london" style="color: var(--muted); text-decoration: none; font-weight: bold;">London</a>
             <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
             <a href="/tokyo.html" id="nav-tokyo" style="color: var(--muted); text-decoration: none; font-weight: bold;">Tokyo</a>
+            <a href="/dubai.html" id="nav-dubai" style="color: var(--muted); text-decoration: none; font-weight: bold;">Dubai</a> <!-- ДОБАВЛЕНО -->
           </nav>
             </div>
 
@@ -522,7 +523,8 @@
             nav_moscow: "Moscow",
             nav_london: "London",
             nav_newyork: "New York",
-            nav_tokyo: "Tokyo", 
+            nav_tokyo: "Tokyo",
+            nav_dubai: "Dubai", // ADDED DUBAI
             
             search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
             btn_add: "Add City",
@@ -546,7 +548,8 @@
             nav_moscow: "Москва",
             nav_london: "Лондон",
             nav_newyork: "Нью-Йорк",
-            nav_tokyo: "Токио", 
+            nav_tokyo: "Токио",
+            nav_dubai: "Дубай", // ADDED DUBAI
             
             search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
             btn_add: "Добавить город",
@@ -570,7 +573,8 @@
             nav_moscow: "莫斯科",
             nav_london: "伦敦",
             nav_newyork: "纽约",
-            nav_tokyo: "东京", 
+            nav_tokyo: "东京",
+            nav_dubai: "迪拜", // ADDED DUBAI
             
             search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
             btn_add: "添加城市",
@@ -594,7 +598,8 @@
             nav_moscow: "Moscú",
             nav_london: "Londres",
             nav_newyork: "Nueva York",
-            nav_tokyo: "Tokio", 
+            nav_tokyo: "Tokio",
+            nav_dubai: "Dubái", // ADDED DUBAI
             
             search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
             btn_add: "Añadir Ciudad",
@@ -615,14 +620,15 @@
             subtitle: "प्रमुख वैश्विक शहरों में सटीक समय।",
             nav_home: "होम",
             nav_utc: "UTC",
-            nav_moscow: "मास्को",
+            nav_moscow: "मॉस्को",
             nav_london: "लंदन",
             nav_newyork: "न्यू यॉर्क",
-            nav_tokyo: "टोक्यो", 
+            nav_tokyo: "टोक्यो",
+            nav_dubai: "दुबई", // ADDED DUBAI
             
-            search_placeholder: "शहर खोजें: मास्को, लंदन, एशिया/टोक्यो...",
+            search_placeholder: "शहर खोजें: मासको, लंदन, एशिय/टोक्यो...",
             btn_add: "शहर जोड़ें",
-            btn_reset: "सूचী रीसेट करें",
+            btn_reset: "सूची रीसेट करें",
             help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
             footer_brand: "विश्व घड़ी",
             footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
@@ -632,7 +638,7 @@
             status_invalid_tz: "अमान्य टाइमज़ोन।",
             status_empty_search: "कृपया एक शहर का नाम या टाइमज़ोन दर्ज करें।",
             status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आजमाएं।",
-            default_cities_labels: ["UTC", "मास्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
+            default_cities_labels: ["UTC", "मॉस्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
         }
     };
 
@@ -817,7 +823,8 @@
     const navMoscow = document.getElementById("nav-moscow");
     const navLondon = document.getElementById("nav-london");
     const navNY = document.getElementById("nav-newyork");
-    const navTokyo = document.getElementById("nav-tokyo"); // ADDED TOKYO LINK REFERENCE
+    const navTokyo = document.getElementById("nav-tokyo");
+    const navDubai = document.getElementById("nav-dubai"); // ADDED DUBAI LINK REFERENCE
 
     yearEl.textContent = new Date().getFullYear();
 
@@ -950,7 +957,8 @@
         navMoscow.textContent = t.nav_moscow;
         navLondon.textContent = t.nav_london;
         navNY.textContent = t.nav_newyork;
-        navTokyo.textContent = t.nav_tokyo; // UPDATED TO INCLUDE TOKYO
+        navTokyo.textContent = t.nav_tokyo;
+        navDubai.textContent = t.nav_dubai; // UPDATED TO INCLUDE DUBAI
         
         // Update Page Title & Meta Descriptions for SEO
         document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
