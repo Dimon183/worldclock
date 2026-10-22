@@ -56,5 +56,11 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-
+  <!-- Сингапур (Новый) -->
+  <url>
+    <loc>https://utcnow.info/singapore.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
