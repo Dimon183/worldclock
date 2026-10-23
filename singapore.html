@@ -6,7 +6,7 @@
   
   <!-- SEO Meta Tags -->
   <title id="page-title">Current Time in Singapore | Exact Local Time & SGT - UTCNow.info</title>
-  <meta id="meta-desc" name="description" content="Check the exact current time in Singapore. View timezone info (SGT), difference with London/NY/Tokyo/Dubai/Moscow." />
+  <meta id="meta-desc" name="description" content="Check the exact current time in Singapore. View timezone info (SGT), difference with London/NY/Tokyo/Dubai/Moscow/Berlin." />
   <link rel="canonical" href="https://utcnow.info/singapore.html" />
 
   <!-- Hreflang Alternates -->
@@ -107,7 +107,8 @@
             <a href="/new-york.html" id="nav-newyork">New York</a>
             <a href="/tokyo.html" id="nav-tokyo">Tokyo</a>
             <a href="/dubai.html" id="nav-dubai">Dubai</a>
-            <a href="/singapore.html" class="active" id="nav-singapore">Singapore</a> <!-- НОВАЯ ССЫЛКА -->
+            <a href="/singapore.html" class="active" id="nav-singapore">Singapore</a>
+            <a href="/berlin.html" id="nav-berlin">Berlin</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
           </nav>
         </div>
 
@@ -166,6 +167,11 @@
             <td id="row-dubai-diff">-4 hrs</td>
             <td><span class="live-time" data-tz="Asia/Dubai">--:--</span></td>
           </tr>
+          <tr>
+            <td id="row-berlin-name">Berlin</td>
+            <td id="row-berlin-diff">-7 hrs (winter) / -6 hrs (summer)</td>
+            <td><span class="live-time" data-tz="Europe/Berlin">--:--</span></td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -193,10 +199,10 @@
     const translations = {
       en: {
         pageTitle: "Current Time in Singapore | Exact Local Time & SGT - UTCNow.info",
-        metaDesc: "Check the exact current time in Singapore. View timezone info (SGT), difference with London/NY/Tokyo/Dubai/Moscow.",
+        metaDesc: "Check the exact current time in Singapore. View timezone info (SGT), difference with London/NY/Tokyo/Dubai/Moscow/Berlin.",
         site_title: "Time in Singapore",
         site_subtitle: "Current Singapore time online",
-        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai", nav_singapore: "Singapore",
+        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai", nav_singapore: "Singapore", nav_berlin: "Berlin",
         tz_info_h2: "Timezone Information",
         tz_info_text: "Singapore is located in the <strong>Asia/Singapore</strong> timezone (SGT). The offset relative to UTC is fixed at <strong>UTC+8</strong>. Singapore does not observe daylight saving time.",
         diff_h2: "Time Difference with Other Cities",
@@ -206,6 +212,7 @@
         row_moscow_name: "Moscow", row_moscow_diff: "-5 hrs",
         row_tokyo_name: "Tokyo", row_tokyo_diff: "+1 hr",
         row_dubai_name: "Dubai", row_dubai_diff: "-4 hrs",
+        row_berlin_name: "Berlin", row_berlin_diff: "-7 hrs (winter) / -6 hrs (summer)",
         faq_h2: "Frequently Asked Questions",
         faq_q1: "What is the time in Singapore right now?",
         faq_a1: "The exact time is displayed in the large block above. It updates every second.",
@@ -216,10 +223,10 @@
       },
       ru: {
         pageTitle: "Точное время в Сингапуре сейчас — который час в Сингапуре - UTCNow.info",
-        metaDesc: "Актуальное время в Сингапуре онлайн. Часовой пояс Asia/Singapore (SGT), смещение UTC+8, разница с Лондоном, Нью-Йорком, Токио, Дубаем и Москвой.",
+        metaDesc: "Актуальное время в Сингапуре онлайн. Часовой пояс Asia/Singapore (SGT), смещение UTC+8, разница с Лондоном, Нью-Йорком, Токио, Дубаем, Москвой и Берлином.",
         site_title: "Время в Сингапуре",
         site_subtitle: "Текущее сингапурское время онлайн",
-        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай", nav_singapore: "Сингапур",
+        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай", nav_singapore: "Сингапур", nav_berlin: "Берлин",
         tz_info_h2: "Информация о часовом поясе",
         tz_info_text: "Сингапур находится в часовом поясе <strong>Asia/Singapore</strong> (SGT). Смещение относительно UTC фиксировано: <strong>UTC+8</strong>. Сингапур не переходит на летнее время.",
         diff_h2: "Разница времени с другими городами",
@@ -229,6 +236,7 @@
         row_moscow_name: "Москва", row_moscow_diff: "-5 ч",
         row_tokyo_name: "Токио", row_tokyo_diff: "+1 ч",
         row_dubai_name: "Дубай", row_dubai_diff: "-4 ч",
+        row_berlin_name: "Берлин", row_berlin_diff: "-7 ч (зима) / -6 ч (лето)",
         faq_h2: "Часто задаваемые вопросы",
         faq_q1: "Который час в Сингапуре прямо сейчас?",
         faq_a1: "Точное время отображается в большом блоке выше. Оно обновляется каждую секунду.",
@@ -239,10 +247,10 @@
       },
       zh: {
         pageTitle: "新加坡当前时间 | 精确本地时间和SGT - UTCNow.info",
-        metaDesc: "查看新加坡的准确当前时间。查看时区信息（SGT），与伦敦/纽约/东京/迪拜/莫斯科的差异。",
+        metaDesc: "查看新加坡的准确当前时间。查看时区信息（SGT），与伦敦/纽约/东京/迪拜/莫斯科/柏林的差异。",
         site_title: "新加坡时间",
         site_subtitle: "在线显示当前新加坡时间",
-        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜", nav_singapore: "新加坡",
+        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜", nav_singapore: "新加坡", nav_berlin: "柏林",
         tz_info_h2: "时区信息",
         tz_info_text: "新加坡位于<strong>Asia/Singapore</strong>时区（SGT）。相对于UTC的偏移量固定为<strong>UTC+8</strong>。新加坡不实行夏令时。",
         diff_h2: "与其他城市的时间差异",
@@ -252,6 +260,7 @@
         row_moscow_name: "莫斯科", row_moscow_diff: "-5小时",
         row_tokyo_name: "东京", row_tokyo_diff: "+1小时",
         row_dubai_name: "迪拜", row_dubai_diff: "-4小时",
+        row_berlin_name: "柏林", row_berlin_diff: "-7小时（冬）/ -6小时（夏）",
         faq_h2: "常见问题",
         faq_q1: "现在新加坡几点？",
         faq_a1: "确切时间显示在上方的大区块中。它每秒更新一次。",
@@ -262,10 +271,10 @@
       },
       es: {
         pageTitle: "Hora Actual en Singapur | Hora Local Exacta y SGT - UTCNow.info",
-        metaDesc: "Consulte la hora actual exacta en Singapur. Vea información de zona horaria (SGT), diferencia con Londres/NY/Tokio/Dubái/Moscú.",
+        metaDesc: "Consulte la hora actual exacta en Singapur. Vea información de zona horaria (SGT), diferencia con Londres/NY/Tokio/Dubái/Moscú/Berlín.",
         site_title: "Hora en Singapur",
         site_subtitle: "Hora actual de Singapur en línea",
-        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái", nav_singapore: "Singapur",
+        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái", nav_singapore: "Singapur", nav_berlin: "Berlín",
         tz_info_h2: "Información de Zona Horaria",
         tz_info_text: "Singapur se encuentra en la zona horaria <strong>Asia/Singapore</strong> (SGT). La desviación respecto a UTC es fija en <strong>UTC+8</strong>. Singapur no observa el horario de verano.",
         diff_h2: "Diferencia de Hora con Otras Ciudades",
@@ -275,6 +284,7 @@
         row_moscow_name: "Moscú", row_moscow_diff: "-5 horas",
         row_tokyo_name: "Tokio", row_tokyo_diff: "+1 hora",
         row_dubai_name: "Dubái", row_dubai_diff: "-4 horas",
+        row_berlin_name: "Berlín", row_berlin_diff: "-7 horas (inv) / -6 horas (ver)",
         faq_h2: "Preguntas Frecuentes",
         faq_q1: "¿Qué hora es en Singapur ahora mismo?",
         faq_a1: "La hora exacta se muestra en el bloque grande de arriba. Se actualiza cada segundo.",
@@ -284,13 +294,13 @@
         footer_desc: "Datos proporcionados con fines de referencia."
       },
       hi: {
-        pageTitle: "सिंगापुर में वर्तमन समय | सटीक स्थानननीय समय और एसजीटी - UTCNow.info",
-        metaDesc: "सिंगापुर में सटीक वर्तमन समय देखें। टाइमज़ोन जानकाररी (एसजीटी), लंदन/एनवाई/टोक्यो/दुबई/मासको से अंतर।",
+        pageTitle: "सिंगापुर में वर्तमन समय | सटिक स्थाननननीय समय और एसजगीटी - UTCNow.info",
+        metaDesc: "सिंगापुर में सटिक वर्तमन समय देखें। टाइमज़ोन जानकाररी (एसजगीटी), लंदन/एनवाई/टोक्यो/दुबई/मासको/बर्लिन से अंतर।",
         site_title: "सिंगापुर का समय",
-        site_subtitle: "वर्तमान सिंगापुर समय ऑनलाइन",
-        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मॉस्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई", nav_singapore: "सिंगापुर",
+        site_subtitle: "वर्तमान सिंंगापुर समय ऑनलाइन",
+        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मॉस्को", nav_london: "लंडन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई", nav_singapore: "सिंगापूर", nav_berlin: "बर्लिन",
         tz_info_h2: "टाइमज़ोन जानकारी",
-        tz_info_text: "सिंगापुर <strong>Asia/Singapore</strong> टाइमज़ोन (एसजीटी) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+8</strong> है। सिंगापुर डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
+        tz_info_text: "सिंगापूर <strong>Asia/Singapore</strong> टाइमज़ोन (SGT) में स्थित है। यूटीसी के सापेक्ष ऑफसेट निश्चित रूप से <strong>UTC+8</strong> है। सिंगापुर डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
         diff_h2: "अन्य शहरों के साथ समय का अंतर",
         th_city: "शहर", th_diff: "सिंगापुर से अंतर", th_now: "वहाँ अभी समय",
         row_london_name: "लंदन", row_london_diff: "-8 घंटे (सरदी) / -7 घंटे (गर्मी)",
@@ -298,13 +308,14 @@
         row_moscow_name: "मॉस्को", row_moscow_diff: "-5 घंटे",
         row_tokyo_name: "टोक्यो", row_tokyo_diff: "+1 घंटा",
         row_dubai_name: "दुबई", row_dubai_diff: "-4 घंटे",
+        row_berlin_name: "बर्लिन", row_berlin_diff: "-7 घंटे (सरदी) / -6 घंटे (गर्मी)",
         faq_h2: "अक्सर पूछे जाने वाले प्रश्न",
         faq_q1: "अभी सिंगापुर में क्या समय है?",
         faq_a1: "सटीक समय ऊपर दिए गए बड़े ब्लॉक में प्रदर्शित होता है। यह हर सेकंड अपडेट होता है।",
         faq_q2: "क्या सिंगापुर डेलेट लाइट सेविंग के लिए घड़ियाँ बदलता है?",
         faq_a2: "नहीं, सिंगापुर वर्ष भर सिंगापुर मानक समय (UTC+8) पर रहता है और डेलेट लाइट सेविंग टाइम नहीं अपनाता है।",
         footer_brand: "विश्व घड़ी",
-        footer_desc: "डेटा संदर्भ उद्देश्यों के लिए प्रदान किया गया है।"
+        footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।"
       }
     };
 
@@ -327,7 +338,8 @@
       navNY: document.getElementById('nav-newyork'),
       navTokyo: document.getElementById('nav-tokyo'),
       navDubai: document.getElementById('nav-dubai'),
-      navSingapore: document.getElementById('nav-singapore'), // NEW ELEMENT
+      navSingapore: document.getElementById('nav-singapore'),
+      navBerlin: document.getElementById('nav-berlin'), // ИСПРАВЛЕНО: Добавлен элемент
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -344,6 +356,8 @@
       rowTokyoDiff: document.getElementById('row-tokyo-diff'),
       rowDubaiName: document.getElementById('row-dubai-name'),
       rowDubaiDiff: document.getElementById('row-dubai-diff'),
+      rowBerlinName: document.getElementById('row-berlin-name'),
+      rowBerlinDiff: document.getElementById('row-berlin-diff'),
       faqH2: document.getElementById('faq-h2'),
       faqQ1: document.getElementById('faq-q1'),
       faqA1: document.getElementById('faq-a1'),
@@ -402,7 +416,8 @@
         navNY: t.nav_newyork,
         navTokyo: t.nav_tokyo,
         navDubai: t.nav_dubai,
-        navSingapore: t.nav_singapore, // UPDATED MAPPING
+        navSingapore: t.nav_singapore,
+        navBerlin: t.nav_berlin, // ИСПРАВЛЕНО: Ключ теперь совпадает с объектом els
         tzInfoH2: t.tz_info_h2,
         diffH2: t.diff_h2,
         thCity: t.th_city,
@@ -418,6 +433,8 @@
         rowTokyoDiff: t.row_tokyo_diff,
         rowDubaiName: t.row_dubai_name,
         rowDubaiDiff: t.row_dubai_diff,
+        rowBerlinName: t.row_berlin_name,
+        rowBerlinDiff: t.row_berlin_diff,
         faqH2: t.faq_h2,
         faqQ1: t.faq_q1,
         faqA1: t.faq_a1,
