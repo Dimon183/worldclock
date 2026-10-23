@@ -471,7 +471,8 @@
             <a href="/new-york.html" id="nav-newyork" style="color: var(--muted); text-decoration: none; font-weight: bold;">New York</a>
             <a href="/tokyo.html" id="nav-tokyo" style="color: var(--muted); text-decoration: none; font-weight: bold;">Tokyo</a>
             <a href="/dubai.html" id="nav-dubai" style="color: var(--muted); text-decoration: none; font-weight: bold;">Dubai</a>
-            <a href="/singapore.html" id="nav-singapore" style="color: var(--muted); text-decoration: none; font-weight: bold;">Singapore</a> <!-- ДОБАВЛЕНО -->
+            <a href="/singapore.html" id="nav-singapore" style="color: var(--muted); text-decoration: none; font-weight: bold;">Singapore</a>
+            <a href="/berlin.html" id="nav-berlin" style="color: var(--muted); text-decoration: none; font-weight: bold;">Berlin</a> <!-- ДОБАВЛЕНО -->
           </nav>
             </div>
 
@@ -526,7 +527,8 @@
             nav_newyork: "New York",
             nav_tokyo: "Tokyo",
             nav_dubai: "Dubai",
-            nav_singapore: "Singapore", // ADDED SINGAPORE
+            nav_singapore: "Singapore",
+            nav_berlin: "Berlin", // ADDED BERLIN
             
             search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
             btn_add: "Add City",
@@ -552,7 +554,8 @@
             nav_newyork: "Нью-Йорк",
             nav_tokyo: "Токио",
             nav_dubai: "Дубай",
-            nav_singapore: "Сингапур", // ADDED SINGAPORE
+            nav_singapore: "Сингапур",
+            nav_berlin: "Берлин", // ADDED BERLIN
             
             search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
             btn_add: "Добавить город",
@@ -578,7 +581,8 @@
             nav_newyork: "纽约",
             nav_tokyo: "东京",
             nav_dubai: "迪拜",
-            nav_singapore: "新加坡", // ADDED SINGAPORE
+            nav_singapore: "新加坡",
+            nav_berlin: "柏林", // ADDED BERLIN
             
             search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
             btn_add: "添加城市",
@@ -604,7 +608,8 @@
             nav_newyork: "Nueva York",
             nav_tokyo: "Tokio",
             nav_dubai: "Dubái",
-            nav_singapore: "Singapur", // ADDED SINGAPORE
+            nav_singapore: "Singapur",
+            nav_berlin: "Berlín", // ADDED BERLIN
             
             search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
             btn_add: "Añadir Ciudad",
@@ -622,19 +627,20 @@
         },
         hi: {
             title: "विश्व घड़ी",
-            subtitle: "प्रमुख वैश्विक शहरों में सटीक समय।",
+            subtitle: "प्रमुख वैश्विक शहरों में सटिक समय।",
             nav_home: "होम",
             nav_utc: "UTC",
-            nav_moscow: "मॉस्को",
-            nav_london: "लंदन",
-            nav_newyork: "न्यू यॉर्क",
+            nav_moscow: "मासको",
+            nav_london: "लंडन",
+            nav_newyork: "न्यू यॉरक",
             nav_tokyo: "टोक्यो",
             nav_dubai: "दुबई",
-            nav_singapore: "सिंगापुर", // ADDED SINGAPORE
+            nav_singapore: "सिंगापुर",
+            nav_berlin: "बर्लिन", // ADDED BERLIN
             
             search_placeholder: "शहर खोजें: मासको, लंदन, एशिय/टोक्यो...",
             btn_add: "शहर जोड़ें",
-            btn_reset: "सूचী रीसेट करें",
+            btn_reset: "सूची रीसेट करें",
             help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
             footer_brand: "विश्व घड़ी",
             footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
@@ -644,7 +650,7 @@
             status_invalid_tz: "अमान्य टाइमज़ोन।",
             status_empty_search: "कृपया एक शहर का नाम या टाइमज़ोन दर्ज करें।",
             status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आजमाएं।",
-            default_cities_labels: ["UTC", "मॉस्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
+            default_cities_labels: ["UTC", "मास्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
         }
     };
 
@@ -653,8 +659,6 @@
     const LANG_KEY = "worldClockLang_v1";
 
     // Base Data (Timezones remain constant across languages)
-    // Note: Singapore is now part of the default list logic below if we wanted to swap one out, 
-    // but usually we keep the big catalog separate. Here we ensure it's recognized.
     const BASE_DEFAULT_CITIES = [
       { label: "UTC", timezone: "Etc/UTC", country: "Global" },
       { label: "Moscow", timezone: "Europe/Moscow", country: "Russia" },
@@ -833,7 +837,8 @@
     const navNY = document.getElementById("nav-newyork");
     const navTokyo = document.getElementById("nav-tokyo");
     const navDubai = document.getElementById("nav-dubai");
-    const navSingapore = document.getElementById("nav-singapore"); // ADDED SINGAPORE LINK REFERENCE
+    const navSingapore = document.getElementById("nav-singapore");
+    const navBerlin = document.getElementById("nav-berlin"); // ADDED BERLIN LINK REFERENCE
 
     yearEl.textContent = new Date().getFullYear();
 
@@ -968,7 +973,8 @@
         navNY.textContent = t.nav_newyork;
         navTokyo.textContent = t.nav_tokyo;
         navDubai.textContent = t.nav_dubai;
-        navSingapore.textContent = t.nav_singapore; // UPDATED TO INCLUDE SINGAPORE
+        navSingapore.textContent = t.nav_singapore;
+        navBerlin.textContent = t.nav_berlin; // UPDATED TO INCLUDE BERLIN
         
         // Update Page Title & Meta Descriptions for SEO
         document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
