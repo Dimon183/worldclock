@@ -54,11 +54,9 @@
     .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
     h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; }
     .subtitle { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.45; }
-    
     .lang-selector-wrap { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
     select#langSelector { padding: 6px 10px; border-radius: 8px; background: var(--card); color: var(--text); border: 1px solid var(--border); cursor: pointer; font-size: 14px; outline: none; }
     select#langSelector:focus { border-color: var(--accent); }
-
     nav.menu-links { margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap; }
     nav.menu-links a { color: var(--muted); text-decoration: none; font-weight: bold; font-size: 14px; padding: 4px 8px; border-radius: 6px; transition: all 0.2s; }
     nav.menu-links a:hover { color: var(--text); background: var(--card-hover); }
@@ -86,7 +84,6 @@
           <h1 id="site-title">Time in Los Angeles</h1>
           <p class="subtitle" id="site-subtitle">Current Los Angeles time online</p>
           
-          <!-- Language Selector -->
           <div class="lang-selector-wrap">
             <select id="langSelector" aria-label="Select Language">
               <option value="en">🇬 English</option>
@@ -97,7 +94,6 @@
             </select>
           </div>
 
-          <!-- Navigation Menu -->
           <nav class="menu-links">
             <a href="/" id="nav-home">Home</a>
             <a href="/utc.html" id="nav-utc">UTC</a>
@@ -128,9 +124,9 @@
       <h2 id="tz-info-h2">Timezone Information</h2>
       <p style="color: var(--muted); line-height: 1.6;" id="tz-info-text">
         Los Angeles is located in the <strong>America/Los_Angeles</strong> timezone. The offset relative to UTC changes: it is <strong>UTC-8</strong> (PST) in winter and <strong>UTC-7</strong> (PDT) in summer. The US switches to daylight saving time on the second Sunday of March and back on the first Sunday of November.
-      <!-- НОВЫЙ SEO-БЛОК -->
+      </p>
+      <!-- SEO-БЛОК (Автоматически меняется при смене языка) -->
       <p style="color: var(--muted); line-height: 1.6; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 15px;" id="seo-text">
-        <!-- Текст подставится автоматически через JavaScript при смене языка -->
       </p>
     </section>
 
@@ -203,8 +199,7 @@
   </footer>
 
   <script>
-    // --- TRANSLATIONS DICTIONARY ---
-        const translations = {
+    const translations = {
       en: {
         pageTitle: "Current Time in Los Angeles | Exact Local Time & PST/PDT - UTCNow.info",
         metaDesc: "Check the exact current time in Los Angeles, USA. View timezone info (PST/PDT), difference with London/NY/Moscow/Tokyo/Dubai/Singapore/Berlin.",
@@ -340,10 +335,8 @@
     const THEME_KEY = "worldClockTheme_v1";
     const LANG_KEY = "worldClockLang_v1";
     const CITY_TIMEZONE = "America/Los_Angeles"; 
-    
     let currentLang = localStorage.getItem(LANG_KEY) || 'en';
 
-    // DOM Elements Cache
     const els = {
       title: document.getElementById('page-title'),
       desc: document.getElementById('meta-desc'),
@@ -390,7 +383,7 @@
       langSelector: document.getElementById('langSelector'),
       themeToggle: document.getElementById('themeToggle'),
       cityTime: document.getElementById('cityTime'),
-      cityDate: document.getElementById('cityDate')
+      cityDate: document.getElementById('cityDate'),
       seoText: document.getElementById('seo-text')
     };
 
@@ -398,9 +391,7 @@
       initTheme();
       if(els.year) els.year.textContent = new Date().getFullYear();
       if(els.langSelector) els.langSelector.value = currentLang;
-      
       applyLanguage(currentLang);
-      
       setInterval(updateCityClock, 1000);
       updateCityClock();
 
@@ -424,64 +415,34 @@
     function applyLanguage(langCode) {
       const t = translations[langCode];
       if (!t) return;
-
       document.documentElement.lang = langCode;
 
-      // Update Text Content
       const mapping = {
-        siteTitle: t.site_title,
-        siteSubtitle: t.site_subtitle,
-        navHome: t.nav_home,
-        navUtc: t.nav_utc,
-        navMoscow: t.nav_moscow,
-        navLondon: t.nav_london,
-        navNY: t.nav_newyork,
-        navTokyo: t.nav_tokyo,
-        navDubai: t.nav_dubai,
-        navSingapore: t.nav_singapore,
-        navBerlin: t.nav_berlin,
-        navLosAngeles: t.nav_losangeles,
+        siteTitle: t.site_title, siteSubtitle: t.site_subtitle,
+        navHome: t.nav_home, navUtc: t.nav_utc, navMoscow: t.nav_moscow,
+        navLondon: t.nav_london, navNY: t.nav_newyork, navTokyo: t.nav_tokyo,
+        navDubai: t.nav_dubai, navSingapore: t.nav_singapore,
+        navBerlin: t.nav_berlin, navLosAngeles: t.nav_losangeles,
         tzInfoH2: t.tz_info_h2,
-        diffH2: t.diff_h2,
-        thCity: t.th_city,
-        thDiff: t.th_diff,
-        thNow: t.th_now,
-        rowNyName: t.row_ny_name,
-        rowNyDiff: t.row_ny_diff,
-        rowLondonName: t.row_london_name,
-        rowLondonDiff: t.row_london_diff,
-        rowMoscowName: t.row_moscow_name,
-        rowMoscowDiff: t.row_moscow_diff,
-        rowTokyoName: t.row_tokyo_name,
-        rowTokyoDiff: t.row_tokyo_diff,
-        rowDubaiName: t.row_dubai_name,
-        rowDubaiDiff: t.row_dubai_diff,
-        rowSingaporeName: t.row_singapore_name,
-        rowSingaporeDiff: t.row_singapore_diff,
-        rowBerlinName: t.row_berlin_name,
-        rowBerlinDiff: t.row_berlin_diff,
-        faqH2: t.faq_h2,
-        faqQ1: t.faq_q1,
-        faqA1: t.faq_a1,
-        faqQ2: t.faq_q2,
-        faqA2: t.faq_a2,
-        footerBrand: t.footer_brand,
-        footerDesc: t.footer_desc
+        diffH2: t.diff_h2, thCity: t.th_city, thDiff: t.th_diff, thNow: t.th_now,
+        rowNyName: t.row_ny_name, rowNyDiff: t.row_ny_diff,
+        rowLondonName: t.row_london_name, rowLondonDiff: t.row_london_diff,
+        rowMoscowName: t.row_moscow_name, rowMoscowDiff: t.row_moscow_diff,
+        rowTokyoName: t.row_tokyo_name, rowTokyoDiff: t.row_tokyo_diff,
+        rowDubaiName: t.row_dubai_name, rowDubaiDiff: t.row_dubai_diff,
+        rowSingaporeName: t.row_singapore_name, rowSingaporeDiff: t.row_singapore_diff,
+        rowBerlinName: t.row_berlin_name, rowBerlinDiff: t.row_berlin_diff,
+        faqH2: t.faq_h2, faqQ1: t.faq_q1, faqA1: t.faq_a1,
+        faqQ2: t.faq_q2, faqA2: t.faq_a2,
+        footerBrand: t.footer_brand, footerDesc: t.footer_desc,
         seoText: t.seo_text
       };
 
       for (const [key, value] of Object.entries(mapping)) {
-        if (els[key] && value) {
-          els[key].textContent = value;
-        }
+        if (els[key] && value) els[key].textContent = value;
       }
 
-      // Handle InnerHTML for rich text (bold tags)
-      if(els.tzInfoText && t.tz_info_text) {
-        els.tzInfoText.innerHTML = t.tz_info_text;
-      }
-
-      // SEO Updates
+      if(els.tzInfoText && t.tz_info_text) els.tzInfoText.innerHTML = t.tz_info_text;
       if(els.title) els.title.textContent = t.pageTitle;
       if(els.desc) els.desc.setAttribute('content', t.metaDesc);
     }
@@ -492,14 +453,12 @@
       const locale = localeMap[currentLang] || 'en-US';
 
       try {
-        // Main Clock
         const timeString = now.toLocaleTimeString(locale, { timeZone: CITY_TIMEZONE, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
         const dateString = now.toLocaleDateString(locale, { timeZone: CITY_TIMEZONE, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         
         if(els.cityTime) els.cityTime.textContent = timeString;
         if(els.cityDate) els.cityDate.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
 
-        // Table Live Times
         document.querySelectorAll('.live-time').forEach(el => {
           const tz = el.getAttribute('data-tz');
           if (tz) {
@@ -522,9 +481,7 @@
     function setTheme(theme) {
       document.documentElement.dataset.theme = theme;
       localStorage.setItem(THEME_KEY, theme);
-      if(els.themeToggle) {
-        els.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-      }
+      if(els.themeToggle) els.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
     }
 
     document.addEventListener('DOMContentLoaded', initApp);
