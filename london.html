@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags (Defaults for EN, updated by JS) -->
   <title id="page-title">Current Time in London | Exact Local Time & UTC Offset - UTCNow.info</title>
   <meta id="meta-desc" name="description" content="Check the exact current time in London, UK. View timezone info (GMT/BST), difference with Moscow/NY/Tokyo/Dubai/Singapore/Berlin/Los Angeles." />
   <link rel="canonical" href="https://utcnow.info/london.html" />
 
-  <!-- Hreflang Alternates -->
   <link rel="alternate" hreflang="en" href="https://utcnow.info/london.html" />
   <link rel="alternate" hreflang="ru" href="https://utcnow.info/london.html" />
   <link rel="alternate" hreflang="zh" href="https://utcnow.info/london.html" />
@@ -73,6 +71,7 @@
     .diff-table th, .diff-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
     .diff-table th { color: var(--muted); font-size: 14px; font-weight: normal; }
     .diff-table tr:last-child td { border-bottom: none; }
+    .seo-block { margin-top: 24px; padding: 20px; background: var(--card-hover); border-radius: 12px; color: var(--muted); line-height: 1.7; font-size: 15px; }
     footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
   </style>
 </head>
@@ -104,7 +103,7 @@
             <a href="/dubai.html" id="nav-dubai">Dubai</a>
             <a href="/singapore.html" id="nav-singapore">Singapore</a>
             <a href="/berlin.html" id="nav-berlin">Berlin</a>
-            <a href="/los-angeles.html" id="nav-losangeles">Los Angeles</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
+            <a href="/los-angeles.html" id="nav-losangeles">Los Angeles</a>
           </nav>
         </div>
 
@@ -187,6 +186,9 @@
         <summary style="font-weight: bold;" id="faq-q2">When do clocks change in London?</summary>
         <p style="color: var(--muted); margin-top: 10px;" id="faq-a2">Daylight Saving Time starts on the second Sunday of March (clocks go forward one hour). Winter time returns on the last Sunday of October (clocks go back one hour).</p>
       </details>
+
+      <!-- SEO-БЛОК -->
+      <div class="seo-block" id="seo-text"></div>
     </section>
   </main>
 
@@ -220,7 +222,8 @@
         faq_q2: "When do clocks change in London?",
         faq_a2: "Daylight Saving Time starts on the second Sunday of March (clocks go forward one hour). Winter time returns on the last Sunday of October (clocks go back one hour).",
         footer_brand: "World Clock",
-        footer_desc: "Data provided for reference purposes."
+        footer_desc: "Data provided for reference purposes.",
+        seo_text: "London is the capital of the United Kingdom and one of the world's leading financial centers, alongside New York and Tokyo. The city operates on Greenwich Mean Time (GMT, UTC+0) during winter and British Summer Time (BST, UTC+1) during summer. The UK switches to daylight saving time on the last Sunday of March and returns to standard time on the last Sunday of October. As a major hub for international business, finance, and culture, knowing the exact time in London is essential for coordinating with European and global teams."
       },
       ru: {
         pageTitle: "Точное время в Лондоне сейчас — который час в Лондоне - UTCNow.info",
@@ -245,7 +248,8 @@
         faq_q2: "Когда переводят часы в Лондоне?",
         faq_a2: "Летнее время начинается во второе воскресенье марта (часы переводят на час вперед). Зимнее время возвращается в последнее воскресенье октября (часы переводят на час назад).",
         footer_brand: "Всемирное время онлайн",
-        footer_desc: "Данные предоставлены в справочных целях."
+        footer_desc: "Данные предоставлены в справочных целях.",
+        seo_text: "Лондон — столица Соединенного Королевства и один из ведущих мировых финансовых центров наряду с Нью-Йорком и Токио. Город живет по Гринвичскому среднему времени (GMT, UTC+0) зимой и по летнему времени Великобритании (BST, UTC+1) летом. Великобритания переходит на летнее время в последнее воскресенье марта и возвращается к стандартному времени в последнее воскресенье октября. Как крупный хаб международного бизнеса, финансов и культуры, точное время в Лондоне необходимо для координации с европейскими и мировыми командами."
       },
       zh: {
         pageTitle: "伦敦当前时间 | 精确本地时间和UTC偏移 - UTCNow.info",
@@ -270,7 +274,8 @@
         faq_q2: "伦敦何时调钟？",
         faq_a2: "夏令时从三月第二个星期日开始（时钟向前拨一小时）。冬令时在十月最后一个星期日恢复（时钟向后拨一小时）。",
         footer_brand: "世界时钟",
-        footer_desc: "数据仅供参考。"
+        footer_desc: "数据仅供参考。",
+        seo_text: "伦敦是英国的首都，也是与纽约和东京并列的世界领先金融中心之一。该市在冬季使用格林威治标准时间（GMT，UTC+0），在夏季使用英国夏令时（BST，UTC+1）。英国在三月最后一个星期日切换到夏令时，并在十月最后一个星期日返回标准时间。作为国际商业、金融和文化的主要中心，了解伦敦的准确时间对于与欧洲和全球团队协调至关重要。"
       },
       es: {
         pageTitle: "Hora Actual en Londres | Hora Local Exacta y Desfase UTC - UTCNow.info",
@@ -295,7 +300,8 @@
         faq_q2: "¿Cuándo cambian los relojes en Londres?",
         faq_a2: "El horario de verano comienza el segundo domingo de marzo (los relojes avanzan una hora). El horario de invierno regresa el último domingo de octubre (los relojes retroceden una hora).",
         footer_brand: "Reloj Mundial",
-        footer_desc: "Datos proporcionados con fines de referencia."
+        footer_desc: "Datos proporcionados con fines de referencia.",
+        seo_text: "Londres es la capital del Reino Unido y uno de los principales centros financieros del mundo, junto con Nueva York y Tokio. La ciudad opera en el Tiempo Medio de Greenwich (GMT, UTC+0) durante el invierno y el Horario de Verano Británico (BST, UTC+1) durante el verano. El Reino Unido cambia al horario de verano el último domingo de marzo y regresa al horario estándar el último domingo de octubre. Como un importante centro de negocios internacionales, finanzas y cultura, conocer la hora exacta en Londres es esencial para coordinar con equipos europeos y globales."
       },
       hi: {
         pageTitle: "लंदन में वर्तमान समय | सटीक स्थानीय समय और UTC ऑफसेट - UTCNow.info",
@@ -320,7 +326,8 @@
         faq_q2: "लंदन में घड़ियाँ कब बदली जाती हैं?",
         faq_a2: "डेलाइट सेविंग टाइम मार्च के दूसरे रविवार से शुरू होता है (घड़ियाँ एक घंटा आगे बढ़ती हैं)। विंटर टाइम अक्टूबर के आखिरी रविवार को वापस आता है (घड़ियाँ एक घंटा पीछे जाती हैं)।",
         footer_brand: "विश्व घड़ी",
-        footer_desc: "डेटा संदर्भ उद्देश्यों के लिए प्रदान किया गया है।"
+        footer_desc: "डेटा संदर्भ उद्देश्यों के लिए प्रदान किया गया है।",
+        seo_text: "लंदन यूनाइटेड किंगडम की राजधानी है और न्यू यॉर्क और टोक्यो के साथ दुनिया के प्रमुख वित्तीय केंद्रों में से एक है। शहर सर्दियों में ग्रीनविच मीन टाइम (GMT, UTC+0) और गर्मियों में ब्रिटिश समर टाइम (BST, UTC+1) पर काम करता है। यूके मार्च के आखिरी रविवार को डेलाइट सेविंग टाइम पर स्विच करता है और अक्टूबर के आखिरी रविवार को मानक समय पर लौटता है। अंतर्राष्ट्रीय व्यापार, वित्त और संस्कृति के एक प्रमुख केंद्र के रूप में, लंदन का सटीक समय जानना यूरोपीय और वैश्विक टीमों के साथ समन्वय के लिए आवश्यक है।"
       }
     };
 
@@ -328,6 +335,8 @@
     const LANG_KEY = "worldClockLang_v1";
     const CITY_TIMEZONE = "Europe/London"; 
     let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+
+    const seoText = document.getElementById('seo-text');
 
     const els = {
       title: document.getElementById('page-title'),
@@ -430,6 +439,11 @@
 
       for (const [key, value] of Object.entries(mapping)) {
         if (els[key] && value) els[key].textContent = value;
+      }
+
+      // SEO-блок
+      if (seoText && t.seo_text) {
+        seoText.textContent = t.seo_text;
       }
 
       if(els.tzInfoText && t.tz_info_text) els.tzInfoText.innerHTML = t.tz_info_text;
