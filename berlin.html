@@ -6,7 +6,7 @@
   
   <!-- SEO Meta Tags -->
   <title id="page-title">Current Time in Berlin | Exact Local Time & CET - UTCNow.info</title>
-  <meta id="meta-desc" name="description" content="Check the exact current time in Berlin, Germany. View timezone info (CET/CEST), difference with London/NY/Moscow/Tokyo/Dubai/Singapore." />
+  <meta id="meta-desc" name="description" content="Check the exact current time in Berlin, Germany. View timezone info (CET/CEST), difference with London/NY/Moscow/Tokyo/Dubai/Singapore/Los Angeles." />
   <link rel="canonical" href="https://utcnow.info/berlin.html" />
 
   <!-- Hreflang Alternates -->
@@ -54,12 +54,9 @@
     .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
     h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; }
     .subtitle { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.45; }
-    
-    /* Language Selector Styles */
     .lang-selector-wrap { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
     select#langSelector { padding: 6px 10px; border-radius: 8px; background: var(--card); color: var(--text); border: 1px solid var(--border); cursor: pointer; font-size: 14px; outline: none; }
     select#langSelector:focus { border-color: var(--accent); }
-
     nav.menu-links { margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap; }
     nav.menu-links a { color: var(--muted); text-decoration: none; font-weight: bold; font-size: 14px; padding: 4px 8px; border-radius: 6px; transition: all 0.2s; }
     nav.menu-links a:hover { color: var(--text); background: var(--card-hover); }
@@ -87,7 +84,6 @@
           <h1 id="site-title">Time in Berlin</h1>
           <p class="subtitle" id="site-subtitle">Current Berlin time online</p>
           
-          <!-- Language Selector -->
           <div class="lang-selector-wrap">
             <select id="langSelector" aria-label="Select Language">
               <option value="en">🇬 English</option>
@@ -98,7 +94,6 @@
             </select>
           </div>
 
-          <!-- Navigation Menu -->
           <nav class="menu-links">
             <a href="/" id="nav-home">Home</a>
             <a href="/utc.html" id="nav-utc">UTC</a>
@@ -109,6 +104,7 @@
             <a href="/dubai.html" id="nav-dubai">Dubai</a>
             <a href="/singapore.html" id="nav-singapore">Singapore</a>
             <a href="/berlin.html" class="active" id="nav-berlin">Berlin</a>
+            <a href="/los-angeles.html" id="nav-losangeles">Los Angeles</a> <!-- ДОБАВЛЕНО ЗДЕСЬ -->
           </nav>
         </div>
 
@@ -172,6 +168,11 @@
             <td id="row-singapore-diff">+7 hrs (winter) / +6 hrs (summer)</td>
             <td><span class="live-time" data-tz="Asia/Singapore">--:--</span></td>
           </tr>
+          <tr>
+            <td id="row-losangeles-name">Los Angeles</td>
+            <td id="row-losangeles-diff">-9 hrs</td>
+            <td><span class="live-time" data-tz="America/Los_Angeles">--:--</span></td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -195,14 +196,13 @@
   </footer>
 
   <script>
-    // --- TRANSLATIONS DICTIONARY ---
     const translations = {
       en: {
         pageTitle: "Current Time in Berlin | Exact Local Time & CET - UTCNow.info",
-        metaDesc: "Check the exact current time in Berlin, Germany. View timezone info (CET/CEST), difference with London/NY/Moscow/Tokyo/Dubai/Singapore.",
+        metaDesc: "Check the exact current time in Berlin, Germany. View timezone info (CET/CEST), difference with London/NY/Moscow/Tokyo/Dubai/Singapore/Los Angeles.",
         site_title: "Time in Berlin",
         site_subtitle: "Current Berlin time online",
-        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai", nav_singapore: "Singapore", nav_berlin: "Berlin",
+        nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London", nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai", nav_singapore: "Singapore", nav_berlin: "Berlin", nav_losangeles: "Los Angeles",
         tz_info_h2: "Timezone Information",
         tz_info_text: "Berlin is located in the <strong>Europe/Berlin</strong> timezone. The offset relative to UTC changes: it is <strong>UTC+1</strong> (CET) in winter and <strong>UTC+2</strong> (CEST) in summer. Germany switches to daylight saving time on the last Sunday of March and back at the end of October.",
         diff_h2: "Time Difference with Other Cities",
@@ -213,6 +213,7 @@
         row_tokyo_name: "Tokyo", row_tokyo_diff: "+8 hrs (winter) / +7 hrs (summer)",
         row_dubai_name: "Dubai", row_dubai_diff: "+3 hrs (winter) / +2 hrs (summer)",
         row_singapore_name: "Singapore", row_singapore_diff: "+7 hrs (winter) / +6 hrs (summer)",
+        row_losangeles_name: "Los Angeles", row_losangeles_diff: "-9 hrs",
         faq_h2: "Frequently Asked Questions",
         faq_q1: "What is the time in Berlin right now?",
         faq_a1: "The exact time is displayed in the large block above. It updates every second.",
@@ -223,10 +224,10 @@
       },
       ru: {
         pageTitle: "Точное время в Берлине сейчас — который час в Берлине - UTCNow.info",
-        metaDesc: "Актуальное время в Берлине онлайн. Часовой пояс Europe/Berlin, смещение UTC+1/+2 (зимнее/летнее), разница с Лондоном, Нью-Йорком, Москвой, Токио, Дубаем и Сингапуром.",
+        metaDesc: "Актуальное время в Берлине онлайн. Часовой пояс Europe/Berlin, смещение UTC+1/+2 (зимнее/летнее), разница с Лондоном, Нью-Йорком, Москвой, Токио, Дубаем, Сингапуром и Лос-Анджелесом.",
         site_title: "Время в Берлине",
         site_subtitle: "Текущее берлинское время онлайн",
-        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай", nav_singapore: "Сингапур", nav_berlin: "Берлин",
+        nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон", nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай", nav_singapore: "Сингапур", nav_berlin: "Берлин", nav_losangeles: "Лос-Анджелес",
         tz_info_h2: "Информация о часовом поясе",
         tz_info_text: "Берлин находится в часовом поясе <strong>Europe/Berlin</strong>. Смещение относительно UTC меняется: зимой это <strong>UTC+1</strong> (CET), летом — <strong>UTC+2</strong> (CEST). Германия переводит часы на летнее время в последнее воскресенье марта и обратно в конце октября.",
         diff_h2: "Разница времени с другими городами",
@@ -237,6 +238,7 @@
         row_tokyo_name: "Токио", row_tokyo_diff: "+8 ч (зима) / +7 ч (лето)",
         row_dubai_name: "Дубай", row_dubai_diff: "+3 ч (зима) / +2 ч (лето)",
         row_singapore_name: "Сингапур", row_singapore_diff: "+7 ч (зима) / +6 ч (лето)",
+        row_losangeles_name: "Лос-Анджелес", row_losangeles_diff: "-9 ч",
         faq_h2: "Часто задаваемые вопросы",
         faq_q1: "Который час в Берлине прямо сейчас?",
         faq_a1: "Точное время отображается в большом блоке выше. Оно обновляется каждую секунду.",
@@ -247,10 +249,10 @@
       },
       zh: {
         pageTitle: "柏林当前时间 | 精确本地时间和CET - UTCNow.info",
-        metaDesc: "查看德国柏林的准确当前时间。查看时区信息（CET/CEST），与伦敦/纽约/莫斯科/东京/迪拜/新加坡的差异。",
+        metaDesc: "查看德国柏林的准确当前时间。查看时区信息（CET/CEST），与伦敦/纽约/莫斯科/东京/迪拜/新加坡/洛杉矶的差异。",
         site_title: "柏林时间",
         site_subtitle: "在线显示当前柏林时间",
-        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜", nav_singapore: "新加坡", nav_berlin: "柏林",
+        nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦", nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜", nav_singapore: "新加坡", nav_berlin: "柏林", nav_losangeles: "洛杉矶",
         tz_info_h2: "时区信息",
         tz_info_text: "柏林位于<strong>Europe/Berlin</strong>时区。相对于UTC的偏移量会变化：冬季为<strong>UTC+1</strong>（CET），夏季为<strong>UTC+2</strong>（CEST）。德国在每年三月的最后一个星期日切换到夏令时，并在十月底切换回来。",
         diff_h2: "与其他城市的时间差异",
@@ -261,6 +263,7 @@
         row_tokyo_name: "东京", row_tokyo_diff: "+8小时（冬）/ +7小时（夏）",
         row_dubai_name: "迪拜", row_dubai_diff: "+3小时（冬）/ +2小时（夏）",
         row_singapore_name: "新加坡", row_singapore_diff: "+7小时（冬）/ +6小时（夏）",
+        row_losangeles_name: "洛杉矶", row_losangeles_diff: "-9小时",
         faq_h2: "常见问题",
         faq_q1: "现在柏林几点？",
         faq_a1: "确切时间显示在上方的大区块中。它每秒更新一次。",
@@ -271,10 +274,10 @@
       },
       es: {
         pageTitle: "Hora Actual en Berlín | Hora Local Exacta y CET - UTCNow.info",
-        metaDesc: "Consulte la hora actual exacta en Berlín, Alemania. Vea información de zona horaria (CET/CEST), diferencia con Londres/NY/Moscú/Tokio/Dubái/Singapur.",
+        metaDesc: "Consulte la hora actual exacta en Berlín, Alemania. Vea información de zona horaria (CET/CEST), diferencia con Londres/NY/Moscú/Tokio/Dubái/Singapur/Los Ángeles.",
         site_title: "Hora en Berlín",
         site_subtitle: "Hora actual de Berlín en línea",
-        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái", nav_singapore: "Singapur", nav_berlin: "Berlín",
+        nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres", nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái", nav_singapore: "Singapur", nav_berlin: "Berlín", nav_losangeles: "Los Ángeles",
         tz_info_h2: "Información de Zona Horaria",
         tz_info_text: "Berlín se encuentra en la zona horaria <strong>Europe/Berlin</strong>. La desviación respecto a UTC cambia: es <strong>UTC+1</strong> (CET) en invierno y <strong>UTC+2</strong> (CEST) en verano. Alemania cambia al horario de verano el último domingo de marzo y regresa a finales de octubre.",
         diff_h2: "Diferencia de Hora con Otras Ciudades",
@@ -285,6 +288,7 @@
         row_tokyo_name: "Tokio", row_tokyo_diff: "+8 horas (inv) / +7 horas (ver)",
         row_dubai_name: "Dubái", row_dubai_diff: "+3 horas (inv) / +2 horas (ver)",
         row_singapore_name: "Singapur", row_singapore_diff: "+7 horas (inv) / +6 horas (ver)",
+        row_losangeles_name: "Los Ángeles", row_losangeles_diff: "-9 horas",
         faq_h2: "Preguntas Frecuentes",
         faq_q1: "¿Qué hora es en Berlín ahora mismo?",
         faq_a1: "La hora exacta se muestra en el bloque grande de arriba. Se actualiza cada segundo.",
@@ -295,20 +299,21 @@
       },
       hi: {
         pageTitle: "बर्लिन में वर्तमान समय | सटीक स्थानीय समय और CET - UTCNow.info",
-        metaDesc: "जर्मनी के बर्लिन में सटीक वर्तमान समय देखें। टाइमज़ोन जानकारी (CET/CEST), लंदन/एनवाई/मास्को/टोक्यो/दुबई/सिंगापुर से अंतर।",
+        metaDesc: "जर्मनी के बर्लिन में सटीक वर्तमान समय देखें। टाइमज़ोन जानकारी (CET/CEST), लंदन/एनवाई/मॉस्को/टोक्यो/दुबई/सिंगापुर/लॉस एंजिल्स से अंतर।",
         site_title: "बर्लिन का समय",
         site_subtitle: "वर्तमान बर्लिन समय ऑनलाइन",
-        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मास्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई", nav_singapore: "सिंगापुर", nav_berlin: "बर्लिन",
+        nav_home: "होम", nav_utc: "UTC", nav_moscow: "मॉस्को", nav_london: "लंदन", nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई", nav_singapore: "सिंगापुर", nav_berlin: "बर्लिन", nav_losangeles: "लॉस एंजिल्स",
         tz_info_h2: "टाइमज़ोन जानकारी",
         tz_info_text: "बर्लिन <strong>Europe/Berlin</strong> टाइमज़ोन में स्थित है। यूटीसी के सापेक्ष ऑफसेट बदलता रहता है: सर्दियों में यह <strong>UTC+1</strong> (CET) होता है और गर्मियों में <strong>UTC+2</strong> (CEST)। जर्मनी हर साल मार्च के आखिरी रविवार को डेलाइट सेविंग टाइम पर स्विच करता है और अक्टूबर के अंत में वापस आता है।",
         diff_h2: "अन्य शहरों के साथ समय का अंतर",
-        th_city: "शहर", th_diff: "बर्लिन से अंतर", th_now: "वहाँ अभी समय",
+        th_city: "शहर", th_diff: "बर्लिन से अंतर", th_now: "वहां अभी समय",
         row_london_name: "लंदन", row_london_diff: "-1 घंटा",
         row_ny_name: "न्यू यॉर्क", row_ny_diff: "-6 घंटे (सर्दी) / -5 घंटे (गर्मी)",
-        row_moscow_name: "मास्को", row_moscow_diff: "+2 घंटे (सर्दी) / +1 घंटा (गर्मी)",
+        row_moscow_name: "मॉस्को", row_moscow_diff: "+2 घंटे (सर्दी) / +1 घंटा (गर्मी)",
         row_tokyo_name: "टोक्यो", row_tokyo_diff: "+8 घंटे (सर्दी) / +7 घंटे (गर्मी)",
         row_dubai_name: "दुबई", row_dubai_diff: "+3 घंटे (सर्दी) / +2 घंटे (गर्मी)",
         row_singapore_name: "सिंगापुर", row_singapore_diff: "+7 घंटे (सर्दी) / +6 घंटे (गर्मी)",
+        row_losangeles_name: "लॉस एंजिल्स", row_losangeles_diff: "-9 घंटे",
         faq_h2: "अक्सर पूछे जाने वाले प्रश्न",
         faq_q1: "अभी बर्लिन में क्या समय है?",
         faq_a1: "सटीक समय ऊपर दिए गए बड़े ब्लॉक में प्रदर्शित होता है। यह हर सेकंड अपडेट होता है।",
@@ -322,10 +327,8 @@
     const THEME_KEY = "worldClockTheme_v1";
     const LANG_KEY = "worldClockLang_v1";
     const CITY_TIMEZONE = "Europe/Berlin"; 
-    
     let currentLang = localStorage.getItem(LANG_KEY) || 'en';
 
-    // DOM Elements Cache
     const els = {
       title: document.getElementById('page-title'),
       desc: document.getElementById('meta-desc'),
@@ -340,6 +343,7 @@
       navDubai: document.getElementById('nav-dubai'),
       navSingapore: document.getElementById('nav-singapore'),
       navBerlin: document.getElementById('nav-berlin'),
+      navLosAngeles: document.getElementById('nav-losangeles'),
       tzInfoH2: document.getElementById('tz-info-h2'),
       tzInfoText: document.getElementById('tz-info-text'),
       diffH2: document.getElementById('diff-h2'),
@@ -358,6 +362,8 @@
       rowDubaiDiff: document.getElementById('row-dubai-diff'),
       rowSingaporeName: document.getElementById('row-singapore-name'),
       rowSingaporeDiff: document.getElementById('row-singapore-diff'),
+      rowLosAngelesName: document.getElementById('row-losangeles-name'),
+      rowLosAngelesDiff: document.getElementById('row-losangeles-diff'),
       faqH2: document.getElementById('faq-h2'),
       faqQ1: document.getElementById('faq-q1'),
       faqA1: document.getElementById('faq-a1'),
@@ -376,9 +382,7 @@
       initTheme();
       if(els.year) els.year.textContent = new Date().getFullYear();
       if(els.langSelector) els.langSelector.value = currentLang;
-      
       applyLanguage(currentLang);
-      
       setInterval(updateCityClock, 1000);
       updateCityClock();
 
@@ -402,60 +406,33 @@
     function applyLanguage(langCode) {
       const t = translations[langCode];
       if (!t) return;
-
       document.documentElement.lang = langCode;
 
-      // Update Text Content
       const mapping = {
-        siteTitle: t.site_title,
-        siteSubtitle: t.site_subtitle,
-        navHome: t.nav_home,
-        navUtc: t.nav_utc,
-        navMoscow: t.nav_moscow,
-        navLondon: t.nav_london,
-        navNY: t.nav_newyork,
-        navTokyo: t.nav_tokyo,
-        navDubai: t.nav_dubai,
-        navSingapore: t.nav_singapore,
-        navBerlin: t.nav_berlin,
+        siteTitle: t.site_title, siteSubtitle: t.site_subtitle,
+        navHome: t.nav_home, navUtc: t.nav_utc, navMoscow: t.nav_moscow,
+        navLondon: t.nav_london, navNY: t.nav_newyork, navTokyo: t.nav_tokyo,
+        navDubai: t.nav_dubai, navSingapore: t.nav_singapore,
+        navBerlin: t.nav_berlin, navLosAngeles: t.nav_losangeles,
         tzInfoH2: t.tz_info_h2,
-        diffH2: t.diff_h2,
-        thCity: t.th_city,
-        thDiff: t.th_diff,
-        thNow: t.th_now,
-        rowLondonName: t.row_london_name,
-        rowLondonDiff: t.row_london_diff,
-        rowNyName: t.row_ny_name,
-        rowNyDiff: t.row_ny_diff,
-        rowMoscowName: t.row_moscow_name,
-        rowMoscowDiff: t.row_moscow_diff,
-        rowTokyoName: t.row_tokyo_name,
-        rowTokyoDiff: t.row_tokyo_diff,
-        rowDubaiName: t.row_dubai_name,
-        rowDubaiDiff: t.row_dubai_diff,
-        rowSingaporeName: t.row_singapore_name,
-        rowSingaporeDiff: t.row_singapore_diff,
-        faqH2: t.faq_h2,
-        faqQ1: t.faq_q1,
-        faqA1: t.faq_a1,
-        faqQ2: t.faq_q2,
-        faqA2: t.faq_a2,
-        footerBrand: t.footer_brand,
-        footerDesc: t.footer_desc
+        diffH2: t.diff_h2, thCity: t.th_city, thDiff: t.th_diff, thNow: t.th_now,
+        rowLondonName: t.row_london_name, rowLondonDiff: t.row_london_diff,
+        rowNyName: t.row_ny_name, rowNyDiff: t.row_ny_diff,
+        rowMoscowName: t.row_moscow_name, rowMoscowDiff: t.row_moscow_diff,
+        rowTokyoName: t.row_tokyo_name, rowTokyoDiff: t.row_tokyo_diff,
+        rowDubaiName: t.row_dubai_name, rowDubaiDiff: t.row_dubai_diff,
+        rowSingaporeName: t.row_singapore_name, rowSingaporeDiff: t.row_singapore_diff,
+        rowLosAngelesName: t.row_losangeles_name, rowLosAngelesDiff: t.row_losangeles_diff,
+        faqH2: t.faq_h2, faqQ1: t.faq_q1, faqA1: t.faq_a1,
+        faqQ2: t.faq_q2, faqA2: t.faq_a2,
+        footerBrand: t.footer_brand, footerDesc: t.footer_desc
       };
 
       for (const [key, value] of Object.entries(mapping)) {
-        if (els[key] && value) {
-          els[key].textContent = value;
-        }
+        if (els[key] && value) els[key].textContent = value;
       }
 
-      // Handle InnerHTML for rich text (bold tags)
-      if(els.tzInfoText && t.tz_info_text) {
-        els.tzInfoText.innerHTML = t.tz_info_text;
-      }
-
-      // SEO Updates
+      if(els.tzInfoText && t.tz_info_text) els.tzInfoText.innerHTML = t.tz_info_text;
       if(els.title) els.title.textContent = t.pageTitle;
       if(els.desc) els.desc.setAttribute('content', t.metaDesc);
     }
@@ -466,14 +443,12 @@
       const locale = localeMap[currentLang] || 'en-US';
 
       try {
-        // Main Clock
         const timeString = now.toLocaleTimeString(locale, { timeZone: CITY_TIMEZONE, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
         const dateString = now.toLocaleDateString(locale, { timeZone: CITY_TIMEZONE, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         
         if(els.cityTime) els.cityTime.textContent = timeString;
         if(els.cityDate) els.cityDate.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
 
-        // Table Live Times
         document.querySelectorAll('.live-time').forEach(el => {
           const tz = el.getAttribute('data-tz');
           if (tz) {
@@ -496,9 +471,7 @@
     function setTheme(theme) {
       document.documentElement.dataset.theme = theme;
       localStorage.setItem(THEME_KEY, theme);
-      if(els.themeToggle) {
-        els.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-      }
+      if(els.themeToggle) els.themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
     }
 
     document.addEventListener('DOMContentLoaded', initApp);
