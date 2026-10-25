@@ -1,45 +1,30 @@
 ﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SN2LBSRZMN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SN2LBSRZMN');
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags -->
   <title id="page-title">World Clock — Exact Time in Major Cities</title>
-  <meta
-    id="meta-desc"
-    name="description"
-    content="Free world clock online: current time in Moscow, London, New York, Los Angeles, Tokyo, Dubai, Singapore, Berlin, Sydney and more. UTC time, time zones, city search, favorites, dark/light theme."
-  />
+  <meta id="meta-desc" name="description" content="Free world clock online: current time in Moscow, London, New York, Los Angeles, Tokyo, Dubai, Singapore, Berlin, Sydney and more. UTC time, time zones, city search, favorites, dark/light theme." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://utcnow.info/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://utcnow.info/" />
   <meta id="og-title" property="og:title" content="World Clock Online" />
-  <meta
-    id="og-desc"
-    property="og:description"
-    content="Check current time in major global cities instantly with our free world clock tool."
-  />
+  <meta id="og-desc" property="og:description" content="Check current time in major global cities instantly with our free world clock tool." />
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta id="tw-title" name="twitter:title" content="World Clock Online" />
-  <meta
-    id="tw-desc"
-    name="twitter:description"
-    content="Free world clock: exact time in cities worldwide, UTC and time zones."
-  />
+  <meta id="tw-desc" name="twitter:description" content="Free world clock: exact time in cities worldwide, UTC and time zones." />
 
   <meta name="theme-color" content="#0f172a" />
 
@@ -117,6 +102,7 @@
     .remove { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 10px; border: 0; background: transparent; color: var(--muted); font-size: 20px; line-height: 1; cursor: pointer; display: grid; place-items: center; }
     .remove:hover { color: var(--red); background: rgba(248, 113, 113, 0.12); }
     .note { margin-top: 28px; color: var(--muted); font-size: 14px; text-align: center; line-height: 1.5; }
+    .seo-block { margin-top: 40px; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; color: var(--muted); line-height: 1.7; font-size: 15px; }
     footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
@@ -130,7 +116,6 @@
                 <h1 id="site-title">World Clock</h1>
                 <p class="subtitle" id="site-subtitle">Exact time in major global cities.</p>
 
-                <!-- Селектор Языка -->
                 <div class="lang-selector-wrap">
                     <select id="langSelector" aria-label="Select Language">
                         <option value="en">🇬 English</option>
@@ -141,7 +126,6 @@
                     </select>
                 </div>
 
-                <!-- Меню Навигации -->
                 <nav class="menu-links" style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
                     <a href="/" class="active" id="nav-home" style="color: var(--accent); text-decoration: none; font-weight: bold;">Home</a>
                     <a href="/utc.html" id="nav-utc" style="color: var(--muted); text-decoration: none; font-weight: bold;">UTC</a>
@@ -152,7 +136,7 @@
                     <a href="/dubai.html" id="nav-dubai" style="color: var(--muted); text-decoration: none; font-weight: bold;">Dubai</a>
                     <a href="/singapore.html" id="nav-singapore" style="color: var(--muted); text-decoration: none; font-weight: bold;">Singapore</a>
                     <a href="/berlin.html" id="nav-berlin" style="color: var(--muted); text-decoration: none; font-weight: bold;">Berlin</a>
-                    <a href="/los-angeles.html" id="nav-losangeles" style="color: var(--muted); text-decoration: none; font-weight: bold;">Los Angeles</a> <!-- ДОБАВЛЕНО -->
+                    <a href="/los-angeles.html" id="nav-losangeles" style="color: var(--muted); text-decoration: none; font-weight: bold;">Los Angeles</a>
                 </nav>
             </div>
 
@@ -178,6 +162,9 @@
     <p class="note" id="help-note">
       You can add any IANA timezone, e.g.: <strong>Europe/Paris</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seoul</strong>.
     </p>
+
+    <!-- SEO-БЛОК (Автоматически меняется при смене языка) -->
+    <div class="seo-block" id="seo-text"></div>
   </main>
 
   <footer>
@@ -186,18 +173,15 @@
   </footer>
 
   <script>
-    // --- TRANSLATIONS DICTIONARY ---
     const translations = {
         en: {
             title: "World Clock",
             subtitle: "Exact time in major global cities.",
             nav_home: "Home", nav_utc: "UTC", nav_moscow: "Moscow", nav_london: "London",
             nav_newyork: "New York", nav_tokyo: "Tokyo", nav_dubai: "Dubai",
-            nav_singapore: "Singapore", nav_berlin: "Berlin",
-            nav_losangeles: "Los Angeles", // ADDED LOS ANGELES
+            nav_singapore: "Singapore", nav_berlin: "Berlin", nav_losangeles: "Los Angeles",
             search_placeholder: "Search city: Moscow, London, Asia/Tokyo...",
-            btn_add: "Add City",
-            btn_reset: "Reset Defaults",
+            btn_add: "Add City", btn_reset: "Reset Defaults",
             help_note_html: "You can add any IANA timezone, e.g.: <strong>Europe/Paris</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seoul</strong>.",
             footer_brand: "World Clock",
             footer_desc: "Free online tool for work, travel and calls.",
@@ -207,18 +191,17 @@
             status_invalid_tz: "Invalid timezone.",
             status_empty_search: "Please enter a city name or timezone.",
             status_not_found: "Not found. Try entering a full timezone like Europe/Paris.",
-            default_cities_labels: ["UTC", "Moscow", "London", "Berlin", "Dubai", "Singapore", "New York", "Tokyo", "Sydney"]
+            default_cities_labels: ["UTC", "Moscow", "London", "Berlin", "Dubai", "Singapore", "New York", "Tokyo", "Sydney"],
+            seo_text: "UTCNow.info is a free world clock service that helps you track the exact time in major global cities. Whether you're coordinating international meetings, planning calls with remote teams, or just curious about the time abroad, our tool provides real-time updates with timezone details, daylight saving information, and city-to-city comparisons. Works in 5 languages with dark/light themes."
         },
         ru: {
             title: "Мировое Время",
             subtitle: "Точное время в крупных городах мира.",
             nav_home: "Главная", nav_utc: "UTC", nav_moscow: "Москва", nav_london: "Лондон",
             nav_newyork: "Нью-Йорк", nav_tokyo: "Токио", nav_dubai: "Дубай",
-            nav_singapore: "Сингапур", nav_berlin: "Берлин",
-            nav_losangeles: "Лос-Анджелес", // ADDED LOS ANGELES
+            nav_singapore: "Сингапур", nav_berlin: "Берлин", nav_losangeles: "Лос-Анджелес",
             search_placeholder: "Поиск города: Москва, Лондон, Азия/Токио...",
-            btn_add: "Добавить город",
-            btn_reset: "Сбросить список",
+            btn_add: "Добавить город", btn_reset: "Сбросить список",
             help_note_html: "Вы можете добавить любой часовой пояс IANA, например: <strong>Европа/Париж</strong>, <strong>Америка/Чикаго</strong>, <strong>Азия/Сеул</strong>.",
             footer_brand: "Мировое Время",
             footer_desc: "Бесплатный онлайн инструмент для работы, путешествий и созвонов.",
@@ -228,18 +211,17 @@
             status_invalid_tz: "Неподдерживаемый часовой пояс.",
             status_empty_search: "Введите название города или часовой пояс.",
             status_not_found: "Не найдено. Попробуйте ввести полный пояс, например Европа/Париж.",
-            default_cities_labels: ["UTC", "Москва", "Лондон", "Берлин", "Дубай", "Сингапур", "Нью-Йорк", "Токио", "Сидней"]
+            default_cities_labels: ["UTC", "Москва", "Лондон", "Берлин", "Дубай", "Сингапур", "Нью-Йорк", "Токио", "Сидней"],
+            seo_text: "UTCNow.info — бесплатный сервис мировых часов, который помогает отслеживать точное время в крупных городах планеты. Независимо от того, планируете ли вы международные встречи, созваниваетесь с удаленными командами или просто интересуетесь временем за рубежом, наш инструмент предоставляет обновления в реальном времени с информацией о часовых поясах, летнем времени и сравнением городов. Работает на 5 языках с темной и светлой темами."
         },
         zh: {
             title: "世界时钟",
             subtitle: "全球主要城市的精确时间。",
             nav_home: "首页", nav_utc: "UTC", nav_moscow: "莫斯科", nav_london: "伦敦",
             nav_newyork: "纽约", nav_tokyo: "东京", nav_dubai: "迪拜",
-            nav_singapore: "新加坡", nav_berlin: "柏林",
-            nav_losangeles: "洛杉矶", // ADDED LOS ANGELES
+            nav_singapore: "新加坡", nav_berlin: "柏林", nav_losangeles: "洛杉矶",
             search_placeholder: "搜索城市：莫斯科、伦敦、亚洲/东京...",
-            btn_add: "添加城市",
-            btn_reset: "重置列表",
+            btn_add: "添加城市", btn_reset: "重置列表",
             help_note_html: "您可以添加任何IANA时区，例如：<strong>欧洲/巴黎</strong>、<strong>美洲/芝加哥</strong>、<strong>亚洲/首尔</strong>。",
             footer_brand: "世界时钟",
             footer_desc: "免费在线工具，适用于工作、旅行和通话。",
@@ -249,18 +231,17 @@
             status_invalid_tz: "无效的时区。",
             status_empty_search: "请输入城市名称或时区。",
             status_not_found: "未找到。请尝试输入完整时区，如 欧洲/巴黎。",
-            default_cities_labels: ["UTC", "莫斯科", "伦敦", "柏林", "迪拜", "新加坡", "纽约", "东京", "悉尼"]
+            default_cities_labels: ["UTC", "莫斯科", "伦敦", "柏林", "迪拜", "新加坡", "纽约", "东京", "悉尼"],
+            seo_text: "UTCNow.info 是一个免费的世界时钟服务，可帮助您追踪全球主要城市的准确时间。无论您是协调国际会议、计划与远程团队通话，还是只是对国外时间感到好奇，我们的工具都能提供实时更新，包含时区详细信息、夏令时信息和城市间比较。支持5种语言，具有深色/浅色主题。"
         },
         es: {
             title: "Reloj Mundial",
             subtitle: "Hora exacta en las principales ciudades del mundo.",
             nav_home: "Inicio", nav_utc: "UTC", nav_moscow: "Moscú", nav_london: "Londres",
             nav_newyork: "Nueva York", nav_tokyo: "Tokio", nav_dubai: "Dubái",
-            nav_singapore: "Singapur", nav_berlin: "Berlín",
-            nav_losangeles: "Los Ángeles", // ADDED LOS ANGELES
+            nav_singapore: "Singapur", nav_berlin: "Berlín", nav_losangeles: "Los Ángeles",
             search_placeholder: "Buscar ciudad: Moscú, Londres, Asia/Tokio...",
-            btn_add: "Añadir Ciudad",
-            btn_reset: "Restablecer Lista",
+            btn_add: "Añadir Ciudad", btn_reset: "Restablecer Lista",
             help_note_html: "Puedes agregar cualquier zona horaria IANA, por ejemplo: <strong>Europa/París</strong>, <strong>America/Chicago</strong>, <strong>Asia/Seúl</strong>.",
             footer_brand: "Reloj Mundial",
             footer_desc: "Herramienta gratuita en línea para trabajo, viajes y llamadas.",
@@ -270,18 +251,17 @@
             status_invalid_tz: "Zona horaria inválida.",
             status_empty_search: "Por favor ingrese un nombre de ciudad o zona horaria.",
             status_not_found: "No encontrado. Intente ingresar una zona completa como Europa/París.",
-            default_cities_labels: ["UTC", "Moscú", "Londres", "Berlín", "Dubái", "Singapur", "Nueva York", "Tokio", "Sídney"]
+            default_cities_labels: ["UTC", "Moscú", "Londres", "Berlín", "Dubái", "Singapur", "Nueva York", "Tokio", "Sídney"],
+            seo_text: "UTCNow.info es un servicio gratuito de reloj mundial que le ayuda a rastrear la hora exacta en las principales ciudades globales. Ya sea que esté coordinando reuniones internacionales, planificando llamadas con equipos remotos o simplemente tenga curiosidad sobre la hora en el extranjero, nuestra herramienta proporciona actualizaciones en tiempo real con detalles de zonas horarias, información de horario de verano y comparaciones entre ciudades. Funciona en 5 idiomas con temas oscuros/claros."
         },
         hi: {
             title: "विश्व घड़ी",
             subtitle: "प्रमुख वैश्विक शहरों में सटीक समय।",
             nav_home: "होम", nav_utc: "UTC", nav_moscow: "मॉस्को", nav_london: "लंदन",
             nav_newyork: "न्यू यॉर्क", nav_tokyo: "टोक्यो", nav_dubai: "दुबई",
-            nav_singapore: "सिंगापुर", nav_berlin: "बर्लिन",
-            nav_losangeles: "लॉस एंजिल्स", // ADDED LOS ANGELES
+            nav_singapore: "सिंगापुर", nav_berlin: "बर्लिन", nav_losangeles: "लॉस एंजिल्स",
             search_placeholder: "शहर खोजें: मास्को, लंदन, एशिया/टोक्यो...",
-            btn_add: "शहर जोड़ें",
-            btn_reset: "सूची रीसेट करें",
+            btn_add: "शहर जोड़ें", btn_reset: "सूची रीसेट करें",
             help_note_html: "आप कोई भी IANA टाइमज़ोन जोड़ सकते हैं, जैसे: <strong>यूरप/पेरिस</strong>, <strong>अमेरिका/शिकागो</strong>, <strong>एशिया/सियोल</strong>।",
             footer_brand: "विश्व घड़ी",
             footer_desc: "कार्य, यात्रा और कॉल के लिए निःशुल्क ऑनलाइन उपकरण।",
@@ -291,7 +271,8 @@
             status_invalid_tz: "अमान्य टाइमज़ोन।",
             status_empty_search: "कृपया एक शहर का नाम या टाइमज़ोन दर्ज करें।",
             status_not_found: "नहीं मिला। यूरोप/पेरिस जैसे पूर्ण टाइमज़ोन आजमाएं।",
-            default_cities_labels: ["UTC", "मॉस्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"]
+            default_cities_labels: ["UTC", "मॉस्को", "लंदन", "बर्लिन", "दुबई", "सिंगापुर", "न्यू यॉर्क", "टोक्यो", "सिडनी"],
+            seo_text: "UTCNow.info एक निःशुल्क विश्व घड़ी सेवा है जो आपको प्रमुख वैश्विक शहरों में सटीक समय ट्रैक करने में मदद करती है। चाहे आप अंतर्राष्ट्रीय बैठकों का समन्वय कर रहे हों, रिमोट टीमों के साथ कॉल की योजना बना रहे हों, या बस विदेश में समय के बारे में उत्सुक हों, हमारा उपकरण टाइमज़ोन विवरण, डेलाइट सेविंग जानकारी और शहर-दर-शहर तुलना के साथ रीयल-टाइम अपडेट प्रदान करता है। 5 भाषाओं में डार्क/लाइट थीम के साथ काम करता है।"
         }
     };
 
@@ -467,8 +448,8 @@
     const helpNote = document.getElementById("help-note");
     const footerBrand = document.getElementById("footer-brand");
     const footerDesc = document.getElementById("footer-desc");
+    const seoText = document.getElementById("seo-text");
     
-    // Nav Links
     const navHome = document.getElementById("nav-home");
     const navUtc = document.getElementById("nav-utc");
     const navMoscow = document.getElementById("nav-moscow");
@@ -478,7 +459,7 @@
     const navDubai = document.getElementById("nav-dubai");
     const navSingapore = document.getElementById("nav-singapore");
     const navBerlin = document.getElementById("nav-berlin");
-    const navLosAngeles = document.getElementById("nav-losangeles"); // ADDED LOS ANGELES
+    const navLosAngeles = document.getElementById("nav-losangeles");
 
     yearEl.textContent = new Date().getFullYear();
 
@@ -576,7 +557,6 @@
         footerBrand.textContent = t.footer_brand;
         footerDesc.textContent = t.footer_desc;
 
-        // Update Navigation Menu
         navHome.textContent = t.nav_home;
         navUtc.textContent = t.nav_utc;
         navMoscow.textContent = t.nav_moscow;
@@ -586,7 +566,12 @@
         navDubai.textContent = t.nav_dubai;
         navSingapore.textContent = t.nav_singapore;
         navBerlin.textContent = t.nav_berlin;
-        navLosAngeles.textContent = t.nav_losangeles; // ADDED LOS ANGELES
+        navLosAngeles.textContent = t.nav_losangeles;
+        
+        // SEO-блок
+        if (seoText && t.seo_text) {
+            seoText.textContent = t.seo_text;
+        }
         
         document.getElementById("page-title").textContent = `${t.title} — ${t.subtitle}`;
         document.getElementById("meta-desc").setAttribute("content", t.footer_desc + " " + t.subtitle);
