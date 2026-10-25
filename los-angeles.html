@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags -->
   <title id="page-title">Current Time in Los Angeles | Exact Local Time & PST/PDT - UTCNow.info</title>
   <meta id="meta-desc" name="description" content="Check the exact current time in Los Angeles, USA. View timezone info (PST/PDT), difference with London/NY/Moscow/Tokyo/Dubai/Singapore/Berlin." />
   <link rel="canonical" href="https://utcnow.info/los-angeles.html" />
 
-  <!-- Hreflang Alternates -->
   <link rel="alternate" hreflang="en" href="https://utcnow.info/los-angeles.html" />
   <link rel="alternate" hreflang="ru" href="https://utcnow.info/los-angeles.html" />
   <link rel="alternate" hreflang="zh" href="https://utcnow.info/los-angeles.html" />
@@ -73,6 +71,7 @@
     .diff-table th, .diff-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
     .diff-table th { color: var(--muted); font-size: 14px; font-weight: normal; }
     .diff-table tr:last-child td { border-bottom: none; }
+    .seo-block { margin-top: 24px; padding: 20px; background: var(--card-hover); border-radius: 12px; color: var(--muted); line-height: 1.7; font-size: 15px; }
     footer { text-align: center; padding: 24px 16px; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; }
   </style>
 </head>
@@ -124,9 +123,6 @@
       <h2 id="tz-info-h2">Timezone Information</h2>
       <p style="color: var(--muted); line-height: 1.6;" id="tz-info-text">
         Los Angeles is located in the <strong>America/Los_Angeles</strong> timezone. The offset relative to UTC changes: it is <strong>UTC-8</strong> (PST) in winter and <strong>UTC-7</strong> (PDT) in summer. The US switches to daylight saving time on the second Sunday of March and back on the first Sunday of November.
-      </p>
-      <!-- SEO-БЛОК (Автоматически меняется при смене языка) -->
-      <p style="color: var(--muted); line-height: 1.6; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 15px;" id="seo-text">
       </p>
     </section>
 
@@ -190,6 +186,9 @@
         <summary style="font-weight: bold;" id="faq-q2">When do clocks change in Los Angeles?</summary>
         <p style="color: var(--muted); margin-top: 10px;" id="faq-a2">Daylight Saving Time starts on the second Sunday of March (clocks go forward one hour). Winter time returns on the first Sunday of November (clocks go back one hour).</p>
       </details>
+
+      <!-- SEO-БЛОК (теперь в секции FAQ, как на остальных страницах) -->
+      <div class="seo-block" id="seo-text"></div>
     </section>
   </main>
 
@@ -337,6 +336,8 @@
     const CITY_TIMEZONE = "America/Los_Angeles"; 
     let currentLang = localStorage.getItem(LANG_KEY) || 'en';
 
+    const seoText = document.getElementById('seo-text');
+
     const els = {
       title: document.getElementById('page-title'),
       desc: document.getElementById('meta-desc'),
@@ -383,8 +384,7 @@
       langSelector: document.getElementById('langSelector'),
       themeToggle: document.getElementById('themeToggle'),
       cityTime: document.getElementById('cityTime'),
-      cityDate: document.getElementById('cityDate'),
-      seoText: document.getElementById('seo-text')
+      cityDate: document.getElementById('cityDate')
     };
 
     function initApp() {
@@ -434,12 +434,16 @@
         rowBerlinName: t.row_berlin_name, rowBerlinDiff: t.row_berlin_diff,
         faqH2: t.faq_h2, faqQ1: t.faq_q1, faqA1: t.faq_a1,
         faqQ2: t.faq_q2, faqA2: t.faq_a2,
-        footerBrand: t.footer_brand, footerDesc: t.footer_desc,
-        seoText: t.seo_text
+        footerBrand: t.footer_brand, footerDesc: t.footer_desc
       };
 
       for (const [key, value] of Object.entries(mapping)) {
         if (els[key] && value) els[key].textContent = value;
+      }
+
+      // SEO-блок
+      if (seoText && t.seo_text) {
+        seoText.textContent = t.seo_text;
       }
 
       if(els.tzInfoText && t.tz_info_text) els.tzInfoText.innerHTML = t.tz_info_text;
